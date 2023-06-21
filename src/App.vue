@@ -9,9 +9,9 @@ const flatImageData = imageData;
 console.log(flatImageData);
 const today = dayjs();
 const dayOfWeek = today.day(); // 获取当前周几，返回0到6之间的整数
-const day = ref(dayOfWeek);
+const day = ref<number>(dayOfWeek);
 
-const map = {
+const map: Record<number, string> = {
   1: "周一/周四",
   2: "周二/周五",
   3: "周三/周六",
@@ -20,7 +20,7 @@ const map = {
   6: "周三/周六",
   7: "周日",
 };
-
+const weekText = map[day.value];
 const data1 = [
   { name: "「自由」", area: "蒙德", time: "周一/周四" },
   { name: "「繁荣」", area: "璃月", time: "周一/周四" },
@@ -37,8 +37,14 @@ const data1 = [
   { name: "「天光」", area: "稻妻", time: "周三/周六" },
   { name: "「笃行」", area: "须弥", time: "周三/周六" },
 ];
-
-const useData = data1.filter((f) => f.time === map[day.value]);
+interface ItemType {
+  name: string;
+  area: string;
+  time: string;
+  data?: any;
+  role?: any;
+}
+const useData: ItemType[] = data1.filter((f) => f.time === weekText);
 
 useData.forEach((item) => {
   item.data = beibao.filter((f) => f.title.indexOf(item.name) > -1);
@@ -52,22 +58,22 @@ useData.forEach((item) => {
 
 console.log("useData: ", useData);
 
-const tianfudata = [
-  useData.find((f) => f.area === "蒙德"),
-  useData.find((f) => f.area === "璃月"),
-  useData.find((f) => f.area === "稻妻"),
-  useData.find((f) => f.area === "须弥"),
+const tianfudata: ItemType[] = [
+  useData.find((f) => f.area === "蒙德") as ItemType,
+  useData.find((f) => f.area === "璃月") as ItemType,
+  useData.find((f) => f.area === "稻妻") as ItemType,
+  useData.find((f) => f.area === "须弥") as ItemType,
 ];
 </script>
 
 <template>
   <div class="container">
     <div class="header">今日材料</div>
-    <div class="time">{{ map[day] }}</div>
+    <div class="time">{{ weekText }}</div>
 
     <div class="cailiao_title">材料</div>
 
-    <template v-for="(item, index) in 4" :key="index">
+    <template v-for="(_, index) in 4" :key="index">
       <div :class="`tianfu tianfu${index + 1}`">
         <div class="flex-row">
           <div>{{ tianfudata[index].name }}</div>
@@ -82,7 +88,7 @@ const tianfudata = [
 
     <div class="role_title">角色</div>
 
-    <template v-for="(item, index) in 4" :key="index">
+    <template v-for="(_, index) in 4" :key="index">
       <div :class="`role role${index + 1}`">
         <img
           v-for="img in tianfudata[index].role"
