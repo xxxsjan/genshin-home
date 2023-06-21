@@ -20,7 +20,9 @@ const map: Record<number, string> = {
   6: "周三/周六",
   7: "周日",
 };
+
 const weekText = map[day.value];
+
 const data1 = [
   { name: "「自由」", area: "蒙德", time: "周一/周四" },
   { name: "「繁荣」", area: "璃月", time: "周一/周四" },
@@ -71,7 +73,7 @@ const tianfudata: ItemType[] = [
     <div class="header">今日材料</div>
     <div class="time">{{ weekText }}</div>
 
-    <div class="cailiao_title">材料</div>
+    <div class="tianfu_title">材料</div>
 
     <template v-for="(_, index) in 4" :key="index">
       <div :class="`tianfu tianfu${index + 1}`">
@@ -113,15 +115,16 @@ const tianfudata: ItemType[] = [
   align-items: center;
 }
 .container {
+  background-color: #886444;
   min-width: 1200px;
-  height: 100vh;
+  // height: 100vh;
   display: grid;
   grid-template-columns: 100px 1fr 1fr 1fr 1fr;
   grid-template-rows: 50px 50px 200px 1fr 1fr;
   grid-template-areas:
     "header header header header header"
     "time time time time time"
-    "cailiao tianfu1 tianfu2 tianfu3 tianfu4"
+    "tianfu tianfu1 tianfu2 tianfu3 tianfu4"
     "role role1 role2 role3 role4"
     "wuqi wuqi1 wuqi2 wuqi3 wuqi4";
   grid-gap: 20px;
@@ -132,9 +135,7 @@ const tianfudata: ItemType[] = [
   grid-area: header;
   background-color: #886444;
   color: #f0ede8;
-
   line-height: 50px;
-
   font-weight: 600;
   font-size: 24px;
 }
@@ -152,8 +153,8 @@ const tianfudata: ItemType[] = [
   display: flex;
   flex-direction: row;
 }
-.cailiao_title {
-  grid-area: cailiao;
+.tianfu_title {
+  grid-area: tianfu;
   background-color: #f0ede8;
   color: #886444;
 
@@ -162,6 +163,7 @@ const tianfudata: ItemType[] = [
 .tianfu {
   background-color: #f0ede8;
   color: #886444;
+  width: 100%;
 
   @include flexAround;
   flex-direction: column;
@@ -170,23 +172,22 @@ const tianfudata: ItemType[] = [
   }
 }
 
-.role_title {
-  grid-area: role;
-  background-color: #f0ede8;
-  color: #886444;
-
-  line-height: 200px;
-}
-
 .role {
+  // width: 100%;
   background-color: #f0ede8;
-  column-count: 3;
-  /* column-width: 200px; */
-
+  column-count: 2;
+  column-width: 100px;
   flex-wrap: wrap;
   padding: 10px;
   img {
     width: 110px;
+  }
+  &_title {
+    grid-area: role;
+    background-color: #f0ede8;
+    color: #886444;
+
+    line-height: 200px;
   }
 }
 
