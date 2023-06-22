@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import dayjs from "dayjs";
-import imageData from "./image-data";
-import beibao from "./beibao";
-import roleWithTianfu from "./role-with-tianfu";
+import imageData from "~/data-source/image-data";
+import beibao from "~/data-source/beibao";
+import roleWithTianfu from "~/data-source/role-with-tianfu";
 
 const flatImageData = imageData;
 
