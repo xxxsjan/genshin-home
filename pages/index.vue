@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import dayjs from "dayjs";
-import imageData from "@/image-data";
-import beibao from "@/beibao";
-import roleWithTianfu from "@/role-with-tianfu";
+import imageData from "./image-data";
+import beibao from "./beibao";
+import roleWithTianfu from "./role-with-tianfu";
 
 const flatImageData = imageData;
-console.log(flatImageData);
+
+// console.log(flatImageData);
+
 const today = dayjs();
 const dayOfWeek = today.day(); // 获取当前周几，返回0到6之间的整数
 const day = ref<number>(dayOfWeek);
@@ -58,7 +60,7 @@ useData.forEach((item) => {
     }));
 });
 
-console.log("useData: ", useData);
+// console.log("useData: ", useData);
 
 const tianfudata: ItemType[] = [
   useData.find((f) => f.area === "蒙德") as ItemType,

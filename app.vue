@@ -1,3 +1,8 @@
+<template>
+  <NuxtPage />
+</template>
+
+<style>
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -28,7 +33,6 @@ body {
   /* min-width: 1000px; */
   /* min-height: 100vh; */
 }
-
 
 button {
   border-radius: 8px;
@@ -61,4 +65,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-#app{text-align: center;}
+#__nuxt {
+  text-align: center;
+}
+</style>
