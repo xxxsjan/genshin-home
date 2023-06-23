@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import dayjs from "dayjs";
 import imageData from "~/data-source/image-data";
 import beibao from "~/data-source/beibao";
@@ -8,8 +7,8 @@ import wuqiTupoCailiaoData from "~/data-source/wuqi-tupo-cailiao";
 import wuqiData from "~/data-source/wuqi";
 
 const today = dayjs();
-// const dayOfWeek = today.day();
-const dayOfWeek = 7;
+const dayOfWeek = today.day();
+// const dayOfWeek = 7;
 
 const weekText = {
   1: "周一/周四",
