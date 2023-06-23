@@ -3,6 +3,9 @@
 </template>
 
 <style>
+#__nuxt {
+  text-align: center;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -17,15 +20,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -64,8 +58,5 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-#__nuxt {
-  text-align: center;
 }
 </style>

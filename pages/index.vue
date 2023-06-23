@@ -116,6 +116,16 @@ const tianfudata: ItemType[] = [
   justify-content: space-around;
   align-items: center;
 }
+
+@mixin lightBg {
+  background-color: #f0ede8;
+  color: #886444;
+}
+
+@mixin darkBg {
+  background-color: #886444;
+  color: #f0ede8;
+}
 .container {
   background-color: #886444;
   min-width: 1200px;
@@ -135,19 +145,18 @@ const tianfudata: ItemType[] = [
 }
 .header {
   grid-area: header;
-  background-color: #886444;
-  color: #f0ede8;
+  @include darkBg();
+
   line-height: 50px;
   font-weight: 600;
   font-size: 24px;
 }
 
 .time {
+  @include lightBg();
   grid-area: time;
-  background-color: #f0ede8;
-  color: #886444;
-  border-radius: 5px;
 
+  border-radius: 5px;
   line-height: 50px;
 }
 .flex-row {
@@ -155,19 +164,18 @@ const tianfudata: ItemType[] = [
   display: flex;
   flex-direction: row;
 }
+
 .tianfu_title {
+  @include lightBg();
   grid-area: tianfu;
-  background-color: #f0ede8;
-  color: #886444;
 
   line-height: 200px;
 }
-.tianfu {
-  background-color: #f0ede8;
-  color: #886444;
-  width: 100%;
 
+.tianfu {
+  @include lightBg();
   @include flexAround;
+  width: 100%;
   flex-direction: column;
   img {
     width: 50px;
@@ -186,9 +194,9 @@ const tianfudata: ItemType[] = [
   }
   &_title {
     grid-area: role;
-    background-color: #f0ede8;
-    color: #886444;
 
+    @include lightBg();
+    
     line-height: 200px;
   }
 }
