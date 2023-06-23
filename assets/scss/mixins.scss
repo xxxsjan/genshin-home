@@ -1,0 +1,23 @@
+@mixin lightBg {
+  background-color: #f0ede8;
+  color: #886444;
+}
+
+@mixin darkBg {
+  background-color: #886444;
+  color: #f0ede8;
+}
+
+@mixin flexCenter($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin flexAround($direction: row) {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: $direction;
+}
