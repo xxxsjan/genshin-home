@@ -45,9 +45,12 @@ const { getTujianData } = require("./api");
     item.tianfu = res;
   }
   console.log(formatData);
-  //   fs.writeFileSync(
-  //     "./genshin_data/role-with-tianfu.json",
-  //     JSON.stringify(formatData)
-  //   );
+
+  const outputPath = "./data/role-with-tianfu.json";
+  
+  if (!fs.existsSync(outputPath)) {
+    fs.writeFileSync(outputPath, JSON.stringify(formatData));
+  }
+
   await browser.close();
 })();

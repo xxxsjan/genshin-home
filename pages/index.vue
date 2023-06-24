@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
-import imageData from "~/data-source/image-data";
-import beibao from "~/data-source/beibao";
-import roleWithTianfu from "~/data-source/role-with-tianfu";
-import wuqiTupoCailiaoData from "~/data-source/wuqi-tupo-cailiao";
-import wuqiData from "~/data-source/wuqi";
+
+import roleWithTianfu from "~/spider-data/data/role-with-tianfu.json";
+import wuqiData from "~/spider-data/data/wuqi.json";
+import beibao from "~/spider-data/data/beibao.json";
+import wuqiTupoCailiaoData from "~/spider-data/data/wuqi-tupo-cailiao.json";
+import imageData from "~/spider-data/data/role-data.json";
 
 const today = dayjs();
 const dayOfWeek = today.day();
@@ -26,6 +27,7 @@ function createData(dayOfWeek: number) {
     const digits = ["零", "一", "二", "三", "四", "五", "六", "日"];
     return digits[num];
   }
+  // 武器逻辑
   function filterWuqiTupoCailiao() {
     const reg = new RegExp(numberToChinese(dayOfWeek));
     const res = wuqiTupoCailiaoData.filter((f) => f.info.getWay[0].match(reg));
@@ -70,7 +72,17 @@ function createData(dayOfWeek: number) {
       renderWuqi[index].push(_item);
     }
   }
-
+  // 角色逻辑
+  const tianfuMap = {
+    // 蒙德
+    0: ["凛风奔狼", "高塔孤王", "狮牙斗士"],
+    // 璃月
+    1: ["雾海云间", "孤云寒林", "漆黑陨铁"],
+    // 稻妻
+    2: ["鸣神御灵", "远海夷地", "今昔剧画"],
+    // 须弥
+    3: ["绿洲花园", "谧林涓露", "烈日威权"],
+  };
   const data1 = [
     { name: "「自由」", area: "蒙德", time: "周一/周四" },
     { name: "「繁荣」", area: "璃月", time: "周一/周四" },
@@ -87,6 +99,7 @@ function createData(dayOfWeek: number) {
     { name: "「天光」", area: "稻妻", time: "周三/周六" },
     { name: "「笃行」", area: "须弥", time: "周三/周六" },
   ];
+
   interface ItemType {
     name: string;
     area: string;
@@ -94,6 +107,7 @@ function createData(dayOfWeek: number) {
     data?: any;
     role?: any;
   }
+
   const useData: ItemType[] = data1.filter(
     (f) =>
       dayOfWeek === 7 || f.time.match(new RegExp(numberToChinese(dayOfWeek)))

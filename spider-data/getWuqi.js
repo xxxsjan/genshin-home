@@ -8,13 +8,6 @@ const { getTujianData } = require("./api");
 (async () => {
   const tujianData = await getTujianData();
 
-  const wuqiData = tujianData
-    .find((f) => f.name === "武器")
-    .list.filter((f) => f.ext.match(/五星|四星/));
-
-  if (!fs.existsSync("./data/wuqi.json")) {
-    fs.writeFileSync("./data/wuqi.json", JSON.stringify(wuqiData));
-  }
   const cailiaoData = tujianData
     .find((f) => f.name === "背包")
     .list.filter((f) => f.ext.match(/武器突破素材/));
