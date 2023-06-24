@@ -6,7 +6,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "link:vercel": "vercel link &&  vercel env pull .env.development.local"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
