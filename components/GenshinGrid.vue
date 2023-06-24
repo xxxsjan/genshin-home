@@ -4,7 +4,7 @@ const props = defineProps<{
   renderWuqi: any;
 }>();
 
-// const { tianfudata, renderWuqi } = toRefs(props);
+const { tianfudata, renderWuqi } = toRefs(props);
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const props = defineProps<{
 
     <!-- 天赋书 显示区-->
     <template v-for="(_, index) in 4" :key="index">
-      <div :class="`tianfu tianfu${index + 1}`">
+      <div :class="`tianfu tianfu${index + 1}`" v-if="tianfudata[index]">
         <div class="flex-row">
           <div>{{ tianfudata[index].name }}</div>
           <div class="img-wrap">
@@ -29,7 +29,7 @@ const props = defineProps<{
     <div class="role_title">角色</div>
     <!-- 天赋书对应角色 -->
     <template v-for="(_, index) in 4" :key="index">
-      <div :class="`role role${index + 1}`">
+      <div :class="`role role${index + 1}`" v-if="tianfudata[index]">
         <img
           v-for="img in tianfudata[index].role"
           :key="img.title"
@@ -46,7 +46,10 @@ const props = defineProps<{
     </div>
     <!-- 武器突破材料 显示区 -->
     <template v-for="(_, index) in 4" :key="index">
-      <div :class="`wqtpcl wqtpcl${index + 1}`">
+      <div
+        :class="`wqtpcl wqtpcl${index + 1}`"
+        v-if="renderWuqi[index].length > 0"
+      >
         <div>【{{ renderWuqi[index][0].title.split(/的|之/)[0] }}】</div>
         <div class="img-wrap flex-row">
           <img v-for="item in renderWuqi[index]" :src="item.icon" />
@@ -56,7 +59,7 @@ const props = defineProps<{
     <!-- 武器突破材料对应武器 -->
     <div class="wuqi_title">武器</div>
     <template v-for="(_, index) in 4" :key="index">
-      <div :class="`wuqi wuqi${index + 1}`">
+      <div :class="`wuqi wuqi${index + 1}`" v-if="renderWuqi[index].length > 0">
         <img v-for="item in renderWuqi[index][0].info.wuqi" :src="item.src" />
       </div>
     </template>

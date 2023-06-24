@@ -18,13 +18,13 @@ const weekText = {
   4: "周一/周四",
   5: "周二/周五",
   6: "周三/周六",
-  7: "周日",
+  0: "周日",
 }[dayOfWeek];
 const { tianfudata, renderWuqi } = createData(dayOfWeek);
 
 function createData(dayOfWeek: number) {
   function numberToChinese(num: number) {
-    const digits = ["零", "一", "二", "三", "四", "五", "六", "日"];
+    const digits = ["日", "一", "二", "三", "四", "五", "六", "日"];
     return digits[num];
   }
   // 武器逻辑
