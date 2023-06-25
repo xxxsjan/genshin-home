@@ -1,9 +1,9 @@
 # genshin home
 
-原神每日素材查询
+原神每日素材快速预览
 
 ## 在线地址
-[<https://genshin-home.vercel.app/>](http://genshin-home.dolam.top/)
+[原神每日素材快速预览](http://genshin-home.dolam.top/)
 
 ## 图示
 
