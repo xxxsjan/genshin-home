@@ -3,7 +3,7 @@
 原神每日素材查询
 
 ## 在线地址
-<https://genshin-home.vercel.app/>
+[<https://genshin-home.vercel.app/>](http://genshin-home.dolam.top/)
 
 ## 图示
 
