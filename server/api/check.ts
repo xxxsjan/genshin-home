@@ -1,5 +1,5 @@
-import roleWithTianfu from "~/spider-data/data/role-with-tianfu.json";
-import wuqiData from "~/spider-data/data/wuqi.json";
+import roleJSON from "~/spider-data/data/role-with-tianfu.json";
+import wuqiJSON from "~/spider-data/data/wuqi.json";
 
 // http://localhost:3000/api/check
 export default defineEventHandler(async (event) => {
@@ -21,8 +21,8 @@ export default defineEventHandler(async (event) => {
     `最新数据：背包：${beibaoData.length}角色：${roleData.length}武器：${wuqiData.length}`
   );
   const cacheData = {
-    role: roleWithTianfu.length,
-    wuqi: wuqiData.length,
+    role: roleJSON.length,
+    wuqi: wuqiJSON.length,
   };
 
   console.log(`本地数据： 角色：${cacheData.role}武器：${cacheData.wuqi}`);
