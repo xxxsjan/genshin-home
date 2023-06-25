@@ -135,6 +135,17 @@ function createData(dayOfWeek: number) {
     renderWuqi,
   };
 }
+
+onMounted(() => {
+  setTimeout(async () => {
+    const { data } = await useFetch("/api/check");
+    console.log("data: ", data);
+
+    if (!data.value?.checkRes) {
+      alert("角色 武器数据有更新，等待管理员更新");
+    }
+  }, 1000);
+});
 </script>
 
 <template>

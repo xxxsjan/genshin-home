@@ -2,8 +2,7 @@
 
 export default defineEventHandler((event) => {
   const query = getQuery(event);
-  console.log('query: ', query);
-
+  console.log("query: ", query);
   // 抛错
   // throw createError({
   //   statusCode: 400,
