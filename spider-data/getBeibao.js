@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { getTujianData } = require("./api");
 
-(async () => {
+async function getBeibao() {
   const tujianData = await getTujianData();
 
   const beibaoData = tujianData.find((f) => f.name === "背包").list;
@@ -22,15 +22,12 @@ const { getTujianData } = require("./api");
     }武器：${require("./data/wuqi.json").length}`
   );
 
-  if (!fs.existsSync("./data/wuqi.json")) {
-    fs.writeFileSync("./data/wuqi.json", JSON.stringify(wuqiData));
-  }
+  return {
+    wuqiData,
+    roleData,
+    beibaoData,
+  };
+ 
+}
 
-  if (!fs.existsSync("./data/role-data.json")) {
-    fs.writeFileSync("./data/role-data.json", JSON.stringify(roleData));
-  }
-
-  if (!fs.existsSync("./data/beibao.json")) {
-    fs.writeFileSync("./data/beibao.json", JSON.stringify(beibaoData));
-  }
-})();
+modules.exports = getBeibao;

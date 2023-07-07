@@ -1,11 +1,8 @@
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
-const axios = require("axios");
-const fs = require("fs");
-const path = require("path");
 const { getTujianData } = require("./api");
 
-(async () => {
+const getWuqi = async () => {
   const tujianData = await getTujianData();
 
   const cailiaoData = tujianData
@@ -21,7 +18,10 @@ const { getTujianData } = require("./api");
   await analysisCailiao(page, cailiaoData);
 
   await browser.close();
-})();
+  return {
+    cailiaoData,
+  };
+};
 
 // 从武器突破素材网页爬取
 async function analysisCailiao(page, list) {
@@ -140,8 +140,6 @@ async function analysisCailiao(page, list) {
 
     item.info = _info;
   }
-
-  fs.writeFileSync("./data/wuqi-tupo-cailiao.json", JSON.stringify(list));
 }
 // 从武器网页爬取
 async function analysisWuqi() {
@@ -172,3 +170,5 @@ async function analysisWuqi() {
     item.breakMaterial = breakMaterial;
   }
 }
+
+modules.exports = getWuqi;

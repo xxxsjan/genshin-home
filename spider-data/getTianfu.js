@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const { getTujianData } = require("./api");
 
-(async () => {
+async function getTianfu() {
   const tujianData = await getTujianData();
 
   const roleData = tujianData.find((f) => f.name === "角色").list;
@@ -46,11 +46,10 @@ const { getTujianData } = require("./api");
   }
   console.log(formatData);
 
-  const outputPath = "./data/role-with-tianfu.json";
-  
-  if (!fs.existsSync(outputPath)) {
-    fs.writeFileSync(outputPath, JSON.stringify(formatData));
-  }
-
   await browser.close();
-})();
+
+  return {
+    roleWithTianfu: formatData,
+  };
+}
+modules.exports = getTianfu;
