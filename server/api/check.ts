@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     .list.filter((f) => f.ext.match(/五星|四星/));
 
   console.log(
-    `最新数据：背包：${beibaoData.length}角色：${roleData.length}武器：${wuqiData.length}`
+    `最新数据：角色：${roleData.length}武器：${wuqiData.length}`
   );
   const cacheData = {
     role: roleJSON.length,

@@ -38,7 +38,7 @@ async function analysisCailiao(page, list) {
     let elements = $(`div[data-tmpl="material"] table tbody tr`);
 
     // 当前武器材料的信息
-    const _data = {};
+    const _info = {};
     elements.map((i, el) => {
       switch (i) {
         case 0:
@@ -49,8 +49,8 @@ async function analysisCailiao(page, list) {
           //   <label>名称：</label>
           //   今昔剧画之一角
           //</td>
-          _data.imgSrc = $(el).find("td img").attr("src");
-          _data.name = $(el)
+          _info.imgSrc = $(el).find("td img").attr("src");
+          _info.name = $(el)
             .find("td:nth-child(2)")
             .text()
             .trim()
@@ -71,7 +71,7 @@ async function analysisCailiao(page, list) {
           // </td>
           const _text = $(el).find("td ul li p").text();
           const _html = $(el).find("td ul li p").html();
-          _data.getWay = [
+          _info.getWay = [
             _text.match(/（(.*?)）/)[1],
             _text,
             _html,
@@ -85,7 +85,7 @@ async function analysisCailiao(page, list) {
           //   <p style="white-space: pre-wrap;">　　　在鬼族失落的子守奉公子守歌中，鬼人「虎千代」是一位翩翩少年，拥有优雅勇健的身姿与华丽的容貌。他原本是将军麾下的爱将，曾忠心追随她深入漆黑 的渊薮，击退邪秽之物，为血脉日渐稀薄的鬼族争取功绩。</p>
           //   <p style="white-space: pre-wrap;">　　　纵使如今这样的歌谣已经无人传唱了，以另一种形象流传下来的有角鬼面形象仍然有着非凡的力量。</p>
           // </td>
-          _data.describe = $(el).find("td").text();
+          _info.describe = $(el).find("td").text();
           break;
         case 3:
           // <td colspan="2" class="obc-tmpl__rich-text">
@@ -97,14 +97,15 @@ async function analysisCailiao(page, list) {
           //     </a>
           //   </p>
           // </td>;
-          _data.describe = $(el).find("td").text();
+          _info.describe = $(el).find("td").text();
           break;
         default:
           break;
       }
     });
+
     // 需要该武器材料的武器
-    _data.wuqi = [];
+    _info.wuqi = [];
     $(
       'div[data-tmpl="illustration"] ul[data-target="main.data"] li[data-index="0"] div.obc-tmpl__scroll-x-box tbody tr'
     ).map((i, el) => {
@@ -115,14 +116,29 @@ async function analysisCailiao(page, list) {
       //     <span>笼钓瓶一心</span>
       //   </a>
       //</td>
-      _data.wuqi.push({
+      console.log($(el).find("td span").html());
+      const _res = {
         name: $(el).find("td span").html(),
         src: $(el).find("td a img").attr("src"),
         count: $(el).find("td:nth-child(2)").text(),
-      });
+        // 特殊情况 https://bbs.mihoyo.com/ys/obc/content/2371/detail?bbs_presentation_style=no_header
+
+        // <td class="obc-tmpl__scroll-td obc-tmpl-illustration__first-col">
+        // <span target="_blank">
+        // <img alt="" src="https://uploadstatic.mihoyo.com/ys-obc/2022/08/12/183046623/680747c67b82c468a6f7d52729d55ab2_1410109543333312055.png" class="obc-tmpl__icon"><br>
+        // <span>笼钓瓶一心</span>
+        // </span></td>、
+        //  拿不到 href
+        // content_id: $(el)
+        //   .find("td a")
+        //   .attr("href")
+        //   .match(/content\/(\d+)\/detail/)[1],
+      };
+      console.log(_res);
+      _info.wuqi.push(_res);
     });
 
-    item.info = _data;
+    item.info = _info;
   }
 
   fs.writeFileSync("./data/wuqi-tupo-cailiao.json", JSON.stringify(list));

@@ -30,11 +30,20 @@ function createData(dayOfWeek: number) {
   // 武器逻辑
   function filterWuqiTupoCailiao() {
     const reg = new RegExp(numberToChinese(dayOfWeek));
+    // 根据获取方式过滤出当日的武器材料
     const res = wuqiTupoCailiaoData.filter((f) => f.info.getWay[0].match(reg));
+    // 添加对应武器的信息
     res.forEach((item) => {
-      item.info.wuqi = item.info.wuqi.filter((f) =>
-        wuqiData.map((m) => m.title).includes(f.name)
-      );
+      // 排除四星以下武器
+      item.info.wuqi = item.info.wuqi.filter((f) => {
+        const _find = wuqiData.find((m) => m.title === f.name);
+        if (_find) {
+          f.content_id = _find.content_id;
+          return true;
+        } else {
+          return false;
+        }
+      });
     });
     return res;
   }

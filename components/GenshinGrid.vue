@@ -5,6 +5,11 @@ const props = defineProps<{
 }>();
 
 const { tianfudata, renderWuqi } = toRefs(props);
+
+function toDetail(content_id: string | number) {
+  const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+  window.open(url);
+}
 </script>
 
 <template>
@@ -35,6 +40,8 @@ const { tianfudata, renderWuqi } = toRefs(props);
           :key="img.title"
           :src="img.image?.icon"
           :alt="img.title"
+          @click="toDetail(img.content_id)"
+          :title="img.title"
         />
       </div>
     </template>
@@ -60,7 +67,12 @@ const { tianfudata, renderWuqi } = toRefs(props);
     <div class="wuqi_title">武器</div>
     <template v-for="(_, index) in 4" :key="index">
       <div :class="`wuqi wuqi${index + 1}`" v-if="renderWuqi[index].length > 0">
-        <img v-for="item in renderWuqi[index][0].info.wuqi" :src="item.src" />
+        <img
+          v-for="item in renderWuqi[index][0].info.wuqi"
+          :src="item.src"
+          @click="toDetail(item.content_id)"
+          :title="item.name"
+        />
       </div>
     </template>
   </div>
