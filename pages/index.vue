@@ -6,7 +6,9 @@ import wuqiData from "~/spider-data/data/wuqi.json";
 import beibao from "~/spider-data/data/beibao.json";
 import wuqiTupoCailiaoData from "~/spider-data/data/wuqi-tupo-cailiao.json";
 import imageData from "~/spider-data/data/role-data.json";
-
+useHead({
+  title: "原神素材",
+});
 const today = dayjs();
 const dayOfWeek = today.day();
 // const dayOfWeek = 7;
