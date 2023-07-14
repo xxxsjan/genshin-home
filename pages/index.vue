@@ -11,6 +11,7 @@ useHead({
 });
 const today = dayjs();
 const dayOfWeek = today.day();
+console.log('dayOfWeek: ', dayOfWeek);
 // const dayOfWeek = 7;
 
 const weekText = {
@@ -23,6 +24,7 @@ const weekText = {
   0: "周日",
 }[dayOfWeek];
 const { tianfudata, renderWuqi } = createData(dayOfWeek);
+console.log('tianfudata, renderWuqi: ', tianfudata, renderWuqi);
 
 function createData(dayOfWeek: number) {
   function numberToChinese(num: number) {
