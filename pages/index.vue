@@ -11,8 +11,8 @@ useHead({
 });
 const today = dayjs();
 const dayOfWeek = today.day();
+// const dayOfWeek = 0;
 console.log('dayOfWeek: ', dayOfWeek);
-// const dayOfWeek = 7;
 
 const weekText = {
   1: "周一/周四",
