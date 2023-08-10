@@ -6,15 +6,16 @@ import wuqiData from "~/spider-data/data/wuqi.json";
 import beibao from "~/spider-data/data/beibao.json";
 import wuqiTupoCailiaoData from "~/spider-data/data/wuqi-tupo-cailiao.json";
 import imageData from "~/spider-data/data/role-data.json";
+
 useHead({
   title: "原神素材",
 });
 const today = dayjs();
 const dayOfWeek = today.day();
 // const dayOfWeek = 0;
-console.log('dayOfWeek: ', dayOfWeek);
+console.log("dayOfWeek: ", dayOfWeek);
 
-const weekText = {
+const mapData: any = {
   1: "周一/周四",
   2: "周二/周五",
   3: "周三/周六",
@@ -22,9 +23,11 @@ const weekText = {
   5: "周二/周五",
   6: "周三/周六",
   0: "周日",
-}[dayOfWeek];
-const { tianfudata, renderWuqi } = createData(dayOfWeek);
-console.log('tianfudata, renderWuqi: ', tianfudata, renderWuqi);
+};
+const weekText = ref(mapData[dayOfWeek]);
+
+let tianfudata = [],
+  renderWuqi = [];
 
 function createData(dayOfWeek: number) {
   function numberToChinese(num: number) {
@@ -148,6 +151,7 @@ function createData(dayOfWeek: number) {
     renderWuqi,
   };
 }
+updateData(dayOfWeek);
 
 onMounted(() => {
   setTimeout(async () => {
@@ -159,11 +163,34 @@ onMounted(() => {
     }
   }, 1000);
 });
+
+const visible = ref(false);
+const timeVal = ref(0);
+
+function updateData(num: number) {
+  const result = createData(num);
+
+  tianfudata = result.tianfudata;
+  renderWuqi = result.renderWuqi;
+
+  console.log("tianfudata, renderWuqi: ", num, tianfudata, renderWuqi);
+}
+
+watch(
+  () => timeVal.value,
+  (val) => {
+    weekText.value = mapData[val];
+    updateData(val);
+  }
+);
 </script>
 
 <template>
   <div class="header">今日材料</div>
-  <div class="time">{{ weekText }}</div>
+  <div class="time" style="position: relative">
+    <span @click="visible = !visible">{{ weekText }}</span>
+    <TimeToast v-model="visible" v-model:timeVal="timeVal" />
+  </div>
 
   <GenshinGrid
     v-if="weekText !== '周日'"
