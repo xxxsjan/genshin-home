@@ -11,7 +11,15 @@ useHead({
   title: "原神素材",
 });
 const today = dayjs();
-const dayOfWeek = today.day();
+const currentTime = dayjs().format("HH");
+
+const dayOfWeek =
+  +currentTime < 4
+    ? today.day() - 1 === -1
+      ? 6
+      : today.day() - 1
+    : today.day();
+
 // const dayOfWeek = 0;
 console.log("dayOfWeek: ", dayOfWeek);
 
