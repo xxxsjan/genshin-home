@@ -30,4 +30,4 @@ async function getBeibao() {
  
 }
 
-modules.exports = getBeibao;
+module.exports = getBeibao;

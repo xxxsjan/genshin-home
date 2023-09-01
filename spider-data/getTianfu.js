@@ -52,4 +52,4 @@ async function getTianfu() {
     roleWithTianfu: formatData,
   };
 }
-modules.exports = getTianfu;
+module.exports = getTianfu;

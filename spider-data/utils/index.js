@@ -1,7 +1,15 @@
 const fs = require("fs");
 
-export function saveJSON(path, data) {
+function saveJSON(path, data, rewrite = false) {
+  if (rewrite) {
+    fs.writeFileSync(path, JSON.stringify(data));
+    return;
+  }
   if (!fs.existsSync(path)) {
     fs.writeFileSync(path, JSON.stringify(data));
   }
 }
+
+module.exports = {
+  saveJSON,
+};

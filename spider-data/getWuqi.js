@@ -171,4 +171,4 @@ async function analysisWuqi() {
   }
 }
 
-modules.exports = getWuqi;
+module.exports = getWuqi;
