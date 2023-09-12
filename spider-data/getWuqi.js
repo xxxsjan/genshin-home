@@ -1,9 +1,9 @@
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
-const { getTujianData } = require("./api");
+const { tujianApi } = require("./api");
 
 const getWuqi = async () => {
-  const tujianData = await getTujianData();
+  const tujianData = await tujianApi();
 
   const cailiaoData = tujianData
     .find((f) => f.name === "背包")

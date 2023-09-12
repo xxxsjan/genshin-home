@@ -1,5 +1,5 @@
 import roleJSON from "~/spider-data/data/role-with-tianfu.json";
-import wuqiJSON from "~/spider-data/data/wuqi.json";
+import wuqiJSON from "~/spider-data/data/tujian_wuqi.json";
 
 // http://localhost:3000/api/check
 export default defineEventHandler(async (event) => {

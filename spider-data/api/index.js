@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 // 图鉴数据接口
-function getTujianData() {
+function tujianApi() {
   let url =
     "https://api-static.mihoyo.com/common/blackboard/ys_obc/v1/home/content/list?app_sn=ys_obc&channel_id=189";
   return axios.get(url).then((res) => {
@@ -10,5 +10,5 @@ function getTujianData() {
 }
 
 module.exports = {
-  getTujianData,
+  tujianApi,
 };

@@ -3,10 +3,10 @@ const cheerio = require("cheerio");
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
-const { getTujianData } = require("./api");
+const { tujianApi } = require("./api");
 
 async function getTianfu() {
-  const tujianData = await getTujianData();
+  const tujianData = await tujianApi();
 
   const roleData = tujianData.find((f) => f.name === "角色").list;
 

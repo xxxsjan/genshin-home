@@ -1,15 +1,79 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 
-import roleWithTianfu from "~/spider-data/data/role-with-tianfu.json";
-import wuqiData from "~/spider-data/data/wuqi.json";
-import beibao from "~/spider-data/data/beibao.json";
-import wuqiTupoCailiaoData from "~/spider-data/data/wuqi-tupo-cailiao.json";
-import imageData from "~/spider-data/data/role-data.json";
+import wuqiData from "~/spider-data/data/tujian_wuqi.json";
+import beibao from "~/spider-data/data/tujian_beibao.json";
+import imageData from "~/spider-data/data/tujian_role.json";
 
+import roleWithTianfu from "~/spider-data/data/role-with-tianfu.json";
+import wuqiTupoCailiaoData from "~/spider-data/data/wuqi-tupo-cailiao.json";
+
+type RoleWithTianfu = {
+  title: string;
+  content_id: number;
+  tianfu: string;
+}[];
+type WuqiData = {
+  content_id: number;
+  title: string;
+  ext: string;
+  icon: string;
+  bbs_url: string;
+  article_user_name: string;
+  article_time: string;
+  avatar_url: string;
+  summary: string;
+}[];
+
+type Beibao = {
+  content_id: number;
+  title: string;
+  ext: string;
+  icon: string;
+  bbs_url: string;
+  article_user_name: string;
+  article_time: string;
+  avatar_url: string;
+  summary: string;
+}[];
+type WuqiTupoCailiaoData = {
+  content_id: number;
+  title: string;
+  ext: string;
+  icon: string;
+  bbs_url: string;
+  article_user_name: string;
+  article_time: string;
+  avatar_url: string;
+  summary: string;
+  info: {
+    imgSrc: string;
+    name: string;
+    getWay: string[];
+    describe: string;
+    wuqi: {
+      name: string;
+      src: string;
+      count: string;
+    }[];
+  };
+}[];
+type ImageData = {
+  content_id: number;
+  title: string;
+  ext: string;
+  icon: string;
+  bbs_url: string;
+  article_user_name: string;
+  article_time: string;
+  avatar_url: string;
+  summary: string;
+};
+type ImageDataList = Array<ImageData>;
 useHead({
   title: "原神素材",
 });
+
 const today = dayjs();
 const currentTime = dayjs().format("HH");
 
@@ -20,7 +84,6 @@ const dayOfWeek =
       : today.day() - 1
     : today.day();
 
-// const dayOfWeek = 0;
 console.log("dayOfWeek: ", dayOfWeek);
 
 const mapData: any = {
@@ -34,8 +97,45 @@ const mapData: any = {
 };
 const weekText = ref(mapData[dayOfWeek]);
 
-let tianfudata = [],
-  renderWuqi = [];
+let tianfudata: Array<{
+    name: string;
+    area: string;
+    time: string;
+    data: ImageDataList;
+    role: {
+      content_id: number;
+      title: string;
+      tianfu: string;
+      image: {
+        content_id: 1220;
+        title: string;
+        ext: string;
+        icon: string;
+        bbs_url: string;
+        article_user_name: string;
+        article_time: string;
+        avatar_url: string;
+        summary: string;
+      };
+    }[];
+  }> = [],
+  renderWuqi: Array<
+    ImageData &
+      {
+        info: {
+          imgSrc: string;
+          name: string;
+          getWay: string[];
+          describe: "用途：武器突破素材　　　【炼金】高塔孤王的残垣";
+          wuqi: {
+            name: string;
+            src: string;
+            count: string;
+            content_id: number;
+          }[];
+        };
+      }[]
+  > = [];
 
 function createData(dayOfWeek: number) {
   function numberToChinese(num: number) {
@@ -159,6 +259,7 @@ function createData(dayOfWeek: number) {
     renderWuqi,
   };
 }
+
 updateData(dayOfWeek);
 
 onMounted(() => {
@@ -176,12 +277,13 @@ const visible = ref(false);
 const timeVal = ref(0);
 
 function updateData(num: number) {
+  console.log("num: ", num);
   const result = createData(num);
 
   tianfudata = result.tianfudata;
+  console.log("tianfudata: ", tianfudata);
   renderWuqi = result.renderWuqi;
-
-  console.log("tianfudata, renderWuqi: ", num, tianfudata, renderWuqi);
+  console.log("renderWuqi: ", renderWuqi);
 }
 
 watch(
