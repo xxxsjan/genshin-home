@@ -8,68 +8,6 @@ import imageData from "~/spider-data/data/tujian_role.json";
 import roleWithTianfu from "~/spider-data/data/role-with-tianfu.json";
 import wuqiTupoCailiaoData from "~/spider-data/data/wuqi-tupo-cailiao.json";
 
-type RoleWithTianfu = {
-  title: string;
-  content_id: number;
-  tianfu: string;
-}[];
-type WuqiData = {
-  content_id: number;
-  title: string;
-  ext: string;
-  icon: string;
-  bbs_url: string;
-  article_user_name: string;
-  article_time: string;
-  avatar_url: string;
-  summary: string;
-}[];
-
-type Beibao = {
-  content_id: number;
-  title: string;
-  ext: string;
-  icon: string;
-  bbs_url: string;
-  article_user_name: string;
-  article_time: string;
-  avatar_url: string;
-  summary: string;
-}[];
-type WuqiTupoCailiaoData = {
-  content_id: number;
-  title: string;
-  ext: string;
-  icon: string;
-  bbs_url: string;
-  article_user_name: string;
-  article_time: string;
-  avatar_url: string;
-  summary: string;
-  info: {
-    imgSrc: string;
-    name: string;
-    getWay: string[];
-    describe: string;
-    wuqi: {
-      name: string;
-      src: string;
-      count: string;
-    }[];
-  };
-}[];
-type ImageData = {
-  content_id: number;
-  title: string;
-  ext: string;
-  icon: string;
-  bbs_url: string;
-  article_user_name: string;
-  article_time: string;
-  avatar_url: string;
-  summary: string;
-};
-type ImageDataList = Array<ImageData>;
 useHead({
   title: "原神素材",
 });
@@ -138,6 +76,18 @@ let tianfudata: Array<{
   > = [];
 
 function createData(dayOfWeek: number) {
+  const tupocailiaoMap = [
+    // 蒙德
+    ["凛风奔狼", "高塔孤王", "狮牙斗士"],
+    // 璃月
+    ["雾海云间", "孤云寒林", "漆黑陨铁"],
+    // 稻妻
+    ["鸣神御灵", "远海夷地", "今昔剧画"],
+    // 须弥
+    ["绿洲花园", "谧林涓露", "烈日威权"],
+    // 枫丹
+    ["悠古弦音", "纯圣露滴", "无垢之海"],
+  ];
   function numberToChinese(num: number) {
     const digits = ["日", "一", "二", "三", "四", "五", "六", "日"];
     return digits[num];
@@ -145,9 +95,12 @@ function createData(dayOfWeek: number) {
   // 武器逻辑
   function filterWuqiTupoCailiao() {
     const reg = new RegExp(numberToChinese(dayOfWeek));
+
     // 根据获取方式过滤出当日的武器材料
-    const res = wuqiTupoCailiaoData.filter((f) => f.info.getWay[0].match(reg));
-    // 添加对应武器的信息
+    const res = JSON.parse(JSON.stringify(wuqiTupoCailiaoData)).filter((f) =>
+      f.info.getWay[0].match(reg)
+    );
+
     res.forEach((item) => {
       // 排除四星以下武器
       item.info.wuqi = item.info.wuqi.filter((f) => {
@@ -162,21 +115,13 @@ function createData(dayOfWeek: number) {
     });
     return res;
   }
-  const tupocailiaoMap = {
-    // 蒙德
-    0: ["凛风奔狼", "高塔孤王", "狮牙斗士"],
-    // 璃月
-    1: ["雾海云间", "孤云寒林", "漆黑陨铁"],
-    // 稻妻
-    2: ["鸣神御灵", "远海夷地", "今昔剧画"],
-    // 须弥
-    3: ["绿洲花园", "谧林涓露", "烈日威权"],
-  };
-  const _renderWuqiData = filterWuqiTupoCailiao();
 
-  const renderWuqi: (typeof _renderWuqiData)[] = Array.from({ length: 4 }).map(
-    () => []
-  );
+  const _renderWuqiData = filterWuqiTupoCailiao();
+  console.log("_renderWuqiData: ", _renderWuqiData);
+
+  const renderWuqi: (typeof _renderWuqiData)[] = Array.from({
+    length: tupocailiaoMap.length,
+  }).map(() => []);
 
   function findMapIndex(str: string) {
     let index: number = -1;
@@ -197,31 +142,25 @@ function createData(dayOfWeek: number) {
     }
   }
   // 角色逻辑
-  const tianfuMap = {
-    // 蒙德
-    0: ["凛风奔狼", "高塔孤王", "狮牙斗士"],
-    // 璃月
-    1: ["雾海云间", "孤云寒林", "漆黑陨铁"],
-    // 稻妻
-    2: ["鸣神御灵", "远海夷地", "今昔剧画"],
-    // 须弥
-    3: ["绿洲花园", "谧林涓露", "烈日威权"],
-  };
+
   const data1 = [
     { name: "「自由」", area: "蒙德", time: "周一/周四" },
     { name: "「繁荣」", area: "璃月", time: "周一/周四" },
     { name: "「浮世」", area: "稻妻", time: "周一/周四" },
     { name: "「诤言」", area: "须弥", time: "周一/周四" },
+    { name: "「公平」", area: "枫丹", time: "周一/周四" },
 
     { name: "「抗争」", area: "蒙德", time: "周二/周五" },
     { name: "「勤劳」", area: "璃月", time: "周二/周五" },
     { name: "「风雅」", area: "稻妻", time: "周二/周五" },
     { name: "「巧思」", area: "须弥", time: "周二/周五" },
+    { name: "「正义」", area: "枫丹", time: "周二/周五" },
 
     { name: "「诗文」", area: "蒙德", time: "周三/周六" },
     { name: "「黄金」", area: "璃月", time: "周三/周六" },
     { name: "「天光」", area: "稻妻", time: "周三/周六" },
     { name: "「笃行」", area: "须弥", time: "周三/周六" },
+    { name: "「秩序」", area: "枫丹", time: "周三/周六" },
   ];
 
   interface ItemType {
@@ -252,6 +191,7 @@ function createData(dayOfWeek: number) {
     useData.find((f) => f.area === "璃月") as ItemType,
     useData.find((f) => f.area === "稻妻") as ItemType,
     useData.find((f) => f.area === "须弥") as ItemType,
+    useData.find((f) => f.area === "枫丹") as ItemType,
   ];
 
   return {

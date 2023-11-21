@@ -18,7 +18,7 @@ function toDetail(content_id: string | number) {
     <div class="tianfu_title">天赋书</div>
 
     <!-- 天赋书 显示区-->
-    <template v-for="(_, index) in 4" :key="index">
+    <template v-for="(_, index) in tianfudata.length" :key="index">
       <div :class="`tianfu tianfu${index + 1}`" v-if="tianfudata[index]">
         <div class="flex-row">
           <div>{{ tianfudata[index].name }}</div>
@@ -32,8 +32,8 @@ function toDetail(content_id: string | number) {
     </template>
 
     <div class="role_title">角色</div>
-    <!-- 天赋书对应角色 -->
-    <template v-for="(_, index) in 4" :key="index">
+    <!-- 天赋书 角色 -->
+    <template v-for="(_, index) in tianfudata.length" :key="index">
       <div :class="`role role${index + 1}`" v-if="tianfudata[index]">
         <img
           v-for="img in tianfudata[index].role"
@@ -52,7 +52,7 @@ function toDetail(content_id: string | number) {
       <div>材料</div>
     </div>
     <!-- 武器突破材料 显示区 -->
-    <template v-for="(_, index) in 4" :key="index">
+    <template v-for="(_, index) in renderWuqi.length" :key="index">
       <div
         :class="`wqtpcl wqtpcl${index + 1}`"
         v-if="renderWuqi[index].length > 0"
@@ -65,7 +65,7 @@ function toDetail(content_id: string | number) {
     </template>
     <!-- 武器突破材料对应武器 -->
     <div class="wuqi_title">武器</div>
-    <template v-for="(_, index) in 4" :key="index">
+    <template v-for="(_, index) in renderWuqi.length" :key="index">
       <div :class="`wuqi wuqi${index + 1}`" v-if="renderWuqi[index].length > 0">
         <img
           v-for="item in renderWuqi[index][0].info.wuqi"
@@ -108,14 +108,14 @@ function toDetail(content_id: string | number) {
   min-width: 1200px;
   // height: 100vh;
   display: grid;
-  grid-template-columns: 100px 1fr 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 100px minmax(200px, auto) 120px minmax(0, auto);
 
   grid-template-areas:
-    "tianfu tianfu1 tianfu2 tianfu3 tianfu4"
-    "role role1 role2 role3 role4"
-    "wqtpcl wqtpcl1 wqtpcl2 wqtpcl3 wqtpcl4"
-    "wuqi wuqi1 wuqi2 wuqi3 wuqi4";
+    "tianfu tianfu1 tianfu2 tianfu3 tianfu4 tianfu5"
+    "role role1 role2 role3 role4 role5"
+    "wqtpcl wqtpcl1 wqtpcl2 wqtpcl3 wqtpcl4 wqtpcl5"
+    "wuqi wuqi1 wuqi2 wuqi3 wuqi4 wuqi5";
   grid-gap: 20px;
 
   font-size: 20px;

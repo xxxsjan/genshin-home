@@ -28,9 +28,10 @@ async function analysisCailiao(page, list) {
   for (let i = 0; i < list.length; i++) {
     const item = list[i];
     const { content_id, title } = item;
-    console.log("content_id, title: ", content_id, title, i, list.length);
 
     const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+    console.log("content_id, title: ", content_id, title, i, list.length, url);
+
     await page.goto(url);
     await page.waitForSelector(".obc-tmpl__part");
     const html = await page.content();

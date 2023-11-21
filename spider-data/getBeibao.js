@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { tujianApi } = require("./api");
+const path = require("path");
 
 async function getBeibao() {
   const tujianData = await tujianApi();
@@ -16,16 +17,22 @@ async function getBeibao() {
     `最新数据：背包：${tujian_beibao.length}角色：${tujian_role.length}武器：${tujian_wuqi.length}`
   );
 
-  const localFilePath = "./data/tujian_beibao.json";
+  const localFilePath = path.resolve(__dirname, "./data/tujian_beibao.json");
+
   fs.access(localFilePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.log(localFilePath, " 数据不存在");
       return;
     }
+    const localFile = {
+      beibao: path.resolve(__dirname, "./data/tujian_beibao.json"),
+      wuqi: path.resolve(__dirname, "./data/tujian_wuqi.json"),
+      role: path.resolve(__dirname, "./data/tujian_role.json"),
+    };
     console.log(
-      `本地数据：背包：${require(localFilePath).length}角色：${
-        require(localFilePath).length
-      }武器：${require(localFilePath).length}`
+      `本地数据：背包：${require(localFile.beibao).length}角色：${
+        require(localFile.role).length
+      }武器：${require(localFile.wuqi).length}`
     );
   });
 

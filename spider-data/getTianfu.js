@@ -10,15 +10,14 @@ async function getTianfu() {
 
   const roleData = tujianData.find((f) => f.name === "角色").list;
 
-  const formatData = roleData.map((m) => {
-    return {
-      content_id: m.content_id,
-      title: m.title,
-    };
-  });
+  const formatData = roleData.map((m) => ({
+    content_id: m.content_id,
+    title: m.title,
+  }));
 
   const browser = await puppeteer.launch({
     headless: "new",
+    // headless: false,
   });
   const viewportOpt = { width: 1200, height: 600, deviceScaleFactor: 1 };
   const page = await browser.newPage();
@@ -29,15 +28,16 @@ async function getTianfu() {
     const item = formatData[i];
     const { content_id, title } = item;
     const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+    
     await page.goto(url);
     // 等元素出现
-    await page.waitForSelector(".obc-tmpl__fixed-table");
+    await page.waitForSelector(".obc-tmpl__scroll-x-box");
 
     const html = await page.content();
     const $ = cheerio.load(html);
 
     let tianfu = $(
-      `div[data-part="skill"] .obc-tmpl__scroll-x-wrapper table  .obc-tmpl__icon-text-num .obc-tmpl__icon-text`
+      `.obc-tmpl__scroll-td.goto-diff-wrap .custom-entry-wrapper .entry-material-box.entry-material-small .name`
     ).text();
 
     const res = tianfu.match(/(「.*?」)/)[0];
