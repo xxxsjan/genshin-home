@@ -23,9 +23,19 @@ function toDetail(content_id: string | number) {
         <div class="flex-row">
           <div>{{ tianfudata[index].name }}</div>
           <div class="img-wrap">
-            <img :src="tianfudata[0].data[0].icon" alt="" />
-            <img :src="tianfudata[0].data[1].icon" alt="" />
-            <img :src="tianfudata[0].data[2].icon" alt="" />
+            <!-- content_id -->
+
+            <a
+              v-for="(item, index) in 3"
+              :key="index"
+              :href="`https://bbs.mihoyo.com/ys/obc/content/${tianfudata[0].data[index].content_id}/detail?bbs_presentation_style=no_header`"
+              target="_blank"
+            >
+              <img
+                :src="tianfudata[0].data[index].icon"
+                :alt="tianfudata[0].data[index].title"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -59,7 +69,13 @@ function toDetail(content_id: string | number) {
       >
         <div>【{{ renderWuqi[index][0].title.split(/的|之/)[0] }}】</div>
         <div class="img-wrap flex-row">
-          <img v-for="item in renderWuqi[index]" :src="item.icon" />
+          <a
+            v-for="(item, index) in renderWuqi[index]"
+            :key="index"
+            target="_blank"
+            :href="`https://bbs.mihoyo.com/ys/obc/content/${item.content_id}/detail?bbs_presentation_style=no_header`"
+            ><img :src="item.icon"
+          /></a>
         </div>
       </div>
     </template>
