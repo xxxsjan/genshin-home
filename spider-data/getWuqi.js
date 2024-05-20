@@ -2,12 +2,18 @@ const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const { tujianApi } = require("./api");
 
-const getWuqi = async () => {
+const oldData = require("./data/tujian_wuqi.json");
+
+function isDataExist(content_id) {
+  return oldData.find((f) => f.content_id === content_id);
+}
+const cailiaoGetWuqi = async () => {
   const tujianData = await tujianApi();
 
   const cailiaoData = tujianData
     .find((f) => f.name === "背包")
     .list.filter((f) => f.ext.match(/武器突破素材/));
+
   const browser = await puppeteer.launch({
     headless: "new",
   });
@@ -25,6 +31,8 @@ const getWuqi = async () => {
 
 // 从武器突破素材网页爬取
 async function analysisCailiao(page, list) {
+  console.log("本地武器数据", oldData.length);
+  console.log("远端武器数据", list.length, oldData.length);
   for (let i = 0; i < list.length; i++) {
     const item = list[i];
     const { content_id, title } = item;
@@ -142,22 +150,39 @@ async function analysisCailiao(page, list) {
     item.info = _info;
   }
 }
+
 // 从武器网页爬取
-async function analysisWuqi() {
-  for (let i = 0; i < weaponData.length; i++) {
-    const item = weaponData[i];
+async function analysisWuqi(list) {
+  const tujianData = await tujianApi();
+  const remote_wuqi = tujianData
+    .find((f) => f.name === "武器")
+    .list.filter((f) => f.ext.match(/(四星|五星)/));
+
+  const browser = await puppeteer.launch({
+    headless: "new",
+  });
+
+  const page = await browser.newPage();
+  for (let i = 0; i < 2; i++) {
+    const item = remote_wuqi[i];
     const { content_id, title } = item;
 
-    const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+    // const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+    const url =
+      "https://bbs.mihoyo.com/ys/obc/content/500507/detail?bbs_presentation_style=no_header";
+
     await page.goto(url);
-    await page.waitForSelector(".obc-tmpl__switch-item");
+    await page.waitForSelector(".swiper-slide.swiper-slide-active");
     const html = await page.content();
     const $ = cheerio.load(html);
 
-    let elements = $(`tr td .obc-tmpl__icon-text-num`);
+    let elements = $(
+      `.swiper-slide.swiper-slide-active table:nth-child(2) tr .obc-tmpl__icon-text-num`
+    );
     console.log("content_id, title: ", content_id, title);
 
     let breakMaterial = [];
+    console.log(elements.length);
     elements.map((i, el) => {
       if (i < 4) {
         const res = {
@@ -165,11 +190,19 @@ async function analysisWuqi() {
           name: $(el).find("a span").html(),
           count: $(el).find(".obc-tmpl__icon-num").text(),
         };
+        console.log(res);
         breakMaterial.push(res);
       }
     });
     item.breakMaterial = breakMaterial;
+    console.log(item);
   }
+
+  await browser.close();
+
+  return {
+    cailiaoData: [],
+  };
 }
 
-module.exports = getWuqi;
+module.exports = analysisWuqi;
