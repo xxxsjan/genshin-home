@@ -236,31 +236,52 @@ watch(
 </script>
 
 <template>
-  <div class="header">今日材料</div>
-  <div class="time" style="position: relative">
-    <span @click="visible = !visible">{{ weekText }}</span>
-    <TimeToast v-model="visible" v-model:timeVal="timeVal" />
-  </div>
+  <div class="min-w-[1400px]">
+    <div class="header">
+      <span>今日材料</span>
+      <div class="dropdown dropdown-bottom">
+        <div tabindex="0" role="button" class="timeText ml-4">
+          ({{ weekText }})
+        </div>
+        <ul
+          tabindex="0"
+          class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-[#886444]"
+        >
+          <li
+            v-for="(item, index) in ['周一/周四', '周二/周五', '周三/周六']"
+            :key="index"
+            @click="timeVal = index + 1"
+          >
+            <a>{{ item }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="time" style="position: relative"> -->
+    <!-- <span @click="visible = !visible">{{ weekText }}</span> -->
+    <!-- <TimeToast v-model="visible" v-model:timeVal="timeVal" /> -->
+    <!-- </div> -->
 
-  <GenshinGrid
-    v-if="weekText !== '周日'"
-    :tianfudata="tianfudata"
-    :renderWuqi="renderWuqi"
-  />
-  <template v-else>
     <GenshinGrid
-      :tianfudata="createData(1).tianfudata"
-      :renderWuqi="createData(1).renderWuqi"
+      v-if="weekText !== '周日'"
+      :tianfudata="tianfudata"
+      :renderWuqi="renderWuqi"
     />
-    <GenshinGrid
-      :tianfudata="createData(2).tianfudata"
-      :renderWuqi="createData(2).renderWuqi"
-    />
-    <GenshinGrid
-      :tianfudata="createData(3).tianfudata"
-      :renderWuqi="createData(3).renderWuqi"
-    />
-  </template>
+    <template v-else>
+      <GenshinGrid
+        :tianfudata="createData(1).tianfudata"
+        :renderWuqi="createData(1).renderWuqi"
+      />
+      <GenshinGrid
+        :tianfudata="createData(2).tianfudata"
+        :renderWuqi="createData(2).renderWuqi"
+      />
+      <GenshinGrid
+        :tianfudata="createData(3).tianfudata"
+        :renderWuqi="createData(3).renderWuqi"
+      />
+    </template>
+  </div>
 </template>
 
 <style scoped lang="scss">

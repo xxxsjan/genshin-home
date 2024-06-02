@@ -7,7 +7,6 @@
 
 #__nuxt {
   text-align: center;
-  background-color: #886444;
 }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -119,10 +119,8 @@ function toDetail(content_id: string | number) {
   flex-direction: $direction;
 }
 .grid-container {
-  margin-top: 10px;
   background-color: #886444;
-  min-width: 1200px;
-  // height: 100vh;
+
   display: grid;
   grid-template-columns: 100px 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 100px minmax(200px, auto) 120px minmax(0, auto);

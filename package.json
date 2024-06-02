@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -9,16 +10,17 @@
     "postinstall": "nuxt prepare",
     "link:vercel": "vercel link &&  vercel env pull .env.development.local"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@types/node": "^18",
-    "nuxt": "^3.5.2"
-  },
   "dependencies": {
-    "@element-plus/nuxt": "^1.0.7",
+    "@nuxtjs/tailwindcss": "^6.12.0",
     "@vercel/kv": "^0.2.2",
     "dayjs": "^1.11.8",
     "dotenv": "^16.3.1",
-    "sass": "^1.63.6"
+    "nuxt": "^3.11.2",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "daisyui": "^4.11.1",
+    "sass": "^1.77.4"
   }
 }
