@@ -3,8 +3,6 @@
 </template>
 
 <style lang="scss">
-@use "~/assets/scss/mixins.scss";
-
 #__nuxt {
   text-align: center;
 }

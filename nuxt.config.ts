@@ -15,10 +15,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
   ],
 
-  css: [
-    "~/assets/css/main.css",
-    //  resolve("./assets/scss/mixins.scss")
-  ],
+  css: ["~/assets/css/main.css", "~/assets/scss/main.scss"],
   vite: {
     plugins: [],
   },
@@ -27,6 +24,13 @@ export default defineNuxtConfig({
     // Options
     config: {
       plugins: [daisyui],
+    },
+  },
+  webpack: {
+    loaders: {
+      scss: {
+        // additionalData:`@use "~/assets/scss/mixins.scss" as *;`
+      },
     },
   },
 });

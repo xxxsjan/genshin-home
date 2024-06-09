@@ -267,10 +267,12 @@ watch(
       <GenshinGrid
         :tianfudata="createData(1).tianfudata"
         :renderWuqi="createData(1).renderWuqi"
+        class="mb-2"
       />
       <GenshinGrid
         :tianfudata="createData(2).tianfudata"
         :renderWuqi="createData(2).renderWuqi"
+        class="mb-2"
       />
       <GenshinGrid
         :tianfudata="createData(3).tianfudata"
@@ -281,15 +283,7 @@ watch(
 </template>
 
 <style scoped lang="scss">
-@mixin lightBg {
-  background-color: #f0ede8;
-  color: #886444;
-}
-
-@mixin darkBg {
-  background-color: #886444;
-  color: #f0ede8;
-}
+@use "~/assets/scss/mixins.scss" as *;
 
 .header {
   @include darkBg();
