@@ -52,6 +52,7 @@ function toDetail(content_id: string | number) {
           :alt="img.title"
           @click="toDetail(img.content_id)"
           :title="img.title"
+          class="mb-1"
         />
       </div>
     </template>
@@ -74,7 +75,7 @@ function toDetail(content_id: string | number) {
             :key="index"
             target="_blank"
             :href="`https://bbs.mihoyo.com/ys/obc/content/${item.content_id}/detail?bbs_presentation_style=no_header`"
-            ><img :src="item.icon"
+            ><img :src="item.icon" class="mb-1"
           /></a>
         </div>
       </div>
@@ -88,6 +89,7 @@ function toDetail(content_id: string | number) {
           :src="item.src"
           @click="toDetail(item.content_id)"
           :title="item.name"
+          class="mb-1"
         />
       </div>
     </template>

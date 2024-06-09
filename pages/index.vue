@@ -74,7 +74,8 @@ let tianfudata: Array<{
         };
       }[]
   > = [];
-
+const paimengImg =
+  "https://act-upload.mihoyo.com/wiki-user-upload/2024/04/07/380453694/f17e67acac32aec78684d10fea22b0b8_6715540715200448148.png";
 function createData(dayOfWeek: number) {
   const tupocailiaoMap = [
     // 蒙德
@@ -179,7 +180,7 @@ function createData(dayOfWeek: number) {
   useData.forEach((item) => {
     item.data = beibao.filter((f) => f.title.indexOf(item.name) > -1);
     item.role = roleWithTianfu
-      .filter((f) => f.tianfu === item.name)
+      .filter((f) => f.tianfu && f.tianfu === item.name)
       .map((it) => ({
         ...it,
         image: imageData.find((f) => f.title === it.title),
@@ -213,7 +214,6 @@ onMounted(() => {
   }, 1000);
 });
 
-const visible = ref(false);
 const timeVal = ref(0);
 
 function updateData(num: number) {
@@ -257,10 +257,6 @@ watch(
         </ul>
       </div>
     </div>
-    <!-- <div class="time" style="position: relative"> -->
-    <!-- <span @click="visible = !visible">{{ weekText }}</span> -->
-    <!-- <TimeToast v-model="visible" v-model:timeVal="timeVal" /> -->
-    <!-- </div> -->
 
     <GenshinGrid
       v-if="weekText !== '周日'"
