@@ -21,7 +21,7 @@ function toDetail(content_id: string | number) {
     <template v-for="(_, index) in tianfudata.length" :key="index">
       <div :class="`tianfu tianfu${index + 1}`" v-if="tianfudata[index]">
         <div class="flex w-full flex-row">
-          <div>{{ tianfudata[index].name }}</div>
+          <div class="flex items-center">{{ tianfudata[index].name }}</div>
           <div class="img-wrap flex gap-1">
             <a
               v-for="(item, index) in 3"

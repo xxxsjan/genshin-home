@@ -18,19 +18,28 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css", "~/assets/scss/main.scss"],
   vite: {
     plugins: [],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "~/assets/scss/mixins.scss" as *;`,
+        },
+      },
+    },
+    build: {
+      minify: "terser",
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
+    },
   },
   // https://tailwindcss.nuxtjs.org/getting-started/installation#tailwind-files
   tailwindcss: {
     // Options
     config: {
       plugins: [daisyui],
-    },
-  },
-  webpack: {
-    loaders: {
-      scss: {
-        // additionalData:`@use "~/assets/scss/mixins.scss" as *;`
-      },
     },
   },
 });

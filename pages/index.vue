@@ -283,8 +283,6 @@ watch(
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/scss/mixins.scss" as *;
-
 .header {
   @include darkBg();
   width: 100%;
