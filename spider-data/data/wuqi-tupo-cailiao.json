@@ -107,48 +107,59 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 悠古弦音的回响",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/e340de45b1e7e341a765cc2ad0ba9f98_5160325328715699867.png",
-      "name": "名称：悠古弦音的回响",
-      "getWay": [
-        "周一/四/日",
-        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周一/四/日）】炼武秘境：机思Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材",
       "wuqi": [
         {
+          "name": "赦罪",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/20aaaff8596ff1c0c930d45490ed9936_5350818999137560927.png",
+          "count": "80级*6"
+        },
+        {
+          "name": "裁断",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/574f798739a3384c4f2abb7330239c7a_3623876201314034365.png",
+          "count": "80级*6"
+        },
+        {
           "name": "最初的大魔术",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/8c8a8c9e440486b373a78c8c6fccd9f7_1748268554645536900.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/7506c9f45941d9042633c514e91d2fb0_3620961558180053505.png",
           "count": "80级*6"
         },
         {
           "name": "水仙十字之剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/08/183046623/5223040a0b878ae878b0805e76ee15b6_1916374965038896014.png",
+          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/07/75833613/fa37e188a5aeca51c02d714db625373b_6124585083964755491.png",
           "count": "80级*4"
         },
         {
           "name": "勘探钻机",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/64d40b1ff597dba7ad58233670e76acc_4293155312296666018.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/b58ae1ae3d27f69592cf998592323764_2468558813836875638.png",
           "count": "80级*4"
         },
         {
           "name": "测距规",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/fe202d53fe15e135633faedea1659bb8_8357986525689581455.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/0215431290767929fa5103684c740d89_1711978131290854199.png",
           "count": "80级*4"
         },
         {
           "name": "灰河渡手",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/f0332dc642e3d368b97785574b290c30_4083753667829117201.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/2809e2ab06be6bf098e6027d4af09d97_2972730192240606511.png",
           "count": "80级*4"
         },
         {
           "name": "静谧之曲",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/299557ce0fc9c34d73ef59e960586f1b_4867427760988307491.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c66ebe0fccf337a4a96a129ad0eb3ea0_3052422450723338716.png",
           "count": "80级*4"
         }
-      ]
+      ],
+      "name": "悠古弦音的回响",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/e340de45b1e7e341a765cc2ad0ba9f98_5160325328715699867.png",
+      "getWay": [
+        "周一/四/日",
+        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：神王的宏大乐章由无数曲调连缀而成，但其主调深潜于水国的共同命运之下。无虑之年的协和奏鸣曲曾是文明与秩序的最高代表，但当盛世帝国沦为暴君的乐园，横暴者以华丽的黄金大氅为遮掩撕裂着与源泉的联系，不和谐的噪音终于在帝国各处蜂起扰攘之时——那最初的命运之曲仍不受骚乱的影响，在黄金日渐褪色的乐谱上持续奏响着⋯直至一切皆被溶解，一切重回混沌。",
+      "purpose": "用途：武器突破素材"
     }
   },
   {
@@ -161,48 +172,59 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 悠古弦音的乐章",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/83f9e55766d7a2ba66e0407c4cdd19d9_2695235561518522566.png",
-      "name": "名称：悠古弦音的乐章",
-      "getWay": [
-        "周一/四/日",
-        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周一/四/日）】炼武秘境：机思Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】悠古弦音的回响",
       "wuqi": [
         {
+          "name": "赦罪",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/20aaaff8596ff1c0c930d45490ed9936_5350818999137560927.png",
+          "count": "60级*5；70级*9"
+        },
+        {
+          "name": "裁断",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/574f798739a3384c4f2abb7330239c7a_3623876201314034365.png",
+          "count": "60级*5；70级*9"
+        },
+        {
           "name": "最初的大魔术",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/8c8a8c9e440486b373a78c8c6fccd9f7_8939843359496779728.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/7506c9f45941d9042633c514e91d2fb0_3620961558180053505.png",
           "count": "60级*5；70级*9"
         },
         {
           "name": "水仙十字之剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/08/183046623/5223040a0b878ae878b0805e76ee15b6_40967956564587730.png",
+          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/07/75833613/fa37e188a5aeca51c02d714db625373b_6124585083964755491.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "勘探钻机",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/64d40b1ff597dba7ad58233670e76acc_2361506227613990661.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/b58ae1ae3d27f69592cf998592323764_2468558813836875638.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "测距规",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/fe202d53fe15e135633faedea1659bb8_8338277131057276092.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/0215431290767929fa5103684c740d89_1711978131290854199.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "灰河渡手",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/f0332dc642e3d368b97785574b290c30_4738499209697474572.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/2809e2ab06be6bf098e6027d4af09d97_2972730192240606511.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "静谧之曲",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/299557ce0fc9c34d73ef59e960586f1b_7947911331379237118.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c66ebe0fccf337a4a96a129ad0eb3ea0_3052422450723338716.png",
           "count": "60级*3；70级*6"
         }
-      ]
+      ],
+      "name": "悠古弦音的乐章",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/83f9e55766d7a2ba66e0407c4cdd19d9_2695235561518522566.png",
+      "getWay": [
+        "周一/四/日",
+        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：在黄金宫殿与王座同沉的灾难中，乐章破碎，音符沉默⋯但帝国的遗民从未放弃拯救与超越命运的执望。为了拯救没落的文明与超越的旧梦，「金色剧团」奏响美妙的乐曲，指引孩童向沉睡的魔像献出高贵灵魂。",
+      "purpose": "用途：武器突破素材　　　【炼金】悠古弦音的回响"
     }
   },
   {
@@ -215,102 +237,124 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 悠古弦音的断章",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/f36379503b54975751250aee43af5db7_4343388205296664132.png",
-      "name": "名称：悠古弦音的断章",
-      "getWay": [
-        "周一/四/日",
-        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅱ/Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周一/四/日）】炼武秘境：机思Ⅱ/Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】悠古弦音的乐章",
       "wuqi": [
         {
+          "name": "赦罪",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/20aaaff8596ff1c0c930d45490ed9936_5350818999137560927.png",
+          "count": "40级*5；50级*9"
+        },
+        {
+          "name": "裁断",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/574f798739a3384c4f2abb7330239c7a_3623876201314034365.png",
+          "count": "40级*5；50级*9"
+        },
+        {
           "name": "最初的大魔术",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/8c8a8c9e440486b373a78c8c6fccd9f7_4838219228522385679.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/7506c9f45941d9042633c514e91d2fb0_3620961558180053505.png",
           "count": "40级*5；50级*9"
         },
         {
           "name": "水仙十字之剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/08/183046623/5223040a0b878ae878b0805e76ee15b6_5418416204478782699.png",
+          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/07/75833613/fa37e188a5aeca51c02d714db625373b_6124585083964755491.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "勘探钻机",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/64d40b1ff597dba7ad58233670e76acc_7982574147973203508.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/b58ae1ae3d27f69592cf998592323764_2468558813836875638.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "测距规",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/fe202d53fe15e135633faedea1659bb8_5732874392768803612.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/0215431290767929fa5103684c740d89_1711978131290854199.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "灰河渡手",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/f0332dc642e3d368b97785574b290c30_8786672852604601185.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/2809e2ab06be6bf098e6027d4af09d97_2972730192240606511.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "静谧之曲",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/299557ce0fc9c34d73ef59e960586f1b_5472461995210414969.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c66ebe0fccf337a4a96a129ad0eb3ea0_3052422450723338716.png",
           "count": "40级*3；50级*6"
         }
-      ]
+      ],
+      "name": "悠古弦音的断章",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/f36379503b54975751250aee43af5db7_4343388205296664132.png",
+      "getWay": [
+        "周一/四/日",
+        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅱ/Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：传说古老王朝的遗民曾以黑铁铸成竖琴，用于纪念与哀悼。黑铁所铸成的竖琴，是奏不出声音的。为了哀悼那个以金色乐曲为傲的古老王朝，遗民们打造了这些沉重而沉默的乐器。但无论如何，正如那沉默的时代一般，黑铁是奏不出音调的。",
+      "purpose": "用途：武器突破素材　　　【炼金】悠古弦音的乐章"
     }
   },
   {
     "content_id": 7035,
     "title": "悠古弦音的残章",
-    "ext": "{\"c_13\":{\"filter\":{\"text\":\"[\\\"道具类型/武器突破素材\\\",\\\"获取方式/秘境掉落\\\",\\\"星级/二星\\\"]\"}}}",
+    "ext": "{\"c_13\":{\"filter\":{\"text\":\"[\\\"道具类型/武器突破素材\\\",\\\"获取方式/秘境掉落\\\",\\\"获取方式/纪念商店购买或兑换\\\",\\\"星级/二星\\\"]\"}}}",
     "icon": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/a4a7d9557321e6168b931f2794c63c07_1393827190176024643.png",
     "bbs_url": "",
     "article_user_name": "",
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 悠古弦音的残章",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/a4a7d9557321e6168b931f2794c63c07_219834403767904675.png",
-      "name": "名称：悠古弦音的残章",
-      "getWay": [
-        "周一/四/日",
-        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周一/四/日）】炼武秘境：机思Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        ""
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】悠古弦音的断章",
       "wuqi": [
         {
+          "name": "赦罪",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/20aaaff8596ff1c0c930d45490ed9936_5350818999137560927.png",
+          "count": "20级*5"
+        },
+        {
+          "name": "裁断",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/574f798739a3384c4f2abb7330239c7a_3623876201314034365.png",
+          "count": "20级*5"
+        },
+        {
           "name": "最初的大魔术",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/8c8a8c9e440486b373a78c8c6fccd9f7_7796209997808246208.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/7506c9f45941d9042633c514e91d2fb0_3620961558180053505.png",
           "count": "20级*5"
         },
         {
           "name": "水仙十字之剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/08/183046623/5223040a0b878ae878b0805e76ee15b6_1668873766254267102.png",
+          "src": "https://act-upload.mihoyo.com/ys-obc/2023/11/07/75833613/fa37e188a5aeca51c02d714db625373b_6124585083964755491.png",
           "count": "20级*3"
         },
         {
           "name": "勘探钻机",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/64d40b1ff597dba7ad58233670e76acc_6848045447733336736.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/b58ae1ae3d27f69592cf998592323764_2468558813836875638.png",
           "count": "20级*3"
         },
         {
           "name": "测距规",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/fe202d53fe15e135633faedea1659bb8_2550341060613791268.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/0215431290767929fa5103684c740d89_1711978131290854199.png",
           "count": "20级*3"
         },
         {
           "name": "灰河渡手",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/f0332dc642e3d368b97785574b290c30_6464891817179512805.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/2809e2ab06be6bf098e6027d4af09d97_2972730192240606511.png",
           "count": "20级*3"
         },
         {
           "name": "静谧之曲",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/299557ce0fc9c34d73ef59e960586f1b_1535712872881124853.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c66ebe0fccf337a4a96a129ad0eb3ea0_3052422450723338716.png",
           "count": "20级*3"
         }
-      ]
+      ],
+      "name": "悠古弦音的残章",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/a4a7d9557321e6168b931f2794c63c07_219834403767904675.png",
+      "getWay": [
+        "周一/四/日",
+        "【深潮的余响（周一/四/日）】炼武秘境：机思Ⅰ/Ⅱ/Ⅲ/Ⅳ",
+        "枫丹梅琪妮【「白棠珍奇屋」店主】处购买"
+      ],
+      "describe": "描述：琴键已然腐朽的竖琴，其音腔被阻塞，已经无法奏出声响。据说，遗忘乐章的后人为复活古老王朝的华丽残迹，曾在木制的机械竖琴上涂刷金漆，徒劳地将之与无言的魔像相配⋯很久很久以后，腐朽走调的竖琴仍旧留在那些沉默的巨像手中，任海浪抚摩，奏出忧伤的余音。",
+      "purpose": "用途：武器突破素材　　　【炼金】悠古弦音的断章"
     }
   },
   {
@@ -323,43 +367,54 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 无垢之海的银杯",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/6a6516e9d89e0a81b9b5b17713991eef_5471379948033482756.png",
-      "name": "名称：无垢之海的银杯",
-      "getWay": [
-        "周三/六/日",
-        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周三/六/日）】炼武秘境：奇械Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】无垢之海的金杯",
       "wuqi": [
         {
-          "name": "金流监督",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/1929dc69fecd7a22a92923f7e78a71cd_37412201977134785.png",
+          "name": "赤月之形",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/04/18/75833613/6ddd818033e3b1b92e3fb00e9bedc682_5310546595493287693.png",
           "count": "60级*5；70级*9"
         },
         {
+          "name": "金流监督",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/fc45d4293e0fab78e6f2b26aa74dcbaa_1669492130215807110.png",
+          "count": "60级*5；70级*9"
+        },
+        {
+          "name": "「究极霸王超级魔剑」",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/8e2b4aff0df26726cf6059ede309ce2e_8488502316359267847.png",
+          "count": "60级*3；70级*6"
+        },
+        {
           "name": "便携动力锯",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/09/27/183046623/d1ab89fdc7554a0986434422daf442a5_3674923170174432659.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c3a7f2108924641d1ce9323d9f3d3d83_6040803881442449608.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "峡湾长歌",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/6f3ef124cc59aa5aea3f0c6428fa8e24_7420588715869134272.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/8b34407ee1c50d69ea882165b1660d22_8864222110913838552.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "浪影阔剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/4359e8acc5649af64e158821fdeca584_4137714195937286185.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/4b3d265ce938b480795dd7fe1d9e9099_5490614161696641985.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "公义的酬报",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/fc425d54ecdc35e1dfd3a3a4e39f757b_2667324542338604523.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/43a964491cba5a30a5b6a946d54d52d3_3906346824701996834.png",
           "count": "60级*3；70级*6"
         }
-      ]
+      ],
+      "name": "无垢之海的银杯",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/6a6516e9d89e0a81b9b5b17713991eef_5471379948033482756.png",
+      "getWay": [
+        "周三/六/日",
+        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：在黄金之衾覆盖国土的岁月里，纯真的泉水不得不藏匿于隐秘山涧，「纯水骑士」便是在这些避难所中诞生的。骑士们以白银的甲胄为誓，守护着来自纯水的精灵，守卫着同样信赖唯一源泉的乡亲，抵抗遮天蔽日的黄金之权。那是很久以前的传说了⋯在帝国崩毁沉没之后不久，抵抗僭主的骑士们也卸下甲胄，其故事隐入了庞杂的故事歌谣之中。",
+      "purpose": "用途：武器突破素材　　　【炼金】无垢之海的金杯"
     }
   },
   {
@@ -372,92 +427,114 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 无垢之海的酒盏",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/45d6fecae78a7d05aa9fc84918e789c5_8964659066976352267.png",
-      "name": "名称：无垢之海的酒盏",
-      "getWay": [
-        "周三/六/日",
-        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅱ/Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周三/六/日）】炼武秘境：奇械Ⅱ/Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】无垢之海的银杯",
       "wuqi": [
         {
-          "name": "金流监督",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/1929dc69fecd7a22a92923f7e78a71cd_4660313157350406703.png",
+          "name": "赤月之形",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/04/18/75833613/6ddd818033e3b1b92e3fb00e9bedc682_5310546595493287693.png",
           "count": "40级*5；50级*9"
         },
         {
+          "name": "金流监督",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/fc45d4293e0fab78e6f2b26aa74dcbaa_1669492130215807110.png",
+          "count": "40级*5；50级*9"
+        },
+        {
+          "name": "「究极霸王超级魔剑」",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/8e2b4aff0df26726cf6059ede309ce2e_8488502316359267847.png",
+          "count": "40级*3；50级*6"
+        },
+        {
           "name": "便携动力锯",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/09/27/183046623/d1ab89fdc7554a0986434422daf442a5_1792002186071827008.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c3a7f2108924641d1ce9323d9f3d3d83_6040803881442449608.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "峡湾长歌",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/6f3ef124cc59aa5aea3f0c6428fa8e24_7290329021009552886.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/8b34407ee1c50d69ea882165b1660d22_8864222110913838552.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "浪影阔剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/4359e8acc5649af64e158821fdeca584_7488470339446063233.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/4b3d265ce938b480795dd7fe1d9e9099_5490614161696641985.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "公义的酬报",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/fc425d54ecdc35e1dfd3a3a4e39f757b_8487192691319023677.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/43a964491cba5a30a5b6a946d54d52d3_3906346824701996834.png",
           "count": "40级*3；50级*6"
         }
-      ]
+      ],
+      "name": "无垢之海的酒盏",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/45d6fecae78a7d05aa9fc84918e789c5_8964659066976352267.png",
+      "getWay": [
+        "周三/六/日",
+        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅱ/Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：什么样的帝国能够延续千年？从龙的国度归来后，僭主曾思考过如是问题。不朽的石材与自原始之水提取的灵露结合，雕成如黑铁般坚韧的种族——以魔石为肤，灵露为血，从此之后再也无惧回归莽荒的诅咒⋯沉默的魔像仍做着帝国美梦——不知不觉间，帝国湮没已千年有余。",
+      "purpose": "用途：武器突破素材　　　【炼金】无垢之海的银杯"
     }
   },
   {
     "content_id": 7032,
     "title": "无垢之海的苦盏",
-    "ext": "{\"c_13\":{\"filter\":{\"text\":\"[\\\"道具类型/武器突破素材\\\",\\\"获取方式/秘境掉落\\\",\\\"星级/二星\\\"]\"}}}",
+    "ext": "{\"c_13\":{\"filter\":{\"text\":\"[\\\"道具类型/武器突破素材\\\",\\\"获取方式/秘境掉落\\\",\\\"获取方式/纪念商店购买或兑换\\\",\\\"星级/二星\\\"]\"}}}",
     "icon": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/d2e91142e7293091f926b5437111861e_8089301746958178494.png",
     "bbs_url": "",
     "article_user_name": "",
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 无垢之海的苦盏",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/d2e91142e7293091f926b5437111861e_417860776125874255.png",
-      "name": "名称：无垢之海的苦盏",
-      "getWay": [
-        "周三/六/日",
-        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周三/六/日）】炼武秘境：奇械Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        ""
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】无垢之海的酒盏",
       "wuqi": [
         {
-          "name": "金流监督",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/1929dc69fecd7a22a92923f7e78a71cd_8507166445629428728.png",
+          "name": "赤月之形",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/04/18/75833613/6ddd818033e3b1b92e3fb00e9bedc682_5310546595493287693.png",
           "count": "20级*5"
         },
         {
+          "name": "金流监督",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/fc45d4293e0fab78e6f2b26aa74dcbaa_1669492130215807110.png",
+          "count": "20级*5"
+        },
+        {
+          "name": "「究极霸王超级魔剑」",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/8e2b4aff0df26726cf6059ede309ce2e_8488502316359267847.png",
+          "count": "20级*3"
+        },
+        {
           "name": "便携动力锯",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/09/27/183046623/d1ab89fdc7554a0986434422daf442a5_3641174070168396349.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c3a7f2108924641d1ce9323d9f3d3d83_6040803881442449608.png",
           "count": "20级*3"
         },
         {
           "name": "峡湾长歌",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/6f3ef124cc59aa5aea3f0c6428fa8e24_4809962693016827594.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/8b34407ee1c50d69ea882165b1660d22_8864222110913838552.png",
           "count": "20级*3"
         },
         {
           "name": "浪影阔剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/4359e8acc5649af64e158821fdeca584_642450074003097390.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/4b3d265ce938b480795dd7fe1d9e9099_5490614161696641985.png",
           "count": "20级*3"
         },
         {
           "name": "公义的酬报",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/fc425d54ecdc35e1dfd3a3a4e39f757b_4273349795020305533.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/43a964491cba5a30a5b6a946d54d52d3_3906346824701996834.png",
           "count": "20级*3"
         }
-      ]
+      ],
+      "name": "无垢之海的苦盏",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/d2e91142e7293091f926b5437111861e_417860776125874255.png",
+      "getWay": [
+        "周三/六/日",
+        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅰ/Ⅱ/Ⅲ/Ⅳ",
+        "枫丹梅琪妮【「白棠珍奇屋」店主】处购买"
+      ],
+      "describe": "描述：传说在最初的僭主来到原始之海时，水国的先主曾赠予他一杯水。后来，他成为了不可质疑的神王，以这杯水提炼神奇的露珠，从而建立了辉煌强盛的帝国。那是久远的故事了，其主角如今正沉睡在深海鱼群的磷光之中。",
+      "purpose": "用途：武器突破素材　　　【炼金】无垢之海的酒盏"
     }
   },
   {
@@ -568,43 +645,54 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "枫丹武器突破素材 无垢之海的金杯",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://act-upload.mihoyo.com/ys-obc/2023/08/13/183046623/8e30583b8749060c0a47fa9809fc334b_1839186131100616318.png",
-      "name": "名称：无垢之海的金杯",
-      "getWay": [
-        "周三/六/日",
-        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/7009/detail?bbs_presentation_style=no_header\" data-type=\"obc-content\" target=\"_blank\">深潮的余响</a>（周三/六/日）】炼武秘境：奇械Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材",
       "wuqi": [
         {
-          "name": "金流监督",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/10/17/183046623/1929dc69fecd7a22a92923f7e78a71cd_4128828537599719225.png",
+          "name": "赤月之形",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/04/18/75833613/6ddd818033e3b1b92e3fb00e9bedc682_5310546595493287693.png",
           "count": "80级*6"
         },
         {
+          "name": "金流监督",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/fc45d4293e0fab78e6f2b26aa74dcbaa_1669492130215807110.png",
+          "count": "80级*6"
+        },
+        {
+          "name": "「究极霸王超级魔剑」",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/16/75833613/8e2b4aff0df26726cf6059ede309ce2e_8488502316359267847.png",
+          "count": "80级*4"
+        },
+        {
           "name": "便携动力锯",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/09/27/183046623/d1ab89fdc7554a0986434422daf442a5_5356846826217785028.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/287124884/c3a7f2108924641d1ce9323d9f3d3d83_6040803881442449608.png",
           "count": "80级*4"
         },
         {
           "name": "峡湾长歌",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/15/183046623/6f3ef124cc59aa5aea3f0c6428fa8e24_6193618157608488855.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/8b34407ee1c50d69ea882165b1660d22_8864222110913838552.png",
           "count": "80级*4"
         },
         {
           "name": "浪影阔剑",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/14/183046623/4359e8acc5649af64e158821fdeca584_7065677059693572350.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/4b3d265ce938b480795dd7fe1d9e9099_5490614161696641985.png",
           "count": "80级*4"
         },
         {
           "name": "公义的酬报",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/14/183046623/fc425d54ecdc35e1dfd3a3a4e39f757b_5374381801569240496.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/345715435/43a964491cba5a30a5b6a946d54d52d3_3906346824701996834.png",
           "count": "80级*4"
         }
-      ]
+      ],
+      "name": "无垢之海的金杯",
+      "src": "https://act-upload.mihoyo.com/ys-obc/2023/08/13/183046623/8e30583b8749060c0a47fa9809fc334b_1839186131100616318.png",
+      "getWay": [
+        "周三/六/日",
+        "【深潮的余响（周三/六/日）】炼武秘境：奇械Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：沉没之城的僭主弹奏黄金乐章的最后一曲时，深受宠渥的乐师窃走了满盛灵露的金杯。为神王的背叛愚行所震惊，乐师召集了最后的禁卫，用不溶的灵露将魔龙封印于高塔之下，同王城一起沉沦海渊。后来，这高贵窃贼的身影从历史上默默消湮，只有「金色剧团」仍忠诚地记得他的预言。",
+      "purpose": "用途：武器突破素材"
     }
   },
   {
@@ -716,48 +804,54 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "谧林涓露的金符",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/55416fff3427034075a4201d4fb4abbe_3704301544782895695.png",
-      "name": "名称：谧林涓露的金符",
-      "getWay": [
-        "周一/四/日",
-        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/4470/detail\" data-type=\"obc-content\" target=\"_blank\">有顶塔</a>（周一/四/日）】炼武秘境：云垢Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材",
       "wuqi": [
         {
           "name": "裁叶萃光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/183046623/6f9e46c1aea970cb701ed3140f17ba94_8322498110270802163.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/434d99169f6fae1c5eae0e3ade54f652_55941836635194140.png",
           "count": "80级*6"
         },
         {
           "name": "圣显之钥",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/17063cbff7f8f01b9c5a45cb6f0f0bff_7413165105808976148.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/919516d1efb31c7d18c6341c7082cbe4_2632044144971560297.png",
           "count": "80级*6"
         },
         {
+          "name": "沙中伟贤的对答",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/e4a7dded6b27381634a7bf78567ee5bc_2475469122820961696.png",
+          "count": "80级*4"
+        },
+        {
           "name": "鹮穿之喙",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/05/23/183046623/9bfd5249f20e2d0a918fbb01e7c0cb9a_1952811842827209713.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/daf8032f00fe46abd0df6f6fc28ef565_4612942230880391674.png",
           "count": "80级*4"
         },
         {
           "name": "西福斯的月光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/0588b3acc33fe683a499ede1fd154358_8121627074659866951.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/c3a80c8e59364caee9e7297404856883_2830323835276724492.png",
           "count": "80级*4"
         },
         {
           "name": "原木刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/fd6ba0f1c2db8473aece023a6edec48a_7592792903057210822.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/fa41736410fd51f82e49c080415b9374_1763880686630336324.png",
           "count": "80级*4"
         },
         {
           "name": "森林王器",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/881de45b96f658cd4dc2cb41887b658a_126710823206712140.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/e62253ee5f41ef2837bef2349fe736b0_8226653448224158853.png",
           "count": "80级*4"
         }
-      ]
+      ],
+      "name": "谧林涓露的金符",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/55416fff3427034075a4201d4fb4abbe_3704301544782895695.png",
+      "getWay": [
+        "周一/四/日",
+        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。「为人只有三物值得相顾：怀抱月光的泉水、生命的绿色，与不老的容颜⋯」「智慧」的本质并不在于掌控一切思维， 谋取一切利益，而在于其能够令平凡的生命最终也获得超越桎梏的自由。尽管密林中不再回荡着摄人心魄的虎啸，坚强的卫士也退隐孩童的梦中⋯在秘密的黄金封印都被揭开，所有的梦想在月光下如琥珀闪闪发亮的那一夜，或许她与她所深爱的凡人们将会赢得真正的自由。",
+      "purpose": "用途：武器突破素材"
     }
   },
   {
@@ -770,48 +864,54 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "谧林涓露的银符",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/c4e43412bd3d9f506d3b172a4cde66fe_4621329295556025953.png",
-      "name": "名称：谧林涓露的银符",
-      "getWay": [
-        "周一/四/日",
-        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/4470/detail\" data-type=\"obc-content\" target=\"_blank\">有顶塔</a>（周一/四/日）】炼武秘境：云垢Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】谧林涓露的金符",
       "wuqi": [
         {
           "name": "裁叶萃光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/183046623/6f9e46c1aea970cb701ed3140f17ba94_1858440069801458693.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/434d99169f6fae1c5eae0e3ade54f652_55941836635194140.png",
           "count": "60级*5；70级*9"
         },
         {
           "name": "圣显之钥",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/17063cbff7f8f01b9c5a45cb6f0f0bff_8682629578994483842.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/919516d1efb31c7d18c6341c7082cbe4_2632044144971560297.png",
           "count": "60级*5；70级*9"
         },
         {
+          "name": "沙中伟贤的对答",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/e4a7dded6b27381634a7bf78567ee5bc_2475469122820961696.png",
+          "count": "60级*3；70级*6"
+        },
+        {
           "name": "鹮穿之喙",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/05/23/183046623/9bfd5249f20e2d0a918fbb01e7c0cb9a_2558440693151449163.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/daf8032f00fe46abd0df6f6fc28ef565_4612942230880391674.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "西福斯的月光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/0588b3acc33fe683a499ede1fd154358_7335749259473087725.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/c3a80c8e59364caee9e7297404856883_2830323835276724492.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "原木刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/fd6ba0f1c2db8473aece023a6edec48a_7592792903057210822.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/fa41736410fd51f82e49c080415b9374_1763880686630336324.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "森林王器",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/881de45b96f658cd4dc2cb41887b658a_126710823206712140.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/e62253ee5f41ef2837bef2349fe736b0_8226653448224158853.png",
           "count": "60级*3；70级*6"
         }
-      ]
+      ],
+      "name": "谧林涓露的银符",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/c4e43412bd3d9f506d3b172a4cde66fe_4621329295556025953.png",
+      "getWay": [
+        "周一/四/日",
+        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。在森林的诸多故事中，身披烈火般条纹斗篷的王是迷宫的大君，是映月之水的主人。当他俯首与草木的主人缔结友谊，信物便是闪烁着似水光泽的宝石与月光似的白银。作为友谊的珍贵交换，草木的主人承诺为迷宫之王保守秘密，保护雨林绮丽的梦想。尽管后来，一切秘密与梦构成的华美宫阙都在遗忘的深黑烈焰之下烟消云散，又融入厚重土壤，化作了新生雨林的养料。",
+      "purpose": "用途：武器突破素材　　　【炼金】谧林涓露的金符"
     }
   },
   {
@@ -824,48 +924,54 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "谧林涓露的铁符",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/3d95e25ac9c0e6aeecec0d02225ba7b9_5358888251920296958.png",
-      "name": "名称：谧林涓露的铁符",
-      "getWay": [
-        "周一/四/日",
-        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅱ/Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/4470/detail\" data-type=\"obc-content\" target=\"_blank\">有顶塔</a>（周一/四/日）】炼武秘境：云垢Ⅱ/Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】谧林涓露的银符",
       "wuqi": [
         {
           "name": "裁叶萃光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/183046623/6f9e46c1aea970cb701ed3140f17ba94_8082585018973833567.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/434d99169f6fae1c5eae0e3ade54f652_55941836635194140.png",
           "count": "40级*5；50级*9"
         },
         {
           "name": "圣显之钥",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/17063cbff7f8f01b9c5a45cb6f0f0bff_828512802740878166.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/919516d1efb31c7d18c6341c7082cbe4_2632044144971560297.png",
           "count": "40级*5；50级*9"
         },
         {
+          "name": "沙中伟贤的对答",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/e4a7dded6b27381634a7bf78567ee5bc_2475469122820961696.png",
+          "count": "40级*3；50级*6"
+        },
+        {
           "name": "鹮穿之喙",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/05/23/183046623/9bfd5249f20e2d0a918fbb01e7c0cb9a_7344003582336010877.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/daf8032f00fe46abd0df6f6fc28ef565_4612942230880391674.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "西福斯的月光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/0588b3acc33fe683a499ede1fd154358_780954846719823339.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/c3a80c8e59364caee9e7297404856883_2830323835276724492.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "原木刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/fd6ba0f1c2db8473aece023a6edec48a_7592792903057210822.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/fa41736410fd51f82e49c080415b9374_1763880686630336324.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "森林王器",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/881de45b96f658cd4dc2cb41887b658a_126710823206712140.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/e62253ee5f41ef2837bef2349fe736b0_8226653448224158853.png",
           "count": "40级*3；50级*6"
         }
-      ]
+      ],
+      "name": "谧林涓露的铁符",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/3d95e25ac9c0e6aeecec0d02225ba7b9_5358888251920296958.png",
+      "getWay": [
+        "周一/四/日",
+        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅱ/Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。后来，草木的主人教会了人们锻造黑铁的奥秘。就这样，天真的凡人学会了使用火与利刃的知识。草木的主人为之欢欣，纵使火与金属会伤害她，但亦会使凡人强大。",
+      "purpose": "用途：武器突破素材　　　【炼金】谧林涓露的银符"
     }
   },
   {
@@ -878,48 +984,53 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "谧林涓露的铜符",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/cd71817bc166af9dd7ae931312b0e40f_3040990713209645169.png",
-      "name": "名称：谧林涓露的铜符",
-      "getWay": [
-        "周一/四/日",
-        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        "【<a href=\"/ys/obc/content/4470/detail\" data-type=\"obc-content\" target=\"_blank\">有顶塔</a>（周一/四/日）】炼武秘境：云垢Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        ""
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】谧林涓露的铁符",
       "wuqi": [
         {
           "name": "裁叶萃光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2023/01/17/183046623/6f9e46c1aea970cb701ed3140f17ba94_884653401331707140.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/06/05/195563531/434d99169f6fae1c5eae0e3ade54f652_55941836635194140.png",
           "count": "20级*5"
         },
         {
           "name": "圣显之钥",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/17063cbff7f8f01b9c5a45cb6f0f0bff_196414215366666976.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/919516d1efb31c7d18c6341c7082cbe4_2632044144971560297.png",
           "count": "20级*5"
         },
         {
+          "name": "沙中伟贤的对答",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/e4a7dded6b27381634a7bf78567ee5bc_2475469122820961696.png",
+          "count": "20级*3"
+        },
+        {
           "name": "鹮穿之喙",
-          "src": "https://act-upload.mihoyo.com/ys-obc/2023/05/23/183046623/9bfd5249f20e2d0a918fbb01e7c0cb9a_7526655174972213704.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/50494840/daf8032f00fe46abd0df6f6fc28ef565_4612942230880391674.png",
           "count": "20级*3"
         },
         {
           "name": "西福斯的月光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/10/14/183046623/0588b3acc33fe683a499ede1fd154358_733941277213670890.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/22/4746485/c3a80c8e59364caee9e7297404856883_2830323835276724492.png",
           "count": "20级*3"
         },
         {
           "name": "原木刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/fd6ba0f1c2db8473aece023a6edec48a_7122949494718585365.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/fa41736410fd51f82e49c080415b9374_1763880686630336324.png",
           "count": "20级*3"
         },
         {
           "name": "森林王器",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/25/183046623/881de45b96f658cd4dc2cb41887b658a_1134074040391418333.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/27/317305234/e62253ee5f41ef2837bef2349fe736b0_8226653448224158853.png",
           "count": "20级*3"
         }
-      ]
+      ],
+      "name": "谧林涓露的铜符",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/08/20/4820086/cd71817bc166af9dd7ae931312b0e40f_3040990713209645169.png",
+      "getWay": [
+        "周一/四/日",
+        "【有顶塔（周一/四/日）】炼武秘境：云垢Ⅰ/Ⅱ/Ⅲ/Ⅳ"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。在最初的贤者指导下，雨林的先民曾将枯木雕成神符，以供奉纪念绿草与高木的主人。神符仿照林间清露的形状雕成，象征着智慧的涓滴在凡人的心智中渗流。",
+      "purpose": "用途：武器突破素材　　　【炼金】谧林涓露的铁符"
     }
   },
   {
@@ -3022,103 +3133,109 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "雾海云间的铅丹",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2020/04/13/4820086/2f87dc695a93b230f81b58fe7d10b9a2_8144216522994333734.png",
-      "name": "名称：雾海云间的铅丹",
-      "getWay": [
-        "周二/五/日",
-        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅰ/Ⅱ/Ⅲ/Ⅳ璃月星稀【「明星斋」斋主】处购买",
-        "【<a href=\"/ys/obc/content/301/detail\" data-type=\"a\" target=\"_blank\">震雷连山密宫</a>（周二/五/日）】炼武秘境：鸣雷城墟Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        "璃月星稀【「明星斋」斋主】处购买"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】雾海云间的汞丹",
       "wuqi": [
         {
+          "name": "鹤鸣余音",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/01/26/75833613/7cbba58bf55197f1c3e26b03cbe0f27d_3118585862292761608.png",
+          "count": "20级*5"
+        },
+        {
           "name": "息灾",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/01/11/8912764/bc53d31707c6d8c7637162871f59ba4e_7475426063356619728.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/f82faf46f85ddbfe19cd1d02701c57d7_8226451094295359858.png",
           "count": "20级*5"
         },
         {
           "name": "磐岩结绿",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/bfa02af5665193d9b8153107d5484e57_2912077363033392111.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/f909eb69f658d86f612bc591eabc7d5d_4877741522596632805.png",
           "count": "20级*5"
         },
         {
           "name": "无工之剑",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d4ecd5c1f63d73c86a17ad3b382ab95c_5986306463863891259.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/8ea8b899451d15af21dd13ace70a381f_9158827088868298445.png",
           "count": "20级*5"
         },
         {
           "name": "黑岩刺枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b4e0f6c437598a77e7660997daf5260a_5431356106224341608.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/8c4d3ab52b263f9093ef736978e997a4_8146359096890745188.png",
           "count": "20级*3"
         },
         {
           "name": "黑岩斩刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/572b49753770be07dec7065ed8aa9e33_1356104072419918910.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/c44d634d48c92c5d3a316267d6166f80_8992417812055138677.png",
           "count": "20级*3"
         },
         {
           "name": "试作澹月",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/6d9776dea64400a58adb4eaf824c1618_1713147640993109138.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/3b8d58575d5df98e335739cc1dd966d8_2116176281884502607.png",
           "count": "20级*3"
         },
         {
           "name": "试作金珀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/043803dbf1729027d76feaa7c24aa67b_1381215605417303906.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/294074726/0e0b7395ae6aa84422a4085cacd522d1_7048549369586094992.png",
           "count": "20级*3"
         },
         {
           "name": "试作斩岩",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/7916a14d5e0ecaea8a37db5505c01f2e_8242391261718571932.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/4bbe551419a12004a2970b6e3026d16e_4498908837475265754.png",
           "count": "20级*3"
         },
         {
           "name": "匣里灭辰",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b753959a45fc9989e39dd945e8769e4a_8647724050316556289.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/201a99e66050179cd524162f7def43b5_5555442470878593769.png",
           "count": "20级*3"
         },
         {
           "name": "雨裁",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d1004336c0b48f25a7d3546b57bce070_2478300241910208382.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/fd99a71c87f90e622d852fa50cf10328_1627106986506974220.png",
           "count": "20级*3"
         },
         {
           "name": "昭心",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/dafe7f5cdecac90aec82b1a4ba04ff25_5633548311950024752.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/942ae8d7a0c6d0b8e1d1b3d74352367b_6323647904625110329.png",
           "count": "20级*3"
         },
         {
           "name": "宗室猎枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/5f0ecdf6675c087059ef9bdcf34f8bb7_8068719293035278292.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/13/82503813/6540e8846b3c63ac77ccde26219561e9_2742298426696066271.png",
           "count": "20级*3"
         },
         {
           "name": "吃虎鱼刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b212aac89bb6d20fe174035b9469da21_2364459222406313154.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/6450e14e0ddf17f1257896b320e416ee_2165478697478198266.png",
           "count": "20级*2"
         },
         {
           "name": "甲级宝珏",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/86bb969cdb644cf54cf0ab62350b2e63_8256488738214526565.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/617a68585a05b1b8e6f27d840d36adc9_7156335873120568892.png",
           "count": "20级*2"
         },
         {
           "name": "信使",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/16f64d570b8d5a72000191df60f62601_3315753348223083562.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/139756053/64c3a821e2ab5b875186458357ff961c_7627440319273350574.png",
           "count": "20级*2"
         },
         {
           "name": "以理服人",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/059f200b99d098fd1791a5b6df57fb15_8210512137923754468.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/fdd709e6efc06d8e3f6314952ce250b3_215817519936483767.png",
           "count": "20级*2"
         },
         {
           "name": "钺矛",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/2ef0c79a0d05d49f3c7c884520e70ef6_8526891246186648088.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/471f903fd65ab4937fd8f1edc7c8f721_5079368965075539070.png",
           "count": "20级*2"
         }
-      ]
+      ],
+      "name": "雾海云间的铅丹",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2020/04/13/4820086/2f87dc695a93b230f81b58fe7d10b9a2_8144216522994333734.png",
+      "getWay": [
+        "周二/五/日",
+        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅰ/Ⅱ/Ⅲ/Ⅳ",
+        "璃月星稀【「明星斋」斋主】处购买"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。绝云间乃是仙家府地。而相传仙家除了三眼五显神通，可以操纵尘世的元素之力外，另有三项不传秘：丹鼎、符篆与外景。",
+      "purpose": "用途：武器突破素材　　　【炼金】雾海云间的汞丹"
     }
   },
   {
@@ -3131,103 +3248,109 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "雾海云间的金丹",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2021/08/22/6381993/4658c53699a66b3ad716d61cc0fb4e5c_4644490058996636593.png",
-      "name": "名称：雾海云间的金丹",
-      "getWay": [
-        "周二/五/日",
-        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/301/detail\" data-type=\"a\" target=\"_blank\">震雷连山密宫</a>（周二/五/日）】炼武秘境：鸣雷城墟Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】雾海云间的转还",
       "wuqi": [
         {
+          "name": "鹤鸣余音",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/01/26/75833613/7cbba58bf55197f1c3e26b03cbe0f27d_3118585862292761608.png",
+          "count": "60级*5；70级*9"
+        },
+        {
           "name": "息灾",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/01/10/8912764/bc53d31707c6d8c7637162871f59ba4e_6358065346300154843.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/f82faf46f85ddbfe19cd1d02701c57d7_8226451094295359858.png",
           "count": "60级*5；70级*9"
         },
         {
           "name": "磐岩结绿",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/bfa02af5665193d9b8153107d5484e57_2912077363033392111.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/f909eb69f658d86f612bc591eabc7d5d_4877741522596632805.png",
           "count": "60级*5；70级*9"
         },
         {
           "name": "无工之剑",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d4ecd5c1f63d73c86a17ad3b382ab95c_5986306463863891259.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/8ea8b899451d15af21dd13ace70a381f_9158827088868298445.png",
           "count": "60级*5；70级*9"
         },
         {
           "name": "黑岩刺枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b4e0f6c437598a77e7660997daf5260a_5431356106224341608.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/8c4d3ab52b263f9093ef736978e997a4_8146359096890745188.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "黑岩斩刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/572b49753770be07dec7065ed8aa9e33_1356104072419918910.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/c44d634d48c92c5d3a316267d6166f80_8992417812055138677.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "试作澹月",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/6d9776dea64400a58adb4eaf824c1618_1713147640993109138.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/3b8d58575d5df98e335739cc1dd966d8_2116176281884502607.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "试作金珀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/043803dbf1729027d76feaa7c24aa67b_1381215605417303906.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/294074726/0e0b7395ae6aa84422a4085cacd522d1_7048549369586094992.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "试作斩岩",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/7916a14d5e0ecaea8a37db5505c01f2e_8242391261718571932.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/4bbe551419a12004a2970b6e3026d16e_4498908837475265754.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "匣里灭辰",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b753959a45fc9989e39dd945e8769e4a_8647724050316556289.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/201a99e66050179cd524162f7def43b5_5555442470878593769.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "雨裁",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d1004336c0b48f25a7d3546b57bce070_1276934877482332348.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/fd99a71c87f90e622d852fa50cf10328_1627106986506974220.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "昭心",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/dafe7f5cdecac90aec82b1a4ba04ff25_5633548311950024752.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/942ae8d7a0c6d0b8e1d1b3d74352367b_6323647904625110329.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "宗室猎枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/5f0ecdf6675c087059ef9bdcf34f8bb7_3803387581010771960.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/13/82503813/6540e8846b3c63ac77ccde26219561e9_2742298426696066271.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "吃虎鱼刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b212aac89bb6d20fe174035b9469da21_2364459222406313154.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/6450e14e0ddf17f1257896b320e416ee_2165478697478198266.png",
           "count": "60级*2；70级*4"
         },
         {
           "name": "甲级宝珏",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/86bb969cdb644cf54cf0ab62350b2e63_8256488738214526565.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/617a68585a05b1b8e6f27d840d36adc9_7156335873120568892.png",
           "count": "60级*2；70级*4"
         },
         {
           "name": "信使",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/16f64d570b8d5a72000191df60f62601_3315753348223083562.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/139756053/64c3a821e2ab5b875186458357ff961c_7627440319273350574.png",
           "count": "60级*2；70级*4"
         },
         {
           "name": "以理服人",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/059f200b99d098fd1791a5b6df57fb15_8210512137923754468.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/fdd709e6efc06d8e3f6314952ce250b3_215817519936483767.png",
           "count": "60级*2；70级*4"
         },
         {
           "name": "钺矛",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/2ef0c79a0d05d49f3c7c884520e70ef6_8526891246186648088.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/471f903fd65ab4937fd8f1edc7c8f721_5079368965075539070.png",
           "count": "60级*2；70级*4"
         }
-      ]
+      ],
+      "name": "雾海云间的金丹",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/08/22/6381993/4658c53699a66b3ad716d61cc0fb4e5c_4644490058996636593.png",
+      "getWay": [
+        "周二/五/日",
+        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。其实所谓金丹，真的是字面意思的金属之丹。这些都是仙人们制造的合金，融合了神通之力，可以给与武器超越的力量。武人似乎都觉得武道优于仙道，不怎么访神问仙。所以金丹并没什么机会给出去。",
+      "purpose": "用途：武器突破素材　　　【炼金】雾海云间的转还"
     }
   },
   {
@@ -3240,103 +3363,109 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "雾海云间的汞丹",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2021/08/22/6381993/e573023ff97a249e1be14dd202f7b198_1575676778480351549.png",
-      "name": "名称：雾海云间的汞丹",
-      "getWay": [
-        "周二/五/日",
-        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅱ/Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/301/detail\" data-type=\"a\" target=\"_blank\">震雷连山密宫</a>（周二/五/日）】炼武秘境：鸣雷城墟Ⅱ/Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】雾海云间的金丹",
       "wuqi": [
         {
+          "name": "鹤鸣余音",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/01/26/75833613/7cbba58bf55197f1c3e26b03cbe0f27d_3118585862292761608.png",
+          "count": "40级*5；50级*9"
+        },
+        {
           "name": "息灾",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/01/11/8912764/bc53d31707c6d8c7637162871f59ba4e_1744689670021576214.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/f82faf46f85ddbfe19cd1d02701c57d7_8226451094295359858.png",
           "count": "40级*5；50级*9"
         },
         {
           "name": "磐岩结绿",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/bfa02af5665193d9b8153107d5484e57_2912077363033392111.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/f909eb69f658d86f612bc591eabc7d5d_4877741522596632805.png",
           "count": "40级*5；50级*9"
         },
         {
           "name": "无工之剑",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d4ecd5c1f63d73c86a17ad3b382ab95c_5986306463863891259.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/8ea8b899451d15af21dd13ace70a381f_9158827088868298445.png",
           "count": "40级*5；50级*9"
         },
         {
           "name": "黑岩刺枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b4e0f6c437598a77e7660997daf5260a_5431356106224341608.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/8c4d3ab52b263f9093ef736978e997a4_8146359096890745188.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "黑岩斩刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/572b49753770be07dec7065ed8aa9e33_1356104072419918910.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/c44d634d48c92c5d3a316267d6166f80_8992417812055138677.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "试作澹月",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/6d9776dea64400a58adb4eaf824c1618_1713147640993109138.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/3b8d58575d5df98e335739cc1dd966d8_2116176281884502607.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "试作金珀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/043803dbf1729027d76feaa7c24aa67b_1381215605417303906.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/294074726/0e0b7395ae6aa84422a4085cacd522d1_7048549369586094992.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "试作斩岩",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/7916a14d5e0ecaea8a37db5505c01f2e_8242391261718571932.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/4bbe551419a12004a2970b6e3026d16e_4498908837475265754.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "匣里灭辰",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b753959a45fc9989e39dd945e8769e4a_8647724050316556289.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/201a99e66050179cd524162f7def43b5_5555442470878593769.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "雨裁",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d1004336c0b48f25a7d3546b57bce070_2213878693161319572.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/fd99a71c87f90e622d852fa50cf10328_1627106986506974220.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "昭心",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/dafe7f5cdecac90aec82b1a4ba04ff25_5633548311950024752.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/942ae8d7a0c6d0b8e1d1b3d74352367b_6323647904625110329.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "宗室猎枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/5f0ecdf6675c087059ef9bdcf34f8bb7_3803387581010771960.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/13/82503813/6540e8846b3c63ac77ccde26219561e9_2742298426696066271.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "吃虎鱼刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b212aac89bb6d20fe174035b9469da21_2364459222406313154.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/6450e14e0ddf17f1257896b320e416ee_2165478697478198266.png",
           "count": "40级*2；50级*4"
         },
         {
           "name": "甲级宝珏",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/86bb969cdb644cf54cf0ab62350b2e63_8256488738214526565.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/617a68585a05b1b8e6f27d840d36adc9_7156335873120568892.png",
           "count": "40级*2；50级*4"
         },
         {
           "name": "信使",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/16f64d570b8d5a72000191df60f62601_3315753348223083562.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/139756053/64c3a821e2ab5b875186458357ff961c_7627440319273350574.png",
           "count": "40级*2；50级*4"
         },
         {
           "name": "以理服人",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/059f200b99d098fd1791a5b6df57fb15_8210512137923754468.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/fdd709e6efc06d8e3f6314952ce250b3_215817519936483767.png",
           "count": "40级*2；50级*4"
         },
         {
           "name": "钺矛",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/2ef0c79a0d05d49f3c7c884520e70ef6_8526891246186648088.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/471f903fd65ab4937fd8f1edc7c8f721_5079368965075539070.png",
           "count": "40级*2；50级*4"
         }
-      ]
+      ],
+      "name": "雾海云间的汞丹",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/08/22/6381993/e573023ff97a249e1be14dd202f7b198_1575676778480351549.png",
+      "getWay": [
+        "周二/五/日",
+        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅱ/Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。符篆可以让仙人力量借符号残留，外景可以用心像造出宇宙洞天。丹鼎之术，则一直笼罩在秘密之中。毕竟尝试吞下这些金丹的话，结果必定十死无生。",
+      "purpose": "用途：武器突破素材　　　【炼金】雾海云间的金丹"
     }
   },
   {
@@ -3349,103 +3478,109 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "雾海云间的转还",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2021/08/22/6381993/36f61a67d9edcb783ded72744e5a0e8d_5670435633782694630.png",
-      "name": "名称：雾海云间的转还",
-      "getWay": [
-        "周二/五/日",
-        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/301/detail\" data-type=\"a\" target=\"_blank\">震雷连山密宫</a>（周二/五/日）】炼武秘境：鸣雷城墟Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材",
       "wuqi": [
         {
+          "name": "鹤鸣余音",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/01/26/75833613/7cbba58bf55197f1c3e26b03cbe0f27d_3118585862292761608.png",
+          "count": "80级*6"
+        },
+        {
           "name": "息灾",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/01/11/8912764/bc53d31707c6d8c7637162871f59ba4e_8914126983507247104.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/f82faf46f85ddbfe19cd1d02701c57d7_8226451094295359858.png",
           "count": "80级*6"
         },
         {
           "name": "磐岩结绿",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/bfa02af5665193d9b8153107d5484e57_2912077363033392111.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/f909eb69f658d86f612bc591eabc7d5d_4877741522596632805.png",
           "count": "80级*6"
         },
         {
           "name": "无工之剑",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d4ecd5c1f63d73c86a17ad3b382ab95c_5986306463863891259.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/8ea8b899451d15af21dd13ace70a381f_9158827088868298445.png",
           "count": "80级*6"
         },
         {
           "name": "黑岩刺枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b4e0f6c437598a77e7660997daf5260a_5431356106224341608.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/8c4d3ab52b263f9093ef736978e997a4_8146359096890745188.png",
           "count": "80级*4"
         },
         {
           "name": "黑岩斩刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/572b49753770be07dec7065ed8aa9e33_1356104072419918910.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/c44d634d48c92c5d3a316267d6166f80_8992417812055138677.png",
           "count": "80级*4"
         },
         {
           "name": "试作澹月",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/6d9776dea64400a58adb4eaf824c1618_1713147640993109138.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/3b8d58575d5df98e335739cc1dd966d8_2116176281884502607.png",
           "count": "80级*4"
         },
         {
           "name": "试作金珀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/043803dbf1729027d76feaa7c24aa67b_1381215605417303906.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/294074726/0e0b7395ae6aa84422a4085cacd522d1_7048549369586094992.png",
           "count": "80级*4"
         },
         {
           "name": "试作斩岩",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/7916a14d5e0ecaea8a37db5505c01f2e_8242391261718571932.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/4bbe551419a12004a2970b6e3026d16e_4498908837475265754.png",
           "count": "80级*4"
         },
         {
           "name": "匣里灭辰",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b753959a45fc9989e39dd945e8769e4a_8647724050316556289.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/201a99e66050179cd524162f7def43b5_5555442470878593769.png",
           "count": "80级*4"
         },
         {
           "name": "雨裁",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/d1004336c0b48f25a7d3546b57bce070_5248149137040017006.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/fd99a71c87f90e622d852fa50cf10328_1627106986506974220.png",
           "count": "80级*4"
         },
         {
           "name": "昭心",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/dafe7f5cdecac90aec82b1a4ba04ff25_5633548311950024752.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/942ae8d7a0c6d0b8e1d1b3d74352367b_6323647904625110329.png",
           "count": "80级*4"
         },
         {
           "name": "宗室猎枪",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/5f0ecdf6675c087059ef9bdcf34f8bb7_3803387581010771960.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/13/82503813/6540e8846b3c63ac77ccde26219561e9_2742298426696066271.png",
           "count": "80级*4"
         },
         {
           "name": "吃虎鱼刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/b212aac89bb6d20fe174035b9469da21_2364459222406313154.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/6450e14e0ddf17f1257896b320e416ee_2165478697478198266.png",
           "count": "80级*3"
         },
         {
           "name": "甲级宝珏",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/86bb969cdb644cf54cf0ab62350b2e63_8256488738214526565.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/617a68585a05b1b8e6f27d840d36adc9_7156335873120568892.png",
           "count": "80级*3"
         },
         {
           "name": "信使",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/16f64d570b8d5a72000191df60f62601_3315753348223083562.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/139756053/64c3a821e2ab5b875186458357ff961c_7627440319273350574.png",
           "count": "80级*3"
         },
         {
           "name": "以理服人",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/059f200b99d098fd1791a5b6df57fb15_8210512137923754468.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/12/82503813/fdd709e6efc06d8e3f6314952ce250b3_215817519936483767.png",
           "count": "80级*3"
         },
         {
           "name": "钺矛",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/03/08/4359827/2ef0c79a0d05d49f3c7c884520e70ef6_8526891246186648088.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/471f903fd65ab4937fd8f1edc7c8f721_5079368965075539070.png",
           "count": "80级*3"
         }
-      ]
+      ],
+      "name": "雾海云间的转还",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/08/22/6381993/36f61a67d9edcb783ded72744e5a0e8d_5670435633782694630.png",
+      "getWay": [
+        "周二/五/日",
+        "【震雷连山密宫（周二/五/日）】炼武秘境：鸣雷城墟Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。这是金丹的最高品质，它模拟了混沌初开、清浊不分、天地一体的状态。据说这个是天地创世的缩影。当然，那位是知道的，世界的重现不是这样的。",
+      "purpose": "用途：武器突破素材"
     }
   },
   {
@@ -4269,48 +4404,53 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "远海夷地的瑚枝",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/6673bd919389b7aa7efcd8c0e6199a49_1165948506379377658.png",
-      "name": "名称：远海夷地的瑚枝",
-      "getWay": [
-        "周一/四/日",
-        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        "【<a href=\"/ys/obc/content/2293/detail\" data-type=\"obc-content\" target=\"_blank\">砂流之庭</a>（周一/四/日）】炼武秘境：沉沙之渊Ⅰ/Ⅱ/Ⅲ/Ⅳ",
-        ""
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】远海夷地的玉枝",
       "wuqi": [
         {
+          "name": "有乐御簾切",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/700a536c8ab4190810deb9dca0dff127_2181879262943164211.png",
+          "count": "20级*5"
+        },
+        {
           "name": "雾切之回光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/21/15568211/a3eb5b2dbfaed0dc91f39038db3919b2_5782638411098088400.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/a827141dc8e0694dc3a942c437683005_58343923367629452.png",
           "count": "20级*5"
         },
         {
           "name": "不灭月华",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/02/184753361/a5bda9f4243ace37da9dd3099f040962_3396688448442305565.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/51604dd1a73adc19c9ca7814285119c9_5502553864492184265.png",
           "count": "20级*5"
         },
         {
           "name": "白辰之环",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/9fd23f11d945191ce94a6f902559e1a2_6997107245813874602.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/68ec3ad2d52bed9f312fd0f2fc0a1a8f_2655130199559556631.png",
           "count": "20级*3"
         },
         {
           "name": "恶王丸",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/4b661765eb32bfe396348b4bc2faa260_37711909819739874.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/3f09787b86e0673660f58cf98c48bddb_1253328858406441135.png",
           "count": "20级*3"
         },
         {
           "name": "天目影打刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/ed49afc0e189b8292bba65e91d19fecf_309367824179777842.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/250339167/d8eed5f9abd44a6e745c003ec52272f7_1161248553530285507.png",
           "count": "20级*3"
         },
         {
           "name": "证誓之明瞳",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/04/14/184753361/47899a33ddd3f573f55c76df4a7802d2_5633000183489472874.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/5763e6015d5719f5b1cfc30645299984_4345490171996430426.png",
           "count": "20级*3"
         }
-      ]
+      ],
+      "name": "远海夷地的瑚枝",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/6673bd919389b7aa7efcd8c0e6199a49_1165948506379377658.png",
+      "getWay": [
+        "周一/四/日",
+        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅰ/Ⅱ/Ⅲ/Ⅳ"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。稻妻列岛中距离鸣神岛最遥远的「海祇」，在海祇岛的古语中的意思是「统管诸海的大神」。传说大蛇在常夜的渊下国土中初次现身时，身上覆满了四色的珊瑚枝，散发着煌煌的荧光。",
+      "purpose": "用途：武器突破素材　　　【炼金】远海夷地的玉枝"
     }
   },
   {
@@ -4323,43 +4463,49 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "远海夷地的玉枝",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/517ecdffe79005c52cfaa8129747f3f0_3840963099422482173.png",
-      "name": "名称：远海夷地的玉枝",
-      "getWay": [
-        "周一/四/日",
-        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅱ/Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/2293/detail\" data-type=\"obc-content\" target=\"_blank\">砂流之庭</a>（周一/四/日）】炼武秘境：沉沙之渊Ⅱ/Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】远海夷地的琼枝",
       "wuqi": [
         {
+          "name": "有乐御簾切",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/700a536c8ab4190810deb9dca0dff127_2181879262943164211.png",
+          "count": "40级*5；50级*9"
+        },
+        {
           "name": "雾切之回光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/21/15568211/a3eb5b2dbfaed0dc91f39038db3919b2_3231364651828819676.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/a827141dc8e0694dc3a942c437683005_58343923367629452.png",
           "count": "40级*5；50级*9"
         },
         {
           "name": "不灭月华",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/02/184753361/a5bda9f4243ace37da9dd3099f040962_8399425256316249445.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/51604dd1a73adc19c9ca7814285119c9_5502553864492184265.png",
           "count": "40级*5；50级*9"
         },
         {
           "name": "白辰之环",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/9fd23f11d945191ce94a6f902559e1a2_3708582351031560238.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/68ec3ad2d52bed9f312fd0f2fc0a1a8f_2655130199559556631.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "恶王丸",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/4b661765eb32bfe396348b4bc2faa260_6471363512088599905.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/3f09787b86e0673660f58cf98c48bddb_1253328858406441135.png",
           "count": "40级*3；50级*6"
         },
         {
           "name": "天目影打刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/ed49afc0e189b8292bba65e91d19fecf_8057258290849967773.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/250339167/d8eed5f9abd44a6e745c003ec52272f7_1161248553530285507.png",
           "count": "40级*3；50级*6"
         }
-      ]
+      ],
+      "name": "远海夷地的玉枝",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/517ecdffe79005c52cfaa8129747f3f0_3840963099422482173.png",
+      "getWay": [
+        "周一/四/日",
+        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅱ/Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。这种珊瑚在提瓦特的大地上是见不到的，是大蛇闯入「暗之外海」时，获得的礼赠。因此对于深海的大蛇而言，身负珊瑚枝象征着力量；而失去珊瑚枝时，力量会相应的折损。换言之折断的珊瑚枝中也蕴含着超常的力量。",
+      "purpose": "用途：武器突破素材　　　【炼金】远海夷地的琼枝"
     }
   },
   {
@@ -4628,48 +4774,54 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "远海夷地的琼枝",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/9c380411e861a87376200c3eccf232ad_7874094895313575506.png",
-      "name": "名称：远海夷地的琼枝",
-      "getWay": [
-        "周一/四/日",
-        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅲ/Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/2293/detail\" data-type=\"obc-content\" target=\"_blank\">砂流之庭</a>（周一/四/日）】炼武秘境：沉沙之渊Ⅲ/Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材　　　【炼金】远海夷地的金枝",
       "wuqi": [
         {
+          "name": "有乐御簾切",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/700a536c8ab4190810deb9dca0dff127_2181879262943164211.png",
+          "count": "60级*5；70级*9"
+        },
+        {
           "name": "雾切之回光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/21/15568211/a3eb5b2dbfaed0dc91f39038db3919b2_2195520811799295039.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/a827141dc8e0694dc3a942c437683005_58343923367629452.png",
           "count": "60级*5；70级*9"
         },
         {
           "name": "不灭月华",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/a5bda9f4243ace37da9dd3099f040962_6365322141419158257.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/51604dd1a73adc19c9ca7814285119c9_5502553864492184265.png",
           "count": "60级*5；70级*9"
         },
         {
           "name": "白辰之环",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/9fd23f11d945191ce94a6f902559e1a2_3853233997594904936.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/68ec3ad2d52bed9f312fd0f2fc0a1a8f_2655130199559556631.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "恶王丸",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/18/8912764/4b661765eb32bfe396348b4bc2faa260_9026600960770022199.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/3f09787b86e0673660f58cf98c48bddb_1253328858406441135.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "天目影打刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/18/8912764/ed49afc0e189b8292bba65e91d19fecf_6303577122501721249.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/250339167/d8eed5f9abd44a6e745c003ec52272f7_1161248553530285507.png",
           "count": "60级*3；70级*6"
         },
         {
           "name": "证誓之明瞳",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/03/24/184753361/47899a33ddd3f573f55c76df4a7802d2_5587314903514914329.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/5763e6015d5719f5b1cfc30645299984_4345490171996430426.png",
           "count": "60级*3；70级*6"
         }
-      ]
+      ],
+      "name": "远海夷地的琼枝",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/9c380411e861a87376200c3eccf232ad_7874094895313575506.png",
+      "getWay": [
+        "周一/四/日",
+        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅲ/Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。失去了一切、逃向暗之外海的魔神在海渊中，见到了什么都没有的弃民。于是它决定留下来，成为他们的「远吕羽氏尊」、「海祇大御神」。传说大蛇神曾经折下身上所有的珊瑚枝，让蜷缩在黑暗中的孩子们拥有照亮周遭的光明。又有一说它用折下的珊瑚枝架起了登高的阶梯，让它的孩子们再次回到了地面上，见到阳光。",
+      "purpose": "用途：武器突破素材　　　【炼金】远海夷地的金枝"
     }
   },
   {
@@ -4682,48 +4834,54 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "远海夷地的金枝",
+    "alias_name": "",
     "info": {
-      "imgSrc": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/ba86b38f692b675b94a3af01c3098b8e_1949152196975145376.png",
-      "name": "名称：远海夷地的金枝",
-      "getWay": [
-        "周一/四/日",
-        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅳ合成获得",
-        "【<a href=\"/ys/obc/content/2293/detail\" data-type=\"obc-content\" target=\"_blank\">砂流之庭</a>（周一/四/日）】炼武秘境：沉沙之渊Ⅳ",
-        "合成获得"
-      ],
-      "describe": "用途：武器突破素材",
       "wuqi": [
         {
+          "name": "有乐御簾切",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2024/03/09/75833613/700a536c8ab4190810deb9dca0dff127_2181879262943164211.png",
+          "count": "80级*6"
+        },
+        {
           "name": "雾切之回光",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/21/15568211/a3eb5b2dbfaed0dc91f39038db3919b2_5824633837368221847.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/a827141dc8e0694dc3a942c437683005_58343923367629452.png",
           "count": "80级*6"
         },
         {
           "name": "不灭月华",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/a5bda9f4243ace37da9dd3099f040962_5981101958996048424.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/51604dd1a73adc19c9ca7814285119c9_5502553864492184265.png",
           "count": "80级*6"
         },
         {
           "name": "白辰之环",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/14/8912764/9fd23f11d945191ce94a6f902559e1a2_7922903657634705563.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/68ec3ad2d52bed9f312fd0f2fc0a1a8f_2655130199559556631.png",
           "count": "80级*4"
         },
         {
           "name": "恶王丸",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/18/8912764/4b661765eb32bfe396348b4bc2faa260_7846085671549954832.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/11/50494840/3f09787b86e0673660f58cf98c48bddb_1253328858406441135.png",
           "count": "80级*4"
         },
         {
           "name": "天目影打刀",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/11/18/8912764/ed49afc0e189b8292bba65e91d19fecf_620336722351961148.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/11/14/250339167/d8eed5f9abd44a6e745c003ec52272f7_1161248553530285507.png",
           "count": "80级*4"
         },
         {
           "name": "证誓之明瞳",
-          "src": "https://uploadstatic.mihoyo.com/ys-obc/2022/03/22/184753361/47899a33ddd3f573f55c76df4a7802d2_5198800416009400692.png",
+          "src": "https://act-upload.mihoyo.com/wiki-user-upload/2023/12/13/80663279/5763e6015d5719f5b1cfc30645299984_4345490171996430426.png",
           "count": "80级*4"
         }
-      ]
+      ],
+      "name": "远海夷地的金枝",
+      "src": "https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/ba86b38f692b675b94a3af01c3098b8e_1949152196975145376.png",
+      "getWay": [
+        "周一/四/日",
+        "【砂流之庭（周一/四/日）】炼武秘境：沉沙之渊Ⅳ",
+        "合成获得"
+      ],
+      "describe": "描述：赋予武器突破之力的材料。「海祇」之名所背负的含义，归根到底只是曾栖身在深海中的弃民，对引领他们的蛇神一厢情愿的期许罢了。也正是因为有了仰望自己的子民，所以蛇神不得不留在本应逃离的世界里，折下身上的珊瑚枝，向自己不应涉足的土地入侵，与自己无法抗衡的敌手战斗，直到神体与山丘一同被斩断；直到鲜血化为电浆；直到思念与力量沦为永远无法消散的「祟神」。",
+      "purpose": "用途：武器突破素材"
     }
   },
   {

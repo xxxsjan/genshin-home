@@ -2,15 +2,18 @@ const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const { tujianApi } = require("./api");
 
-const oldData = require("./data/tujian_wuqi.json");
-
-function isDataExist(content_id) {
-  return oldData.find((f) => f.content_id === content_id);
+// const old_wuqi = require("./data/tujian_wuqi.json");
+const old_cailiao = require("./data/wuqi-tupo-cailiao.json");
+function sleep(time = 1000) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
 }
+// 从武器突破素材网页爬取
 const cailiaoGetWuqi = async () => {
   const tujianData = await tujianApi();
 
-  const cailiaoData = tujianData
+  const remote_cailiaoList = tujianData
     .find((f) => f.name === "背包")
     .list.filter((f) => f.ext.match(/武器突破素材/));
 
@@ -21,139 +24,127 @@ const cailiaoGetWuqi = async () => {
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 600, deviceScaleFactor: 1 });
 
-  await analysisCailiao(page, cailiaoData);
+  // await analysisCailiaoPage(page, 7038);
+  // return;
+
+  const cailiaoData = [];
+
+  for (let i = 0; i < remote_cailiaoList.length; i++) {
+    const item = remote_cailiaoList[i];
+    const { content_id, title } = item;
+
+    const cacheItem = old_cailiao.find((f) => f.content_id === content_id);
+
+    const info = await analysisCailiaoPage(page, content_id);
+
+    if (cacheItem?.info?.wuqi.length == info.wuqi.length) {
+      cailiaoData.push(cacheItem);
+      console.log(
+        content_id,
+        title,
+        "武器没更新，跳过",
+        cacheItem?.info?.wuqi.length,
+        info.wuqi.length
+      );
+      continue;
+    }
+
+    if (cacheItem?.info?.wuqi?.length < info.wuqi.length) {
+      item.info = info;
+      cailiaoData.push(item);
+    } else {
+      console.log(
+        "远端居然少了",
+        cacheItem?.info?.wuqi?.length,
+        info.wuqi.length,
+        content_id,
+        title
+      );
+    }
+  }
 
   await browser.close();
+
   return {
     cailiaoData,
   };
 };
 
-// 从武器突破素材网页爬取
-async function analysisCailiao(page, list) {
-  console.log("本地武器数据", oldData.length);
-  console.log("远端武器数据", list.length, oldData.length);
-  for (let i = 0; i < list.length; i++) {
-    const item = list[i];
-    const { content_id, title } = item;
+async function analysisCailiaoPage(page, content_id) {
+  const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+  console.log("url: ", url);
 
-    const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
-    console.log("content_id, title: ", content_id, title, i, list.length, url);
+  await page.goto(url);
 
-    await page.goto(url);
-    await page.waitForSelector(".obc-tmpl__part");
-    const html = await page.content();
-    const $ = cheerio.load(html);
-    let elements = $(`div[data-tmpl="material"] table tbody tr`);
+  // https://bbs.mihoyo.com/ys/obc/content/7038/detail?bbs_presentation_style=no_header
 
-    // 当前武器材料的信息
-    const _info = {};
-    elements.map((i, el) => {
-      switch (i) {
-        case 0:
-          //<td rowspan="2" class="h3">
-          //  <img alt="" src="https://uploadstatic.mihoyo.com/ys-obc/2021/07/23/15568211/839957ca90527eee0b38c3ca8e7bb3ab_9146402107541629952.png">
-          // </td>
-          //<td>
-          //   <label>名称：</label>
-          //   今昔剧画之一角
-          //</td>
-          _info.imgSrc = $(el).find("td img").attr("src");
-          _info.name = $(el)
-            .find("td:nth-child(2)")
-            .text()
-            .trim()
-            .replace(/\s+/g, " ");
-          break;
-        case 1:
-          // <td>
-          //   <label>获得方式：</label>
-          //   <ul>
-          //     <li>
-          //       <p style="white-space: pre-wrap;">【<a href="/ys/obc/content/2293/detail" data-type="obc-content" target="_blank">砂流之庭</a>（周三/六/日）】炼武秘境：流沙之葬Ⅲ/Ⅳ
-          //       </p>
-          //     </li>
-          //     <li>
-          //       <p style="white-space: pre-wrap;">炼金合成</p>
-          //     </li>
-          //   </ul>
-          // </td>
-          const _text = $(el).find("td ul li p").text();
-          const _html = $(el).find("td ul li p").html();
-          _info.getWay = [
-            _text.match(/（(.*?)）/)[1],
-            _text,
-            _html,
-            $(el).find("td ul li:nth-child(2) p").text(),
-          ];
+  await page.waitForSelector("table.obc-tmpl-part.obc-tmpl-materialBaseInfo");
+  await sleep(2222);
+  const html = await page.content();
+  const $ = cheerio.load(html);
+  // 当前武器材料的信息
+  const _info = {
+    wuqi: [], // 需要该武器材料的武器
+  };
+  const tableEl = $("table.obc-tmpl-part.obc-tmpl-materialBaseInfo");
 
-          break;
-        case 2:
-          // <td colspan="2" class="obc-tmpl__rich-text">
-          //   <p style="white-space: pre-wrap;">描述：赋予武器突破之力的材料。</p>
-          //   <p style="white-space: pre-wrap;">　　　在鬼族失落的子守奉公子守歌中，鬼人「虎千代」是一位翩翩少年，拥有优雅勇健的身姿与华丽的容貌。他原本是将军麾下的爱将，曾忠心追随她深入漆黑 的渊薮，击退邪秽之物，为血脉日渐稀薄的鬼族争取功绩。</p>
-          //   <p style="white-space: pre-wrap;">　　　纵使如今这样的歌谣已经无人传唱了，以另一种形象流传下来的有角鬼面形象仍然有着非凡的力量。</p>
-          // </td>
-          _info.describe = $(el).find("td").text();
-          break;
-        case 3:
-          // <td colspan="2" class="obc-tmpl__rich-text">
-          //   <p style="white-space: pre-wrap;">用途：武器突破素材</p>
-          //   <p style="white-space: pre-wrap;">
-          //     　　　 【炼金】
-          //     <a href="/ys/obc/content/2374/detail" data-type="a" target="_blank">
-          //       今昔剧画之鬼人
-          //     </a>
-          //   </p>
-          // </td>;
-          _info.describe = $(el).find("td").text();
-          break;
-        default:
-          break;
-      }
+  const imgSrc = $(tableEl).find("td img").attr("src");
+
+  const name = $(tableEl)
+    .find("tr:nth-child(1) td:nth-child(2)")
+    .text()
+    .split("\n")[1]
+    .trim();
+
+  const getWay = [];
+  $(tableEl)
+    .find("tr:nth-child(2) td div div p")
+    .map((i, el) => {
+      getWay.push($(el).text());
     });
 
-    // 需要该武器材料的武器
-    _info.wuqi = [];
-    $(
-      'div[data-tmpl="illustration"] ul[data-target="main.data"] li[data-index="0"] div.obc-tmpl__scroll-x-box tbody tr'
-    ).map((i, el) => {
-      // <td class="obc-tmpl__fixed-td obc-tmpl-illustration__first-col">
-      //   <a href="/ys/obc/content/4201/detail" target="_blank">
-      //     <img alt="" src="https://uploadstatic.mihoyo.com/ys-obc/2022/08/12/183046623/680747c67b82c468a6f7d52729d55ab2_8381162963590893436.png" class="obc-tmpl__icon">
-      //     <br>
-      //     <span>笼钓瓶一心</span>
-      //   </a>
-      //</td>
-      console.log($(el).find("td span").html());
-      const _res = {
-        name: $(el).find("td span").html(),
-        src: $(el).find("td a img").attr("src"),
-        count: $(el).find("td:nth-child(2)").text(),
-        // 特殊情况 https://bbs.mihoyo.com/ys/obc/content/2371/detail?bbs_presentation_style=no_header
+  getWay.unshift(getWay[0].match(/（(.*?)）/)[1]);
 
-        // <td class="obc-tmpl__scroll-td obc-tmpl-illustration__first-col">
-        // <span target="_blank">
-        // <img alt="" src="https://uploadstatic.mihoyo.com/ys-obc/2022/08/12/183046623/680747c67b82c468a6f7d52729d55ab2_1410109543333312055.png" class="obc-tmpl__icon"><br>
-        // <span>笼钓瓶一心</span>
-        // </span></td>、
-        //  拿不到 href
-        // content_id: $(el)
-        //   .find("td a")
-        //   .attr("href")
-        //   .match(/content\/(\d+)\/detail/)[1],
-      };
-      console.log(_res);
-      _info.wuqi.push(_res);
-    });
+  const describe = $(tableEl)
+    .find("tr:nth-child(3) td.obc-tmpl__rich-text")
+    .text();
+  // 用途
+  const purpose = $(tableEl).find("tr:nth-child(4) td").text();
 
-    item.info = _info;
-  }
+  _info.name = name;
+  _info.src = imgSrc;
+  _info.getWay = getWay;
+  _info.describe = describe;
+  _info.purpose = purpose;
+
+  // 三星材料 的 table会多一点 https://bbs.mihoyo.com/ys/obc/content/7040/detail?bbs_presentation_style=no_header
+  // 二星的会少一点 https://bbs.mihoyo.com/ys/obc/content/7032/detail?bbs_presentation_style=no_header
+
+  const isThreeStar = $(".swiper-pagination li").length !== 0;
+
+  $(
+    isThreeStar
+      ? ".obc-tmpl-x-scroll.swiper-slide.swiper-slide-active div.obc-tmpl-x-box tbody tr"
+      : ".obc-tmpl-x-scroll.swiper-slide div.obc-tmpl-x-box tbody tr"
+  ).map((i, el) => {
+    const _res = {
+      name: $(el).find("td:nth-child(1) p span a span").text(),
+      src: $(el).find("td:nth-child(1) p span a img").attr("src"),
+      count: $(el).find("td:nth-child(2) p").text(),
+    };
+
+    _info.wuqi.push(_res);
+  });
+
+  return _info;
 }
 
-// 从武器网页爬取
+module.exports = cailiaoGetWuqi;
+
+// 从武器网页爬取 突破材料
 async function analysisWuqi(list) {
   const tujianData = await tujianApi();
+
   const remote_wuqi = tujianData
     .find((f) => f.name === "武器")
     .list.filter((f) => f.ext.match(/(四星|五星)/));
@@ -163,39 +154,18 @@ async function analysisWuqi(list) {
   });
 
   const page = await browser.newPage();
-  for (let i = 0; i < 2; i++) {
+
+  // const breakMaterial = await analysisPage(page, 500507);
+  // console.log("breakMaterial: ", breakMaterial);
+  // return;
+
+  for (let i = 0; i < remote_wuqi.length; i++) {
     const item = remote_wuqi[i];
     const { content_id, title } = item;
 
-    // const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
-    const url =
-      "https://bbs.mihoyo.com/ys/obc/content/500507/detail?bbs_presentation_style=no_header";
+    const breakMaterial = await analysisPage(page, content_id);
 
-    await page.goto(url);
-    await page.waitForSelector(".swiper-slide.swiper-slide-active");
-    const html = await page.content();
-    const $ = cheerio.load(html);
-
-    let elements = $(
-      `.swiper-slide.swiper-slide-active table:nth-child(2) tr .obc-tmpl__icon-text-num`
-    );
-    console.log("content_id, title: ", content_id, title);
-
-    let breakMaterial = [];
-    console.log(elements.length);
-    elements.map((i, el) => {
-      if (i < 4) {
-        const res = {
-          src: $(el).find("a img").attr("src"),
-          name: $(el).find("a span").html(),
-          count: $(el).find(".obc-tmpl__icon-num").text(),
-        };
-        console.log(res);
-        breakMaterial.push(res);
-      }
-    });
     item.breakMaterial = breakMaterial;
-    console.log(item);
   }
 
   await browser.close();
@@ -205,4 +175,43 @@ async function analysisWuqi(list) {
   };
 }
 
-module.exports = analysisWuqi;
+async function analysisPage(page, content_id) {
+  // const url =
+  //   "https://bbs.mihoyo.com/ys/obc/content/500507/detail?bbs_presentation_style=no_header";
+  const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+
+  await page.goto(url);
+  await page.waitForSelector(".swiper-slide.swiper-slide-active");
+  const html = await page.content();
+  const $ = cheerio.load(html);
+
+  const tableEl = $("div.obc-tmpl-part--align-left table");
+
+  // const imgSrc = $(tableEl).find("td img").attr("src");
+  // const name = $(tableEl)
+  //   .find("tr td.material-td")
+  //   .text()
+  //   .split("\n")[1]
+  //   .trim();
+  // const getWay = $(tableEl).find(".obc-color-td").text();
+  // const describe = $(tableEl)
+  //   .find(".obc-tmpl__rich-text p:nth-child(4)")
+  //   .text();
+
+  const cailiaoEl = $(`div[data-index="0"] table+table tbody tr td div`);
+  let breakMaterial = [];
+
+  cailiaoEl.map((i, el) => {
+    const res = {
+      src: $(el).find("a img").attr("src"),
+      name: trimStr($(el).find("a span").html()),
+      count: trimStr($(el).find(".obc-tmpl__icon-num").text()),
+    };
+    breakMaterial.push(res);
+  });
+  return breakMaterial;
+}
+
+function trimStr(str) {
+  return str.replaceAll("\n", "").trim();
+}

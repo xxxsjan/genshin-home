@@ -1,8 +1,6 @@
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
-const axios = require("axios");
-const fs = require("fs");
-const path = require("path");
+
 const { tujianApi } = require("./api");
 
 const oldTianfu = require("./data/role-with-tianfu.json");
@@ -35,24 +33,13 @@ async function getTianfu() {
     const { content_id, title } = item;
     const _oldData = isDataExist(content_id);
     if (!!_oldData) {
-      console.log("天赋数据 使用缓存", title,  _oldData.tianfu);
+      console.log("天赋数据 使用缓存", title, _oldData.tianfu);
       item.tianfu = _oldData.tianfu;
       continue;
     }
 
-    const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
-    await page.goto(url);
-    // 等元素出现
-    await page.waitForSelector(".obc-tmpl__scroll-x-box");
+    const res = await getPageContent(page, content_id);
 
-    const html = await page.content();
-    const $ = cheerio.load(html);
-
-    let tianfu = $(
-      `.obc-tmpl__scroll-td.goto-diff-wrap .custom-entry-wrapper .entry-material-box.entry-material-small .name`
-    ).text();
-
-    const res = tianfu.match(/(「.*?」)/)[0];
     console.log(
       "天赋数据获取中: ",
       content_id,
@@ -71,4 +58,35 @@ async function getTianfu() {
     roleWithTianfu: formatData,
   };
 }
-module.exports = getTianfu;
+module.exports = {
+  getTianfu,
+};
+
+async function test() {
+  const browser = await puppeteer.launch({
+    headless: "new",
+    // headless: false,
+  });
+  const viewportOpt = { width: 1200, height: 600, deviceScaleFactor: 1 };
+  const page = await browser.newPage();
+  await page.setViewport(viewportOpt);
+  await getPageContent(page, 501213);
+}
+
+async function getPageContent(page, content_id) {
+  const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
+  console.log("url: ", url);
+  await page.goto(url);
+
+  await page.waitForSelector(".obc-tmpl__scroll-x-box");
+
+  const html = await page.content();
+
+  const $ = cheerio.load(html);
+
+  let tianfu = $(`div[data-index="0"] a span.name`).text();
+
+  const res = tianfu.match(/(「.*?」)/)?.[0];
+
+  return res;
+}

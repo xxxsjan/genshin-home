@@ -14,7 +14,7 @@ async function getBeibao() {
     .list.filter((f) => f.ext.match(/五星|四星/));
 
   console.log(
-    `最新数据：背包：${tujian_beibao.length}角色：${tujian_role.length}武器：${tujian_wuqi.length}`
+    `最新数据：背包：${tujian_beibao.length} 角色：${tujian_role.length} 武器：${tujian_wuqi.length}`
   );
 
   const localFilePath = path.resolve(__dirname, "./data/tujian_beibao.json");
@@ -30,9 +30,9 @@ async function getBeibao() {
       role: path.resolve(__dirname, "./data/tujian_role.json"),
     };
     console.log(
-      `本地数据：背包：${require(localFile.beibao).length}角色：${
+      `本地数据：背包：${require(localFile.beibao).length} 角色：${
         require(localFile.role).length
-      }武器：${require(localFile.wuqi).length}`
+      } 武器：${require(localFile.wuqi).length}`
     );
   });
 
