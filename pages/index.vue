@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 
-import wuqiData from "~/spider-data/data/tujian_wuqi.json";
-import beibao from "~/spider-data/data/tujian_beibao.json";
-import imageData from "~/spider-data/data/tujian_role.json";
-
-import roleWithTianfu from "~/spider-data/data/role-with-tianfu.json";
-import wuqiTupoCailiaoData from "~/spider-data/data/wuqi-tupo-cailiao.json";
-
 useHead({
   title: "原神素材",
 });
@@ -22,9 +15,7 @@ const dayOfWeek =
       : today.day() - 1
     : today.day();
 
-console.log("dayOfWeek: ", dayOfWeek);
-
-const mapData: any = {
+const mapData: Record<number, string> = {
   1: "周一/周四",
   2: "周二/周五",
   3: "周三/周六",
@@ -34,98 +25,87 @@ const mapData: any = {
   0: "周日",
 };
 const weekText = ref(mapData[dayOfWeek]);
+const timeVal = ref(0);
 
-let tianfudata: Array<{
-    name: string;
-    area: string;
-    time: string;
-    data: ImageDataList;
-    role: {
-      content_id: number;
-      title: string;
-      tianfu: string;
-      image: {
-        content_id: 1220;
-        title: string;
-        ext: string;
-        icon: string;
-        bbs_url: string;
-        article_user_name: string;
-        article_time: string;
-        avatar_url: string;
-        summary: string;
-      };
-    }[];
-  }> = [],
-  renderWuqi: Array<
-    ImageData &
-      {
-        info: {
-          imgSrc: string;
-          name: string;
-          getWay: string[];
-          describe: "用途：武器突破素材　　　【炼金】高塔孤王的残垣";
-          wuqi: {
-            name: string;
-            src: string;
-            count: string;
-            content_id: number;
-          }[];
-        };
-      }[]
-  > = [];
-const paimengImg =
-  "https://act-upload.mihoyo.com/wiki-user-upload/2024/04/07/380453694/f17e67acac32aec78684d10fea22b0b8_6715540715200448148.png";
-function createData(dayOfWeek: number) {
+const {
+  data: bundle,
+  pending,
+  error,
+  refresh,
+} = await useFetch<GenshinHomeBundle>("/api/genshin-data", {
+  key: "genshin-home-data",
+  server: true,
+});
+
+/** 若本轮补全已达上限，说明后面还有，自动再拉一轮 */
+watch(
+  () => bundle.value?.synced,
+  (synced) => {
+    if (!synced) return;
+    if (synced.roleTianfu >= 24 || synced.wuqiCailiao >= 24) {
+      setTimeout(() => refresh(), 800);
+    }
+  }
+);
+
+type GridItem = {
+  name: string;
+  area: string;
+  time: string;
+  data?: any;
+  role?: any;
+};
+
+const tianfudata = ref<GridItem[]>([]);
+const renderWuqi = ref<any[]>([]);
+const sundayGrids = ref<{ tianfudata: GridItem[]; renderWuqi: any[] }[]>([]);
+
+function createData(day: number, src: GenshinHomeBundle) {
+  const wuqiData = src.tujian_wuqi;
+  const beibao = src.tujian_beibao;
+  const imageData = src.tujian_role;
+  const roleWithTianfu = src.roleWithTianfu;
+  const wuqiTupoCailiaoData = src.wuqiTupoCailiao;
+
   const tupocailiaoMap = [
-    // 蒙德
     ["凛风奔狼", "高塔孤王", "狮牙斗士"],
-    // 璃月
     ["雾海云间", "孤云寒林", "漆黑陨铁"],
-    // 稻妻
     ["鸣神御灵", "远海夷地", "今昔剧画"],
-    // 须弥
     ["绿洲花园", "谧林涓露", "烈日威权"],
-    // 枫丹
     ["悠古弦音", "纯圣露滴", "无垢之海"],
   ];
+
   function numberToChinese(num: number) {
     const digits = ["日", "一", "二", "三", "四", "五", "六", "日"];
     return digits[num];
   }
-  // 武器逻辑
-  function filterWuqiTupoCailiao() {
-    const reg = new RegExp(numberToChinese(dayOfWeek));
 
-    // 根据获取方式过滤出当日的武器材料
-    const res = JSON.parse(JSON.stringify(wuqiTupoCailiaoData)).filter((f) =>
-      f.info.getWay[0].match(reg)
+  function filterWuqiTupoCailiao() {
+    const reg = new RegExp(numberToChinese(day));
+    const res = JSON.parse(JSON.stringify(wuqiTupoCailiaoData)).filter(
+      (f: any) => f.info?.getWay?.[0]?.match(reg)
     );
 
-    res.forEach((item) => {
-      // 排除四星以下武器
+    res.forEach((item: WuqiTupoCailiaoItem) => {
       item.info.wuqi = item.info.wuqi.filter((f) => {
         const _find = wuqiData.find((m) => m.title === f.name);
         if (_find) {
           f.content_id = _find.content_id;
           return true;
-        } else {
-          return false;
         }
+        return false;
       });
     });
     return res;
   }
 
   const _renderWuqiData = filterWuqiTupoCailiao();
-  console.log("_renderWuqiData: ", _renderWuqiData);
-
-  const renderWuqi: (typeof _renderWuqiData)[] = Array.from({
+  const nextRenderWuqi: (typeof _renderWuqiData)[] = Array.from({
     length: tupocailiaoMap.length,
   }).map(() => []);
 
   function findMapIndex(str: string) {
-    let index: number = -1;
+    let index = -1;
     for (const [key, value] of Object.entries(tupocailiaoMap)) {
       if (value.find((f) => str.match(new RegExp(f)))) {
         index = Number(key);
@@ -138,11 +118,8 @@ function createData(dayOfWeek: number) {
   while (_renderWuqiData.length) {
     const _item = _renderWuqiData.shift()!;
     const index = findMapIndex(_item.title);
-    if (index > -1) {
-      renderWuqi[index].push(_item);
-    }
+    if (index > -1) nextRenderWuqi[index].push(_item);
   }
-  // 角色逻辑
 
   const data1 = [
     { name: "「自由」", area: "蒙德", time: "周一/周四" },
@@ -150,13 +127,11 @@ function createData(dayOfWeek: number) {
     { name: "「浮世」", area: "稻妻", time: "周一/周四" },
     { name: "「诤言」", area: "须弥", time: "周一/周四" },
     { name: "「公平」", area: "枫丹", time: "周一/周四" },
-
     { name: "「抗争」", area: "蒙德", time: "周二/周五" },
     { name: "「勤劳」", area: "璃月", time: "周二/周五" },
     { name: "「风雅」", area: "稻妻", time: "周二/周五" },
     { name: "「巧思」", area: "须弥", time: "周二/周五" },
     { name: "「正义」", area: "枫丹", time: "周二/周五" },
-
     { name: "「诗文」", area: "蒙德", time: "周三/周六" },
     { name: "「黄金」", area: "璃月", time: "周三/周六" },
     { name: "「天光」", area: "稻妻", time: "周三/周六" },
@@ -164,17 +139,8 @@ function createData(dayOfWeek: number) {
     { name: "「秩序」", area: "枫丹", time: "周三/周六" },
   ];
 
-  interface ItemType {
-    name: string;
-    area: string;
-    time: string;
-    data?: any;
-    role?: any;
-  }
-
-  const useData: ItemType[] = data1.filter(
-    (f) =>
-      dayOfWeek === 7 || f.time.match(new RegExp(numberToChinese(dayOfWeek)))
+  const useData: GridItem[] = data1.filter(
+    (f) => day === 7 || f.time.match(new RegExp(numberToChinese(day)))
   );
 
   useData.forEach((item) => {
@@ -187,52 +153,46 @@ function createData(dayOfWeek: number) {
       }));
   });
 
-  const tianfudata: ItemType[] = [
-    useData.find((f) => f.area === "蒙德") as ItemType,
-    useData.find((f) => f.area === "璃月") as ItemType,
-    useData.find((f) => f.area === "稻妻") as ItemType,
-    useData.find((f) => f.area === "须弥") as ItemType,
-    useData.find((f) => f.area === "枫丹") as ItemType,
+  const nextTianfu: GridItem[] = [
+    useData.find((f) => f.area === "蒙德") as GridItem,
+    useData.find((f) => f.area === "璃月") as GridItem,
+    useData.find((f) => f.area === "稻妻") as GridItem,
+    useData.find((f) => f.area === "须弥") as GridItem,
+    useData.find((f) => f.area === "枫丹") as GridItem,
   ];
 
   return {
-    tianfudata,
-    renderWuqi,
+    tianfudata: nextTianfu,
+    renderWuqi: nextRenderWuqi,
   };
 }
 
-updateData(dayOfWeek);
-
-onMounted(() => {
-  setTimeout(async () => {
-    const { data } = await useFetch("/api/check");
-    console.log("data: ", data);
-
-    if (!data.value?.checkRes) {
-      alert("角色 武器数据有更新，等待管理员更新");
-    }
-  }, 1000);
-});
-
-const timeVal = ref(0);
-
-function updateData(num: number) {
-  console.log("num: ", num);
-  const result = createData(num);
-
-  tianfudata = result.tianfudata;
-  console.log("tianfudata: ", tianfudata);
-  renderWuqi = result.renderWuqi;
-  console.log("renderWuqi: ", renderWuqi);
+function applyDay(day: number) {
+  if (!bundle.value) return;
+  if (weekText.value === "周日" || day === 0) {
+    sundayGrids.value = [1, 2, 3].map((d) => createData(d, bundle.value!));
+    tianfudata.value = [];
+    renderWuqi.value = [];
+    return;
+  }
+  const result = createData(day, bundle.value);
+  tianfudata.value = result.tianfudata;
+  renderWuqi.value = result.renderWuqi;
 }
 
 watch(
-  () => timeVal.value,
-  (val) => {
-    weekText.value = mapData[val];
-    updateData(val);
-  }
+  bundle,
+  () => {
+    const day = timeVal.value || dayOfWeek;
+    applyDay(day === 0 ? 0 : day);
+  },
+  { immediate: true }
 );
+
+watch(timeVal, (val) => {
+  weekText.value = mapData[val];
+  applyDay(val);
+});
 </script>
 
 <template>
@@ -256,28 +216,41 @@ watch(
           </li>
         </ul>
       </div>
+      <span
+        v-if="
+          bundle?.synced &&
+          (bundle.synced.roleTianfu > 0 || bundle.synced.wuqiCailiao > 0)
+        "
+        class="ml-4 text-sm font-normal opacity-70"
+      >
+        已补全天赋 {{ bundle.synced.roleTianfu }} / 材料
+        {{ bundle.synced.wuqiCailiao }}，继续同步中…
+      </span>
     </div>
 
-    <GenshinGrid
-      v-if="weekText !== '周日'"
-      :tianfudata="tianfudata"
-      :renderWuqi="renderWuqi"
-    />
+    <div v-if="pending && !bundle" class="p-8 text-center text-lg">
+      正在拉取最新图鉴…
+    </div>
+    <div v-else-if="error && !bundle" class="p-8 text-center text-lg text-red-600">
+      数据加载失败：{{ error.message || error }}
+      <button class="btn btn-sm ml-2" @click="refresh()">重试</button>
+    </div>
+
     <template v-else>
       <GenshinGrid
-        :tianfudata="createData(1).tianfudata"
-        :renderWuqi="createData(1).renderWuqi"
-        class="mb-2"
+        v-if="weekText !== '周日'"
+        :tianfudata="tianfudata"
+        :renderWuqi="renderWuqi"
       />
-      <GenshinGrid
-        :tianfudata="createData(2).tianfudata"
-        :renderWuqi="createData(2).renderWuqi"
-        class="mb-2"
-      />
-      <GenshinGrid
-        :tianfudata="createData(3).tianfudata"
-        :renderWuqi="createData(3).renderWuqi"
-      />
+      <template v-else>
+        <GenshinGrid
+          v-for="(grid, i) in sundayGrids"
+          :key="i"
+          :tianfudata="grid.tianfudata"
+          :renderWuqi="grid.renderWuqi"
+          :class="i < sundayGrids.length - 1 ? 'mb-2' : ''"
+        />
+      </template>
     </template>
   </div>
 </template>
@@ -290,6 +263,8 @@ watch(
   font-weight: 600;
   font-size: 24px;
   height: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .time {
