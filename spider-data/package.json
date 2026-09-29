@@ -4,7 +4,11 @@
   "description": "",
   "main": "getTianfu.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "update": "node index.js",
+    "update:beibao": "node index.js beibao",
+    "update:tianfu": "node index.js tianfu",
+    "update:wuqi": "node index.js wuqi"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +16,6 @@
   "dependencies": {
     "axios": "^1.4.0",
     "chalk": "^5.3.0",
-    "cheerio": "^1.0.0-rc.12",
-    "lowdb": "^6.0.1",
-    "puppeteer": "^20.7.2"
+    "lowdb": "^6.0.1"
   }
 }

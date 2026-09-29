@@ -1,92 +1,65 @@
-const puppeteer = require("puppeteer");
-const cheerio = require("cheerio");
-
-const { tujianApi } = require("./api");
+const { tujianApi, wikiEntryApi, parseRoleTianfu } = require("./api");
 
 const oldTianfu = require("./data/role-with-tianfu.json");
 
-function isDataExist(content_id) {
-  return oldTianfu.find((f) => f.content_id === content_id);
+function cachedTianfu(content_id) {
+  const hit = oldTianfu.find((f) => f.content_id === content_id);
+  // 只有真正拿到天赋才复用；预告角色下次继续请求
+  return hit?.tianfu ? hit : null;
+}
+
+async function fetchTianfu(content_id) {
+  const page = await wikiEntryApi(content_id);
+  if (!page) return null;
+  return parseRoleTianfu(page);
 }
 
 async function getTianfu() {
   const tujianData = await tujianApi();
-
   const roleData = tujianData.find((f) => f.name === "角色").list;
+  const formatData = [];
 
-  const formatData = roleData.map((m) => ({
-    content_id: m.content_id,
-    title: m.title,
-  }));
+  for (let i = 0; i < roleData.length; i++) {
+    const { content_id, title } = roleData[i];
+    const item = { content_id, title };
 
-  const browser = await puppeteer.launch({
-    headless: "new",
-    // headless: false,
-  });
-  const viewportOpt = { width: 1200, height: 600, deviceScaleFactor: 1 };
-  const page = await browser.newPage();
-  await page.setViewport(viewportOpt);
-
-  // 详情页
-  for (let i = 0; i < formatData.length; i++) {
-    const item = formatData[i];
-    const { content_id, title } = item;
-    const _oldData = isDataExist(content_id);
-    if (!!_oldData) {
-      console.log("天赋数据 使用缓存", title, _oldData.tianfu);
-      item.tianfu = _oldData.tianfu;
+    const cached = cachedTianfu(content_id);
+    if (cached) {
+      console.log("天赋数据 使用缓存", title, cached.tianfu);
+      item.tianfu = cached.tianfu;
+      formatData.push(item);
       continue;
     }
 
-    const res = await getPageContent(page, content_id);
+    try {
+      const tianfu = await fetchTianfu(content_id);
+      if (tianfu) {
+        item.tianfu = tianfu;
+        console.log(
+          "天赋数据获取中:",
+          content_id,
+          title,
+          tianfu,
+          `${i + 1}/${roleData.length}`
+        );
+      } else {
+        console.log(
+          "天赋数据暂无（详情未上线或预告）:",
+          content_id,
+          title,
+          `${i + 1}/${roleData.length}`
+        );
+      }
+    } catch (err) {
+      console.warn("天赋请求失败:", content_id, title, err.message);
+    }
 
-    console.log(
-      "天赋数据获取中: ",
-      content_id,
-      title,
-      res,
-      i,
-      formatData.length
-    );
-    item.tianfu = res;
+    formatData.push(item);
   }
-  // console.log(formatData, formatData.length);
 
-  await browser.close();
-
-  return {
-    roleWithTianfu: formatData,
-  };
+  return { roleWithTianfu: formatData };
 }
+
 module.exports = {
   getTianfu,
 };
-
-async function test() {
-  const browser = await puppeteer.launch({
-    headless: "new",
-    // headless: false,
-  });
-  const viewportOpt = { width: 1200, height: 600, deviceScaleFactor: 1 };
-  const page = await browser.newPage();
-  await page.setViewport(viewportOpt);
-  await getPageContent(page, 501213);
-}
-
-async function getPageContent(page, content_id) {
-  const url = `https://bbs.mihoyo.com/ys/obc/content/${content_id}/detail?bbs_presentation_style=no_header`;
-  console.log("url: ", url);
-  await page.goto(url);
-
-  await page.waitForSelector(".obc-tmpl__scroll-x-box");
-
-  const html = await page.content();
-
-  const $ = cheerio.load(html);
-
-  let tianfu = $(`div[data-index="0"] a span.name`).text();
-
-  const res = tianfu.match(/(「.*?」)/)?.[0];
-
-  return res;
-}
