@@ -27,54 +27,8 @@ const mapData: Record<number, string> = {
 const weekText = ref(mapData[dayOfWeek]);
 const timeVal = ref(0);
 
-const {
-  data: bundle,
-  pending,
-  error,
-  refresh,
-} = await useFetch<GenshinHomeBundle>("/api/genshin-data", {
-  key: "genshin-home-data",
-  server: true,
-});
-
-/** 后台增量同步状态（不阻塞首屏 SSR） */
-const syncing = ref(false);
-const lastSynced = ref({ roleTianfu: 0, wuqiCailiao: 0 });
-
-/**
- * 客户端分轮同步：每轮只补少量条目，避免 Vercel 函数超时；
- * 有进展且仍有 pending 时再续跑。
- */
-async function backgroundSync(maxRounds = 12) {
-  if (!import.meta.client || syncing.value) return;
-  syncing.value = true;
-  try {
-    for (let i = 0; i < maxRounds; i++) {
-      const next = await $fetch<GenshinHomeBundle>("/api/genshin-data", {
-        query: { sync: "1" },
-      });
-      bundle.value = next;
-      const s = next.synced;
-      if (!s) break;
-      lastSynced.value = {
-        roleTianfu: s.roleTianfu,
-        wuqiCailiao: s.wuqiCailiao,
-      };
-      const didWork = s.roleTianfu > 0 || s.wuqiCailiao > 0;
-      const stillPending = s.pendingRole > 0 || s.pendingCailiao > 0;
-      if (!didWork || !stillPending) break;
-      await new Promise((r) => setTimeout(r, 400));
-    }
-  } catch (err) {
-    console.warn("[genshin-home] background sync failed:", err);
-  } finally {
-    syncing.value = false;
-  }
-}
-
-onMounted(() => {
-  backgroundSync();
-});
+/** 直接使用已提交的本地 seed，线上不爬米哈游 */
+const bundle = ref(getGenshinHomeBundle());
 
 type GridItem = {
   name: string;
@@ -244,38 +198,21 @@ watch(timeVal, (val) => {
           </li>
         </ul>
       </div>
-      <span
-        v-if="syncing"
-        class="ml-4 text-sm font-normal opacity-70"
-      >
-        后台同步中… 本轮天赋 {{ lastSynced.roleTianfu }} / 材料
-        {{ lastSynced.wuqiCailiao }}
-      </span>
     </div>
 
-    <div v-if="pending && !bundle" class="p-8 text-center text-lg">
-      正在加载数据…
-    </div>
-    <div v-else-if="error && !bundle" class="p-8 text-center text-lg text-red-600">
-      数据加载失败：{{ error.message || error }}
-      <button class="btn btn-sm ml-2" @click="refresh()">重试</button>
-    </div>
-
+    <GenshinGrid
+      v-if="weekText !== '周日'"
+      :tianfudata="tianfudata"
+      :renderWuqi="renderWuqi"
+    />
     <template v-else>
       <GenshinGrid
-        v-if="weekText !== '周日'"
-        :tianfudata="tianfudata"
-        :renderWuqi="renderWuqi"
+        v-for="(grid, i) in sundayGrids"
+        :key="i"
+        :tianfudata="grid.tianfudata"
+        :renderWuqi="grid.renderWuqi"
+        :class="i < sundayGrids.length - 1 ? 'mb-2' : ''"
       />
-      <template v-else>
-        <GenshinGrid
-          v-for="(grid, i) in sundayGrids"
-          :key="i"
-          :tianfudata="grid.tianfudata"
-          :renderWuqi="grid.renderWuqi"
-          :class="i < sundayGrids.length - 1 ? 'mb-2' : ''"
-        />
-      </template>
     </template>
   </div>
 </template>

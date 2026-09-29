@@ -1,10 +1,8 @@
 import { readGenshinData } from "../utils/genshin-data";
 
-/**
- * 兼容旧前端：只读缓存对比（不再在请求内打米哈游，避免 Vercel 超时）
- */
-export default defineEventHandler(async () => {
-  const cached = await readGenshinData();
+/** 兼容旧前端：只读本地 seed */
+export default defineEventHandler(() => {
+  const cached = readGenshinData();
   return {
     newData: {
       role: cached.meta.roleCount,
