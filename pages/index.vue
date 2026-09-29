@@ -37,16 +37,44 @@ const {
   server: true,
 });
 
-/** 若本轮补全已达上限，说明后面还有，自动再拉一轮 */
-watch(
-  () => bundle.value?.synced,
-  (synced) => {
-    if (!synced) return;
-    if (synced.roleTianfu >= 24 || synced.wuqiCailiao >= 24) {
-      setTimeout(() => refresh(), 800);
+/** 后台增量同步状态（不阻塞首屏 SSR） */
+const syncing = ref(false);
+const lastSynced = ref({ roleTianfu: 0, wuqiCailiao: 0 });
+
+/**
+ * 客户端分轮同步：每轮只补少量条目，避免 Vercel 函数超时；
+ * 有进展且仍有 pending 时再续跑。
+ */
+async function backgroundSync(maxRounds = 12) {
+  if (!import.meta.client || syncing.value) return;
+  syncing.value = true;
+  try {
+    for (let i = 0; i < maxRounds; i++) {
+      const next = await $fetch<GenshinHomeBundle>("/api/genshin-data", {
+        query: { sync: "1" },
+      });
+      bundle.value = next;
+      const s = next.synced;
+      if (!s) break;
+      lastSynced.value = {
+        roleTianfu: s.roleTianfu,
+        wuqiCailiao: s.wuqiCailiao,
+      };
+      const didWork = s.roleTianfu > 0 || s.wuqiCailiao > 0;
+      const stillPending = s.pendingRole > 0 || s.pendingCailiao > 0;
+      if (!didWork || !stillPending) break;
+      await new Promise((r) => setTimeout(r, 400));
     }
+  } catch (err) {
+    console.warn("[genshin-home] background sync failed:", err);
+  } finally {
+    syncing.value = false;
   }
-);
+}
+
+onMounted(() => {
+  backgroundSync();
+});
 
 type GridItem = {
   name: string;
@@ -217,19 +245,16 @@ watch(timeVal, (val) => {
         </ul>
       </div>
       <span
-        v-if="
-          bundle?.synced &&
-          (bundle.synced.roleTianfu > 0 || bundle.synced.wuqiCailiao > 0)
-        "
+        v-if="syncing"
         class="ml-4 text-sm font-normal opacity-70"
       >
-        已补全天赋 {{ bundle.synced.roleTianfu }} / 材料
-        {{ bundle.synced.wuqiCailiao }}，继续同步中…
+        后台同步中… 本轮天赋 {{ lastSynced.roleTianfu }} / 材料
+        {{ lastSynced.wuqiCailiao }}
       </span>
     </div>
 
     <div v-if="pending && !bundle" class="p-8 text-center text-lg">
-      正在拉取最新图鉴…
+      正在加载数据…
     </div>
     <div v-else-if="error && !bundle" class="p-8 text-center text-lg text-red-600">
       数据加载失败：{{ error.message || error }}

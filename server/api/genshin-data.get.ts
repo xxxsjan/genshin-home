@@ -2,14 +2,14 @@ import { syncGenshinData, readGenshinData } from "../utils/genshin-data";
 
 /**
  * 原神素材聚合数据
- * GET /api/genshin-data
- * GET /api/genshin-data?sync=0  只读缓存，不打米哈游
+ * GET /api/genshin-data          只读缓存（默认，避免 Vercel SSR 超时）
+ * GET /api/genshin-data?sync=1   增量同步米哈游后返回
  */
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
-  const skipSync = query.sync === "0" || query.sync === "false";
+  const doSync = query.sync === "1" || query.sync === "true";
 
-  if (skipSync) {
+  if (!doSync) {
     return await readGenshinData();
   }
 

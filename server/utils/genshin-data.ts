@@ -17,8 +17,9 @@ import {
 
 export const GENSHIN_DATA_KEY = "genshin:home:data";
 
-const MAX_FETCH_PER_REQUEST = 24;
-const WIKI_CONCURRENCY = 6;
+/** 控制在 Vercel Hobby(~10s) 内可完成：少拉几条，由前端分轮续跑 */
+const MAX_FETCH_PER_REQUEST = 8;
+const WIKI_CONCURRENCY = 4;
 /** 没拿到天赋的词条，多久后再试一次（预告→正式） */
 const RETRY_AFTER_MS = 7 * 24 * 3600 * 1000;
 
