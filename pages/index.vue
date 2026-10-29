@@ -174,10 +174,21 @@ onBeforeUnmount(() => {
   background: transparent;
   color: #f0ede8;
   cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
   transition: opacity 0.15s ease, filter 0.15s ease;
 
   &:hover {
-    background: rgba(240, 237, 232, 0.12);
+    opacity: 0.88;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:active {
+    outline: none;
+    box-shadow: none;
+    background: transparent;
   }
 
   &.off {
@@ -185,7 +196,7 @@ onBeforeUnmount(() => {
     filter: grayscale(0.35);
 
     &:hover {
-      background: rgba(240, 237, 232, 0.08);
+      opacity: 0.5;
     }
   }
 }
