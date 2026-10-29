@@ -147,45 +147,152 @@ export function createCailiaoData(
   };
 }
 
-/** 从当日材料结果里抽出角色列表（去重） */
-export function flattenTodayRoles(result: CailiaoDayResult) {
-  const map = new Map<
-    string,
-    { title: string; content_id: number; icon: string }
-  >();
+/** 解析图鉴 ext 里的筛选标签，如「星级/五星」「武器类型/单手剑」 */
+export function parseTujianFilters(ext?: string): string[] {
+  if (!ext) return [];
+  try {
+    const parsed = JSON.parse(ext) as Record<
+      string,
+      { filter?: { text?: string } }
+    >;
+    for (const key of Object.keys(parsed)) {
+      const raw = parsed[key]?.filter?.text;
+      if (!raw) continue;
+      const arr = JSON.parse(raw) as string[];
+      if (Array.isArray(arr)) return arr;
+    }
+  } catch {
+    /* ignore */
+  }
+  return [];
+}
+
+export function getRoleStar(item?: TujianItem): number {
+  const tag = parseTujianFilters(item?.ext).find((t) => t.startsWith("星级/"));
+  if (tag?.includes("五星")) return 5;
+  if (tag?.includes("四星")) return 4;
+  return 0;
+}
+
+export function getWuqiStar(item?: TujianItem): number {
+  const tag = parseTujianFilters(item?.ext).find((t) =>
+    t.startsWith("武器星级/")
+  );
+  if (tag?.includes("五星")) return 5;
+  if (tag?.includes("四星")) return 4;
+  if (tag?.includes("三星")) return 3;
+  return 0;
+}
+
+export function getWuqiType(item?: TujianItem): string {
+  const tag = parseTujianFilters(item?.ext).find((t) =>
+    t.startsWith("武器类型/")
+  );
+  return tag?.replace("武器类型/", "") || "其他";
+}
+
+/** 武器类型展示顺序 */
+export const wuqiTypeOrder = [
+  "单手剑",
+  "双手剑",
+  "长柄武器",
+  "弓",
+  "法器",
+  "其他",
+];
+
+export type TodayRoleItem = {
+  title: string;
+  content_id: number;
+  icon: string;
+  star: number;
+};
+
+export type TodayWeaponItem = {
+  name: string;
+  icon: string;
+  content_id?: number;
+  star: number;
+  type: string;
+};
+
+/** 从当日材料结果里抽出角色列表（去重），五星靠前 */
+export function flattenTodayRoles(
+  result: CailiaoDayResult,
+  tujianRole: TujianItem[] = []
+): TodayRoleItem[] {
+  const roleMap = new Map(tujianRole.map((r) => [r.title, r] as const));
+  const map = new Map<string, TodayRoleItem>();
   for (const area of result.tianfudata) {
     if (!area?.role) continue;
     for (const role of area.role) {
       if (!map.has(role.title)) {
+        const meta = roleMap.get(role.title) ?? role.image;
         map.set(role.title, {
           title: role.title,
           content_id: role.content_id,
           icon: role.image?.icon ?? "",
+          star: getRoleStar(meta),
         });
       }
     }
   }
-  return [...map.values()];
+  return [...map.values()].sort(
+    (a, b) => b.star - a.star || a.title.localeCompare(b.title, "zh")
+  );
 }
 
-/** 从当日材料结果里抽出武器列表（去重） */
-export function flattenTodayWeapons(result: CailiaoDayResult) {
-  const map = new Map<
-    string,
-    { name: string; icon: string; content_id?: number }
-  >();
+/** 从当日材料结果里抽出武器列表（去重），五星靠前 */
+export function flattenTodayWeapons(
+  result: CailiaoDayResult,
+  tujianWuqi: TujianItem[] = []
+): TodayWeaponItem[] {
+  const wuqiMap = new Map(tujianWuqi.map((w) => [w.title, w] as const));
+  const map = new Map<string, TodayWeaponItem>();
   for (const group of result.renderWuqi) {
     for (const mat of group) {
       for (const w of mat.info?.wuqi ?? []) {
         if (!map.has(w.name)) {
+          const meta = wuqiMap.get(w.name);
           map.set(w.name, {
             name: w.name,
             icon: w.src,
             content_id: w.content_id,
+            star: getWuqiStar(meta),
+            type: getWuqiType(meta),
           });
         }
       }
     }
   }
-  return [...map.values()];
+  return [...map.values()].sort((a, b) => {
+    const typeA = wuqiTypeOrder.indexOf(a.type);
+    const typeB = wuqiTypeOrder.indexOf(b.type);
+    const ta = typeA === -1 ? 99 : typeA;
+    const tb = typeB === -1 ? 99 : typeB;
+    if (ta !== tb) return ta - tb;
+    if (b.star !== a.star) return b.star - a.star;
+    return a.name.localeCompare(b.name, "zh");
+  });
+}
+
+/** 按武器类型分组（组内已按五星优先排好） */
+export function groupWeaponsByType(weapons: TodayWeaponItem[]) {
+  const groups: { type: string; items: TodayWeaponItem[] }[] = [];
+  const index = new Map<string, number>();
+  for (const w of weapons) {
+    let i = index.get(w.type);
+    if (i === undefined) {
+      i = groups.length;
+      index.set(w.type, i);
+      groups.push({ type: w.type, items: [] });
+    }
+    groups[i].items.push(w);
+  }
+  groups.sort((a, b) => {
+    const ia = wuqiTypeOrder.indexOf(a.type);
+    const ib = wuqiTypeOrder.indexOf(b.type);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+  return groups;
 }

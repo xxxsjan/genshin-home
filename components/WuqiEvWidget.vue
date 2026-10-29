@@ -93,6 +93,25 @@ const emit = defineEmits<{
   overflow: auto;
   margin: 0 -6px;
   padding: 0 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(136, 100, 68, 0.28) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(136, 100, 68, 0.28);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 100, 68, 0.45);
+  }
 
   :deep(.ev-panel) {
     padding: 4px 0 8px;

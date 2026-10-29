@@ -4,7 +4,10 @@ import {
   flattenTodayRoles,
   flattenTodayWeapons,
   getGameDayOfWeek,
+  groupWeaponsByType,
   weekLabelMap,
+  type TodayRoleItem,
+  type TodayWeaponItem,
 } from "~/utils/cailiao-day";
 import { wuqiEvRanking } from "~/utils/wuqi-ev-ranking";
 
@@ -21,28 +24,40 @@ const weekText = weekLabelMap[dayOfWeek];
 
 const dayResult = computed(() => {
   if (dayOfWeek === 0) {
-    // 周日：合并三天材料预览
     const merged = [1, 2, 3].map((d) => createCailiaoData(d, bundle));
-    const roles = new Map<string, ReturnType<typeof flattenTodayRoles>[number]>();
-    const weapons = new Map<
-      string,
-      ReturnType<typeof flattenTodayWeapons>[number]
-    >();
+    const roles = new Map<string, TodayRoleItem>();
+    const weapons = new Map<string, TodayWeaponItem>();
     for (const r of merged) {
-      for (const role of flattenTodayRoles(r)) roles.set(role.title, role);
-      for (const w of flattenTodayWeapons(r)) weapons.set(w.name, w);
+      for (const role of flattenTodayRoles(r, bundle.tujian_role)) {
+        roles.set(role.title, role);
+      }
+      for (const w of flattenTodayWeapons(r, bundle.tujian_wuqi)) {
+        weapons.set(w.name, w);
+      }
     }
-    return {
-      roles: [...roles.values()],
-      weapons: [...weapons.values()],
-    };
+    const roleList = [...roles.values()].sort(
+      (a, b) => b.star - a.star || a.title.localeCompare(b.title, "zh")
+    );
+    const weaponList = [...weapons.values()].sort((a, b) => {
+      const order = ["单手剑", "双手剑", "长柄武器", "弓", "法器", "其他"];
+      const ta = order.indexOf(a.type);
+      const tb = order.indexOf(b.type);
+      if (ta !== tb) return (ta === -1 ? 99 : ta) - (tb === -1 ? 99 : tb);
+      if (b.star !== a.star) return b.star - a.star;
+      return a.name.localeCompare(b.name, "zh");
+    });
+    return { roles: roleList, weapons: weaponList };
   }
   const result = createCailiaoData(dayOfWeek, bundle);
   return {
-    roles: flattenTodayRoles(result),
-    weapons: flattenTodayWeapons(result),
+    roles: flattenTodayRoles(result, bundle.tujian_role),
+    weapons: flattenTodayWeapons(result, bundle.tujian_wuqi),
   };
 });
+
+const weaponGroups = computed(() =>
+  groupWeaponsByType(dayResult.value.weapons)
+);
 
 const evNames = new Set(wuqiEvRanking.map((c) => c.character));
 
@@ -50,7 +65,6 @@ function onRoleClick(e: MouseEvent, title: string) {
   e.stopPropagation();
   emit("openEv", evNames.has(title) ? title : undefined);
 }
-
 </script>
 
 <template>
@@ -58,7 +72,7 @@ function onRoleClick(e: MouseEvent, title: string) {
     <div class="widget-head">
       <div>
         <div class="widget-title">今日材料</div>
-        <div class="widget-sub">{{ weekText }} · 点角色联动期望榜</div>
+        <div class="widget-sub">{{ weekText }} · 五星优先 · 点角色联动期望榜</div>
       </div>
       <button
         type="button"
@@ -82,7 +96,7 @@ function onRoleClick(e: MouseEvent, title: string) {
             :key="role.title"
             type="button"
             class="avatar"
-            :class="{ hasEv: evNames.has(role.title) }"
+            :class="{ hasEv: evNames.has(role.title), five: role.star === 5 }"
             :title="
               evNames.has(role.title)
                 ? `${role.title} · 有期望数据`
@@ -101,14 +115,22 @@ function onRoleClick(e: MouseEvent, title: string) {
           武器突破
           <span class="count">{{ dayResult.weapons.length }}</span>
         </div>
-        <div class="avatar-grid weapons">
-          <div
-            v-for="w in dayResult.weapons"
-            :key="w.name"
-            class="avatar weapon"
-            :title="w.name"
-          >
-            <img v-if="w.icon" :src="w.icon" :alt="w.name" />
+        <div
+          v-for="group in weaponGroups"
+          :key="group.type"
+          class="type-group"
+        >
+          <div class="type-label">{{ group.type }}</div>
+          <div class="avatar-grid weapons">
+            <div
+              v-for="w in group.items"
+              :key="w.name"
+              class="avatar weapon"
+              :class="{ five: w.star === 5 }"
+              :title="`${w.name}${w.star ? ` · ${w.star}星` : ''}`"
+            >
+              <img v-if="w.icon" :src="w.icon" :alt="w.name" />
+            </div>
           </div>
         </div>
       </div>
@@ -120,7 +142,7 @@ function onRoleClick(e: MouseEvent, title: string) {
 
 <style scoped lang="scss">
 .widget {
-  width: 340px;
+  width: 420px;
   max-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
@@ -147,6 +169,25 @@ function onRoleClick(e: MouseEvent, title: string) {
   flex: 1;
   min-height: 0;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(136, 100, 68, 0.28) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(136, 100, 68, 0.28);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 100, 68, 0.45);
+  }
 }
 
 .widget-title {
@@ -197,6 +238,21 @@ function onRoleClick(e: MouseEvent, title: string) {
   background: rgba(136, 100, 68, 0.15);
 }
 
+.type-group {
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.type-label {
+  font-size: 11px;
+  font-weight: 650;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
 .avatar-grid {
   display: flex;
   flex-wrap: wrap;
@@ -223,6 +279,10 @@ function onRoleClick(e: MouseEvent, title: string) {
 
   &.hasEv {
     border-color: #886444;
+  }
+
+  &.five {
+    box-shadow: 0 0 0 1px rgba(201, 152, 58, 0.65);
   }
 
   &.weapon {
