@@ -174,23 +174,25 @@ defineExpose({
     </div>
 
     <template v-if="selected">
-      <p v-if="selected.scenario" class="meta">场景：{{ selected.scenario }}</p>
-      <p class="meta muted">
-        基准：{{ selected.signature }}（精 1 = 100%）
-      </p>
-      <p v-if="selected.source || selected.sourceUrl" class="meta source">
-        参考攻略：
-        <a
-          v-if="selected.sourceUrl"
-          :href="selected.sourceUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="source-link"
-        >
-          {{ selected.source || selected.sourceUrl }}
-        </a>
-        <span v-else>{{ selected.source }}</span>
-      </p>
+      <template v-if="!compact">
+        <p v-if="selected.scenario" class="meta">场景：{{ selected.scenario }}</p>
+        <p class="meta muted">
+          基准：{{ selected.signature }}（精 1 = 100%）
+        </p>
+        <p v-if="selected.source || selected.sourceUrl" class="meta source">
+          参考攻略：
+          <a
+            v-if="selected.sourceUrl"
+            :href="selected.sourceUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-link"
+          >
+            {{ selected.source || selected.sourceUrl }}
+          </a>
+          <span v-else>{{ selected.source }}</span>
+        </p>
+      </template>
 
       <ol class="rank-list">
         <li

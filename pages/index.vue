@@ -4,24 +4,39 @@ useHead({
 });
 
 const evCharacter = ref<string | undefined>();
+const mobileTab = ref<"cailiao" | "wuqi-ev">("cailiao");
+
+const showCailiao = ref(true);
+const showWuqiEv = ref(true);
 
 const icons = [
   {
-    id: "cailiao",
-    label: "材料页",
-    hint: "原每日材料大表",
-    to: "/cailiao",
+    id: "cailiao" as const,
+    label: "今日材料",
+    hint: "显示 / 隐藏今日材料",
   },
   {
-    id: "wuqi-ev",
-    label: "武器期望页",
-    hint: "武器期望全页",
-    to: "/wuqi-ev",
+    id: "wuqi-ev" as const,
+    label: "武器期望",
+    hint: "显示 / 隐藏武器期望榜",
   },
 ];
 
+function isIconOn(id: "cailiao" | "wuqi-ev") {
+  return id === "cailiao" ? showCailiao.value : showWuqiEv.value;
+}
+
+function toggleIcon(id: "cailiao" | "wuqi-ev") {
+  if (id === "cailiao") showCailiao.value = !showCailiao.value;
+  else showWuqiEv.value = !showWuqiEv.value;
+}
+
 function selectEvCharacter(character?: string) {
-  if (character) evCharacter.value = character;
+  if (character) {
+    evCharacter.value = character;
+    showWuqiEv.value = true;
+    mobileTab.value = "wuqi-ev";
+  }
 }
 
 const clock = ref("");
@@ -55,14 +70,16 @@ onBeforeUnmount(() => {
       <div class="taskbar-clock">{{ clock }}</div>
     </header>
 
-    <aside class="icon-rail">
+    <aside class="icon-rail desktop-only">
       <button
         v-for="icon in icons"
         :key="icon.id"
         type="button"
         class="desk-icon"
+        :class="{ off: !isIconOn(icon.id) }"
         :title="icon.hint"
-        @click="navigateTo(icon.to)"
+        :aria-pressed="isIconOn(icon.id)"
+        @click="toggleIcon(icon.id)"
       >
         <span class="icon-badge" :data-kind="icon.id">
           {{ icon.id === "cailiao" ? "材" : "武" }}
@@ -71,12 +88,35 @@ onBeforeUnmount(() => {
       </button>
     </aside>
 
-    <div class="widget-row">
+    <nav class="mobile-tabs mobile-only" aria-label="功能切换">
+      <button
+        type="button"
+        class="mobile-tab"
+        :class="{ active: mobileTab === 'cailiao' }"
+        @click="mobileTab = 'cailiao'"
+      >
+        今日材料
+      </button>
+      <button
+        type="button"
+        class="mobile-tab"
+        :class="{ active: mobileTab === 'wuqi-ev' }"
+        @click="mobileTab = 'wuqi-ev'"
+      >
+        武器期望
+      </button>
+    </nav>
+
+    <div class="widget-row" :data-mobile-tab="mobileTab">
       <TodayCailiaoWidget
+        class="widget-cailiao"
+        :class="{ 'is-hidden': !showCailiao }"
         @open-ev="selectEvCharacter"
         @open-full="navigateTo('/cailiao')"
       />
       <WuqiEvWidget
+        class="widget-wuqi"
+        :class="{ 'is-hidden': !showWuqiEv }"
         v-model:character="evCharacter"
         @open-full="navigateTo('/wuqi-ev')"
       />
@@ -134,9 +174,19 @@ onBeforeUnmount(() => {
   background: transparent;
   color: #f0ede8;
   cursor: pointer;
+  transition: opacity 0.15s ease, filter 0.15s ease;
 
   &:hover {
     background: rgba(240, 237, 232, 0.12);
+  }
+
+  &.off {
+    opacity: 0.38;
+    filter: grayscale(0.35);
+
+    &:hover {
+      background: rgba(240, 237, 232, 0.08);
+    }
   }
 }
 
@@ -166,6 +216,10 @@ onBeforeUnmount(() => {
   line-height: 1.25;
 }
 
+.mobile-tabs {
+  display: none;
+}
+
 .widget-row {
   position: absolute;
   top: 56px;
@@ -178,6 +232,11 @@ onBeforeUnmount(() => {
   align-items: flex-start;
   gap: 16px;
   overflow: auto;
+}
+
+.widget-cailiao.is-hidden,
+.widget-wuqi.is-hidden {
+  display: none;
 }
 
 .taskbar {
@@ -215,19 +274,85 @@ onBeforeUnmount(() => {
   white-space: nowrap;
 }
 
+.mobile-only {
+  display: none !important;
+}
+
 @media (max-width: 720px) {
-  .icon-rail {
-    top: 52px;
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .mobile-tabs {
+    position: absolute;
+    top: 48px;
+    left: 12px;
+    right: 12px;
+    z-index: 40;
+    display: flex;
+    gap: 6px;
+    padding: 4px;
+    border-radius: 10px;
+    background: rgba(40, 28, 18, 0.45);
+    backdrop-filter: blur(8px);
+    box-sizing: border-box;
+  }
+
+  .mobile-tab {
+    flex: 1;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(240, 237, 232, 0.75);
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+
+    &.active {
+      background: #f0ede8;
+      color: #886444;
+    }
   }
 
   .widget-row {
-    left: 16px;
-    right: 16px;
-    top: 140px;
+    left: 12px;
+    right: 12px;
+    top: 100px;
+    bottom: 12px;
+    z-index: 3;
+    display: block;
+    overflow: hidden;
   }
 
   .widget-row :deep(.widget) {
     width: 100%;
+    max-height: 100%;
+    height: 100%;
+  }
+
+  .widget-row :deep(.full-btn) {
+    display: none;
+  }
+
+  .widget-row[data-mobile-tab="cailiao"] .widget-cailiao {
+    display: block !important;
+  }
+
+  .widget-row[data-mobile-tab="cailiao"] .widget-wuqi {
+    display: none !important;
+  }
+
+  .widget-row[data-mobile-tab="wuqi-ev"] .widget-wuqi {
+    display: block !important;
+  }
+
+  .widget-row[data-mobile-tab="wuqi-ev"] .widget-cailiao {
+    display: none !important;
   }
 }
 </style>
