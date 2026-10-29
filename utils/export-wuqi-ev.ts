@@ -205,14 +205,16 @@ export async function exportWuqiEvPng(options: ExportWuqiEvOptions) {
     ctx.textAlign = "left";
   });
 
-  // 底注（不含攻略地址）
+  // 底注（统一文案，不含场景/攻略细节）
   ctx.fillStyle = "rgba(136,100,68,0.55)";
   ctx.font = "500 12px Microsoft YaHei, PingFang SC, sans-serif";
   ctx.textAlign = "center";
-  const note = options.scenario
-    ? `场景：${options.scenario}`
-    : "专武精1为 100% 基准";
-  ctx.fillText(note, width / 2, height - 18, width - pad * 2);
+  ctx.fillText(
+    "数据来源于网络收集，仅供参考，没有实际意义",
+    width / 2,
+    height - 18,
+    width - pad * 2
+  );
   ctx.textAlign = "left";
 
   const blob = await new Promise<Blob | null>((resolve) =>
