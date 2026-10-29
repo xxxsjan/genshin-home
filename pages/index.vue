@@ -1,239 +1,233 @@
 <script setup lang="ts">
-import dayjs from "dayjs";
-
 useHead({
-  title: "原神素材",
+  title: "原神",
 });
 
-const today = dayjs();
-const currentTime = dayjs().format("HH");
+const evCharacter = ref<string | undefined>();
 
-const dayOfWeek =
-  +currentTime < 4
-    ? today.day() - 1 === -1
-      ? 6
-      : today.day() - 1
-    : today.day();
-
-const mapData: Record<number, string> = {
-  1: "周一/周四",
-  2: "周二/周五",
-  3: "周三/周六",
-  4: "周一/周四",
-  5: "周二/周五",
-  6: "周三/周六",
-  0: "周日",
-};
-const weekText = ref(mapData[dayOfWeek]);
-const timeVal = ref(0);
-
-/** 直接使用已提交的本地 seed，线上不爬米哈游 */
-const bundle = ref(getGenshinHomeBundle());
-
-type GridItem = {
-  name: string;
-  area: string;
-  time: string;
-  data?: any;
-  role?: any;
-};
-
-const tianfudata = ref<GridItem[]>([]);
-const renderWuqi = ref<any[]>([]);
-const sundayGrids = ref<{ tianfudata: GridItem[]; renderWuqi: any[] }[]>([]);
-
-function createData(day: number, src: GenshinHomeBundle) {
-  const wuqiData = src.tujian_wuqi;
-  const beibao = src.tujian_beibao;
-  const imageData = src.tujian_role;
-  const roleWithTianfu = src.roleWithTianfu;
-  const wuqiTupoCailiaoData = src.wuqiTupoCailiao;
-
-  const tupocailiaoMap = [
-    ["凛风奔狼", "高塔孤王", "狮牙斗士"],
-    ["雾海云间", "孤云寒林", "漆黑陨铁"],
-    ["鸣神御灵", "远海夷地", "今昔剧画"],
-    ["绿洲花园", "谧林涓露", "烈日威权"],
-    ["悠古弦音", "纯圣露滴", "无垢之海"],
-  ];
-
-  function numberToChinese(num: number) {
-    const digits = ["日", "一", "二", "三", "四", "五", "六", "日"];
-    return digits[num];
-  }
-
-  function filterWuqiTupoCailiao() {
-    const reg = new RegExp(numberToChinese(day));
-    const res = JSON.parse(JSON.stringify(wuqiTupoCailiaoData)).filter(
-      (f: any) => f.info?.getWay?.[0]?.match(reg)
-    );
-
-    res.forEach((item: WuqiTupoCailiaoItem) => {
-      item.info.wuqi = item.info.wuqi.filter((f) => {
-        const _find = wuqiData.find((m) => m.title === f.name);
-        if (_find) {
-          f.content_id = _find.content_id;
-          return true;
-        }
-        return false;
-      });
-    });
-    return res;
-  }
-
-  const _renderWuqiData = filterWuqiTupoCailiao();
-  const nextRenderWuqi: (typeof _renderWuqiData)[] = Array.from({
-    length: tupocailiaoMap.length,
-  }).map(() => []);
-
-  function findMapIndex(str: string) {
-    let index = -1;
-    for (const [key, value] of Object.entries(tupocailiaoMap)) {
-      if (value.find((f) => str.match(new RegExp(f)))) {
-        index = Number(key);
-        break;
-      }
-    }
-    return index;
-  }
-
-  while (_renderWuqiData.length) {
-    const _item = _renderWuqiData.shift()!;
-    const index = findMapIndex(_item.title);
-    if (index > -1) nextRenderWuqi[index].push(_item);
-  }
-
-  const data1 = [
-    { name: "「自由」", area: "蒙德", time: "周一/周四" },
-    { name: "「繁荣」", area: "璃月", time: "周一/周四" },
-    { name: "「浮世」", area: "稻妻", time: "周一/周四" },
-    { name: "「诤言」", area: "须弥", time: "周一/周四" },
-    { name: "「公平」", area: "枫丹", time: "周一/周四" },
-    { name: "「抗争」", area: "蒙德", time: "周二/周五" },
-    { name: "「勤劳」", area: "璃月", time: "周二/周五" },
-    { name: "「风雅」", area: "稻妻", time: "周二/周五" },
-    { name: "「巧思」", area: "须弥", time: "周二/周五" },
-    { name: "「正义」", area: "枫丹", time: "周二/周五" },
-    { name: "「诗文」", area: "蒙德", time: "周三/周六" },
-    { name: "「黄金」", area: "璃月", time: "周三/周六" },
-    { name: "「天光」", area: "稻妻", time: "周三/周六" },
-    { name: "「笃行」", area: "须弥", time: "周三/周六" },
-    { name: "「秩序」", area: "枫丹", time: "周三/周六" },
-  ];
-
-  const useData: GridItem[] = data1.filter(
-    (f) => day === 7 || f.time.match(new RegExp(numberToChinese(day)))
-  );
-
-  useData.forEach((item) => {
-    item.data = beibao.filter((f) => f.title.indexOf(item.name) > -1);
-    item.role = roleWithTianfu
-      .filter((f) => f.tianfu && f.tianfu === item.name)
-      .map((it) => ({
-        ...it,
-        image: imageData.find((f) => f.title === it.title),
-      }));
-  });
-
-  const nextTianfu: GridItem[] = [
-    useData.find((f) => f.area === "蒙德") as GridItem,
-    useData.find((f) => f.area === "璃月") as GridItem,
-    useData.find((f) => f.area === "稻妻") as GridItem,
-    useData.find((f) => f.area === "须弥") as GridItem,
-    useData.find((f) => f.area === "枫丹") as GridItem,
-  ];
-
-  return {
-    tianfudata: nextTianfu,
-    renderWuqi: nextRenderWuqi,
-  };
-}
-
-function applyDay(day: number) {
-  if (!bundle.value) return;
-  if (weekText.value === "周日" || day === 0) {
-    sundayGrids.value = [1, 2, 3].map((d) => createData(d, bundle.value!));
-    tianfudata.value = [];
-    renderWuqi.value = [];
-    return;
-  }
-  const result = createData(day, bundle.value);
-  tianfudata.value = result.tianfudata;
-  renderWuqi.value = result.renderWuqi;
-}
-
-watch(
-  bundle,
-  () => {
-    const day = timeVal.value || dayOfWeek;
-    applyDay(day === 0 ? 0 : day);
+const icons = [
+  {
+    id: "cailiao",
+    label: "材料页",
+    hint: "原每日材料大表",
+    to: "/cailiao",
   },
-  { immediate: true }
-);
+  {
+    id: "wuqi-ev",
+    label: "武器期望页",
+    hint: "武器期望全页",
+    to: "/wuqi-ev",
+  },
+];
 
-watch(timeVal, (val) => {
-  weekText.value = mapData[val];
-  applyDay(val);
+function selectEvCharacter(character?: string) {
+  if (character) evCharacter.value = character;
+}
+
+const clock = ref("");
+function tick() {
+  const d = new Date();
+  clock.value = d.toLocaleString("zh-CN", {
+    month: "numeric",
+    day: "numeric",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+tick();
+let timer: ReturnType<typeof setInterval> | undefined;
+onMounted(() => {
+  timer = setInterval(tick, 30_000);
+});
+onBeforeUnmount(() => {
+  if (timer) clearInterval(timer);
 });
 </script>
 
 <template>
-  <div class="min-w-[1400px]">
-    <div class="header">
-      <span>今日材料</span>
-      <div class="dropdown dropdown-bottom">
-        <div tabindex="0" role="button" class="timeText ml-4">
-          ({{ weekText }})
-        </div>
-        <ul
-          tabindex="0"
-          class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-[#886444]"
-        >
-          <li
-            v-for="(item, index) in ['周一/周四', '周二/周五', '周三/周六']"
-            :key="index"
-            @click="timeVal = index + 1"
-          >
-            <a>{{ item }}</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="desktop">
+    <div class="wallpaper" aria-hidden="true" />
 
-    <GenshinGrid
-      v-if="weekText !== '周日'"
-      :tianfudata="tianfudata"
-      :renderWuqi="renderWuqi"
-    />
-    <template v-else>
-      <GenshinGrid
-        v-for="(grid, i) in sundayGrids"
-        :key="i"
-        :tianfudata="grid.tianfudata"
-        :renderWuqi="grid.renderWuqi"
-        :class="i < sundayGrids.length - 1 ? 'mb-2' : ''"
+    <header class="taskbar">
+      <div class="taskbar-left">原神</div>
+      <div class="taskbar-apps" />
+      <div class="taskbar-clock">{{ clock }}</div>
+    </header>
+
+    <aside class="icon-rail">
+      <button
+        v-for="icon in icons"
+        :key="icon.id"
+        type="button"
+        class="desk-icon"
+        :title="icon.hint"
+        @click="navigateTo(icon.to)"
+      >
+        <span class="icon-badge" :data-kind="icon.id">
+          {{ icon.id === "cailiao" ? "材" : "武" }}
+        </span>
+        <span class="icon-label">{{ icon.label }}</span>
+      </button>
+    </aside>
+
+    <div class="widget-row">
+      <TodayCailiaoWidget
+        @open-ev="selectEvCharacter"
+        @open-full="navigateTo('/cailiao')"
       />
-    </template>
+      <WuqiEvWidget
+        v-model:character="evCharacter"
+        @open-full="navigateTo('/wuqi-ev')"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.header {
-  @include darkBg();
+.desktop {
+  position: relative;
   width: 100%;
-  line-height: 50px;
-  font-weight: 600;
-  font-size: 24px;
-  height: 50px;
-  display: flex;
-  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  text-align: left;
+  color: #f0ede8;
 }
 
-.time {
-  width: 100%;
-  @include lightBg();
-  border-radius: 5px;
-  line-height: 50px;
-  height: 50px;
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 70% 20%,
+      rgba(240, 220, 180, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 15% 80%,
+      rgba(90, 60, 30, 0.45),
+      transparent 50%
+    ),
+    linear-gradient(165deg, #5c4030 0%, #886444 42%, #3d2a1c 100%);
+  z-index: 0;
+}
+
+.icon-rail {
+  position: absolute;
+  top: 56px;
+  left: 18px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.desk-icon {
+  width: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #f0ede8;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(240, 237, 232, 0.12);
+  }
+}
+
+.icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 800;
+  background: #f0ede8;
+  color: #886444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  &[data-kind="wuqi-ev"] {
+    background: #d9c4a4;
+  }
+}
+
+.icon-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  text-align: center;
+  line-height: 1.25;
+}
+
+.widget-row {
+  position: absolute;
+  top: 56px;
+  left: 130px;
+  right: 24px;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  overflow: auto;
+}
+
+.taskbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 40px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  background: rgba(40, 28, 18, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(240, 237, 232, 0.12);
+  box-sizing: border-box;
+}
+
+.taskbar-left {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.taskbar-apps {
+  flex: 1;
+  min-width: 0;
+}
+
+.taskbar-clock {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .icon-rail {
+    top: 52px;
+  }
+
+  .widget-row {
+    left: 16px;
+    right: 16px;
+    top: 140px;
+  }
+
+  .widget-row :deep(.widget) {
+    width: 100%;
+  }
 }
 </style>
