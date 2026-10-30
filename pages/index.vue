@@ -336,7 +336,8 @@ onBeforeUnmount(() => {
     top: 100px;
     bottom: 12px;
     z-index: 3;
-    display: block;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
   }
 
@@ -344,6 +345,9 @@ onBeforeUnmount(() => {
     width: 100%;
     max-height: 100%;
     height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .widget-row :deep(.full-btn) {
@@ -351,7 +355,7 @@ onBeforeUnmount(() => {
   }
 
   .widget-row[data-mobile-tab="cailiao"] .widget-cailiao {
-    display: block !important;
+    display: flex !important;
   }
 
   .widget-row[data-mobile-tab="cailiao"] .widget-wuqi {
@@ -359,7 +363,7 @@ onBeforeUnmount(() => {
   }
 
   .widget-row[data-mobile-tab="wuqi-ev"] .widget-wuqi {
-    display: block !important;
+    display: flex !important;
   }
 
   .widget-row[data-mobile-tab="wuqi-ev"] .widget-cailiao {

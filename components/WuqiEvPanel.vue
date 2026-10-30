@@ -402,12 +402,22 @@ defineExpose({
   font-size: 12px;
   font-weight: 650;
   cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
 
   img {
     width: 28px;
     height: 28px;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:active {
+    outline: none;
+    box-shadow: none;
   }
 
   &.active {
