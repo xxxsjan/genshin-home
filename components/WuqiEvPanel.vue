@@ -58,21 +58,31 @@ const selected = computed<WuqiEvCharacter | undefined>(() =>
 type RankRow = WuqiEvWeapon & {
   rank: number;
   icon: string;
+  detailUrl: string;
   isSignature: boolean;
 };
+
+function weaponDetailUrl(contentId?: number) {
+  if (!contentId) return "";
+  return `https://bbs.mihoyo.com/ys/obc/content/${contentId}/detail?bbs_presentation_style=no_header`;
+}
 
 const ranking = computed<RankRow[]>(() => {
   const cur = selected.value;
   if (!cur) return [];
   return [...cur.weapons]
     .sort((a, b) => b.expect - a.expect)
-    .map((w, i) => ({
-      ...w,
-      rank: i + 1,
-      icon: wuqiMap.get(w.name)?.icon || w.icon || "",
-      isSignature:
-        w.name === cur.signature && (w.refine === "精1" || !w.refine),
-    }));
+    .map((w, i) => {
+      const meta = wuqiMap.get(w.name);
+      return {
+        ...w,
+        rank: i + 1,
+        icon: meta?.icon || w.icon || "",
+        detailUrl: weaponDetailUrl(meta?.content_id),
+        isSignature:
+          w.name === cur.signature && (w.refine === "精1" || !w.refine),
+      };
+    });
 });
 
 function barWidth(expect: number) {
@@ -205,12 +215,23 @@ defineExpose({
           :class="{ signature: row.isSignature }"
         >
           <span class="rank-num">{{ row.rank }}</span>
+          <a
+            v-if="row.icon && row.detailUrl"
+            class="weapon-icon-link"
+            :href="row.detailUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            :title="`${row.name} · 米游社详情`"
+          >
+            <img class="weapon-icon" :src="row.icon" :alt="row.name" />
+          </a>
           <img
-            v-if="row.icon"
+            v-else-if="row.icon"
             class="weapon-icon"
             :src="row.icon"
             :alt="row.name"
           />
+          <div v-else class="weapon-icon weapon-icon--empty" />
           <div class="weapon-info">
             <div class="weapon-name">
               {{ row.name }}
@@ -483,12 +504,34 @@ defineExpose({
   text-align: center;
 }
 
+.weapon-icon-link {
+  display: block;
+  line-height: 0;
+  border-radius: 5px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #886444;
+    outline-offset: 2px;
+  }
+}
+
 .weapon-icon {
   width: 40px;
   height: 40px;
   border-radius: 5px;
   object-fit: cover;
   background: #e5dfd4;
+  display: block;
+
+  &--empty {
+    visibility: hidden;
+  }
 }
 
 .weapon-name {
