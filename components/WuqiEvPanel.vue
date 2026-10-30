@@ -26,7 +26,7 @@ const wuqiMap = new Map(bundle.tujian_wuqi.map((w) => [w.title, w] as const));
 const charactersWithData = computed(() =>
   wuqiEvRanking.map((item) => ({
     ...item,
-    icon: roleMap.get(item.character)?.icon ?? "",
+    icon: roleMap.get(item.character)?.icon || item.icon || "",
   }))
 );
 
@@ -69,7 +69,7 @@ const ranking = computed<RankRow[]>(() => {
     .map((w, i) => ({
       ...w,
       rank: i + 1,
-      icon: wuqiMap.get(w.name)?.icon ?? "",
+      icon: wuqiMap.get(w.name)?.icon || w.icon || "",
       isSignature:
         w.name === cur.signature && (w.refine === "精1" || !w.refine),
     }));
@@ -94,7 +94,10 @@ const previewUrl = ref("");
 const previewFilename = ref("");
 
 const selectedAvatar = computed(
-  () => roleMap.get(selectedName.value)?.icon ?? ""
+  () =>
+    roleMap.get(selectedName.value)?.icon ||
+    selected.value?.icon ||
+    ""
 );
 
 function revokePreview() {

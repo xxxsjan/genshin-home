@@ -4,6 +4,7 @@ const ALLOWED_HOSTS = new Set([
   "bbs.mihoyo.com",
   "webstatic.mihoyo.com",
   "img-static.mihoyo.com",
+  "static.nanoka.cc",
 ]);
 
 export default defineEventHandler(async (event) => {

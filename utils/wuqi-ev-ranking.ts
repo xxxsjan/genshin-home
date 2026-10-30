@@ -15,6 +15,8 @@ export type WuqiEvWeapon = {
   refine?: string;
   /** 补充条件，如「满层」「触发增伤」 */
   note?: string;
+  /** 临时图标；图鉴暂无该武器时用于展示/导出 */
+  icon?: string;
 };
 
 export type WuqiEvCharacter = {
@@ -22,6 +24,8 @@ export type WuqiEvCharacter = {
   character: string;
   /** 专武名（基准 100%） */
   signature: string;
+  /** 临时头像；图鉴暂无该角色时用于展示/导出 */
+  icon?: string;
   /** 计算场景说明，如配队 */
   scenario?: string;
   /** 数据出处简述 */
@@ -228,5 +232,40 @@ export const wuqiEvRanking: WuqiEvCharacter[] = [
       { name: "碎链", expect: 63.7, refine: "精1" },
     ],
   },
- 
+  {
+    character: "米提亚",
+    signature: "秘星典谕",
+    icon: "https://static.nanoka.cc/assets/gi/UI_AvatarIcon_Mitya.webp",
+    scenario: "主C · 全队伤害；专武精1=100%",
+    source: "公开攻略整理（武器量值估测）",
+    weapons: [
+      {
+        name: "秘星典谕",
+        expect: 121,
+        refine: "精5",
+        icon: "https://static.nanoka.cc/assets/gi/UI_EquipIcon_Catalyst_Chernaya.webp",
+      },
+      {
+        name: "秘星典谕",
+        expect: 100,
+        refine: "精1",
+        icon: "https://static.nanoka.cc/assets/gi/UI_EquipIcon_Catalyst_Chernaya.webp",
+      },
+      { name: "霜辰", expect: 89.7, refine: "精5" },
+      { name: "真语秘匣", expect: 88.7, refine: "精1" },
+      { name: "群王局戏", expect: 87.4, refine: "精5" },
+      { name: "祭星者之望", expect: 87.3, refine: "精1" },
+      { name: "凝雪沉心", expect: 87.0, refine: "精5" },
+      { name: "寝正月初晴", expect: 86.8, refine: "精1" },
+      { name: "千夜浮梦", expect: 83.9, refine: "精1" },
+      { name: "霜辰", expect: 82.5, refine: "精1" },
+      { name: "纺夜天镜", expect: 81.2, refine: "精1" },
+      { name: "帷间夜曲", expect: 81.2, refine: "精1" },
+      { name: "万世流涌大典", expect: 81.2, refine: "精1" },
+      { name: "凝雪沉心", expect: 81.2, refine: "精1" },
+      { name: "流浪乐章", expect: 81.0, refine: "精5" },
+      { name: "神乐之真意", expect: 78.9, refine: "精1" },
+      { name: "祭礼残章", expect: 78.8, refine: "精5" },
+    ],
+  },
 ];
