@@ -13,6 +13,10 @@ export type ExportWuqiEvOptions = {
   avatarUrl?: string;
   signature: string;
   scenario?: string;
+  source?: string;
+  sourceUrl?: string;
+  /** 是否在图中绘制场景 / 参考攻略说明 */
+  includeReference?: boolean;
   rows: ExportWuqiEvRow[];
 };
 
@@ -71,6 +75,35 @@ function drawCircleImage(
   ctx.restore();
 }
 
+function wrapText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  maxWidth: number
+): string[] {
+  if (!text) return [];
+  const lines: string[] = [];
+  let line = "";
+  for (const ch of text) {
+    const next = line + ch;
+    if (ctx.measureText(next).width > maxWidth && line) {
+      lines.push(line);
+      line = ch;
+    } else {
+      line = next;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function buildReferenceLines(options: ExportWuqiEvOptions): string[] {
+  if (!options.includeReference) return [];
+  const lines: string[] = [];
+  if (options.scenario) lines.push(`${options.scenario}`);
+  if (options.source) lines.push(`参考攻略：${options.source}`);
+  return lines;
+}
+
 /**
  * 用 Canvas 绘制期望榜 PNG（非 DOM 截图）。
  * 逻辑宽 720，实际像素按 EXPORT_SCALE 放大，避免预览/保存发糊。
@@ -78,9 +111,35 @@ function drawCircleImage(
 export async function exportWuqiEvPng(options: ExportWuqiEvOptions) {
   const width = 720;
   const pad = 28;
-  const headerH = 118;
   const rowH = 58;
   const footerH = 36;
+  const disclaimer = "数据来源于网络收集，仅供参考，没有实际意义";
+  const refLineH = 15;
+  const avatarSize = 72;
+  const leftTextX = pad + avatarSize + 18;
+  const sub = `武器期望榜 · 基准 ${options.signature} 精1 = 100%`;
+
+  // 先测量顶栏右侧参考说明，再定顶栏高度
+  const measureCanvas = document.createElement("canvas");
+  const measureCtx = measureCanvas.getContext("2d");
+  if (!measureCtx) throw new Error("canvas unsupported");
+  measureCtx.font = "700 28px Microsoft YaHei, PingFang SC, sans-serif";
+  const nameW = measureCtx.measureText(options.character).width;
+  measureCtx.font = "500 14px Microsoft YaHei, PingFang SC, sans-serif";
+  const subW = measureCtx.measureText(sub).width;
+  const leftBlockRight = leftTextX + Math.max(nameW, subW);
+  const refX = Math.max(leftBlockRight + 20, width * 0.48);
+  const refMaxW = Math.max(120, width - pad - refX);
+
+  measureCtx.font = "500 12px Microsoft YaHei, PingFang SC, sans-serif";
+  const wrappedRef = buildReferenceLines(options).flatMap((line) =>
+    wrapText(measureCtx, line, refMaxW)
+  );
+  const refBlockH = wrappedRef.length * refLineH;
+  const headerH = Math.max(
+    118,
+    wrappedRef.length ? refBlockH + 28 : 118
+  );
   const height = headerH + options.rows.length * rowH + footerH + pad;
   const scale = EXPORT_SCALE;
 
@@ -103,7 +162,6 @@ export async function exportWuqiEvPng(options: ExportWuqiEvOptions) {
   ctx.fillRect(0, 0, width, headerH);
 
   const avatar = await loadImage(options.avatarUrl || "");
-  const avatarSize = 72;
   const avatarCx = pad + avatarSize / 2;
   const avatarCy = headerH / 2;
   if (avatar) {
@@ -123,12 +181,25 @@ export async function exportWuqiEvPng(options: ExportWuqiEvOptions) {
   ctx.fillStyle = "#f0ede8";
   ctx.font = "700 28px Microsoft YaHei, PingFang SC, sans-serif";
   ctx.textBaseline = "middle";
-  ctx.fillText(options.character, pad + avatarSize + 18, headerH / 2 - 14);
+  ctx.textAlign = "left";
+  ctx.fillText(options.character, leftTextX, headerH / 2 - 14);
 
   ctx.font = "500 14px Microsoft YaHei, PingFang SC, sans-serif";
   ctx.fillStyle = "rgba(240,237,232,0.85)";
-  const sub = `武器期望榜 · 基准 ${options.signature} 精1 = 100%`;
-  ctx.fillText(sub, pad + avatarSize + 18, headerH / 2 + 16);
+  ctx.fillText(sub, leftTextX, headerH / 2 + 16);
+
+  // 顶栏右侧：场景 / 参考攻略
+  if (wrappedRef.length) {
+    ctx.font = "500 12px Microsoft YaHei, PingFang SC, sans-serif";
+    ctx.fillStyle = "rgba(240,237,232,0.88)";
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+    const refStartY = (headerH - refBlockH) / 2 + refLineH / 2;
+    wrappedRef.forEach((line, i) => {
+      ctx.fillText(line, width - pad, refStartY + i * refLineH, refMaxW);
+    });
+    ctx.textAlign = "left";
+  }
 
   // 榜单
   const maxExpect = Math.max(...options.rows.map((r) => r.expect), 100);
@@ -205,16 +276,11 @@ export async function exportWuqiEvPng(options: ExportWuqiEvOptions) {
     ctx.textAlign = "left";
   });
 
-  // 底注（统一文案，不含场景/攻略细节）
+  // 底注
   ctx.fillStyle = "rgba(136,100,68,0.55)";
   ctx.font = "500 12px Microsoft YaHei, PingFang SC, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText(
-    "数据来源于网络收集，仅供参考，没有实际意义",
-    width / 2,
-    height - 18,
-    width - pad * 2
-  );
+  ctx.fillText(disclaimer, width / 2, height - 18, width - pad * 2);
   ctx.textAlign = "left";
 
   const blob = await new Promise<Blob | null>((resolve) =>

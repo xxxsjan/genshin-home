@@ -1,5 +1,44 @@
 [
   {
+    "content_id": 510280,
+    "title": "秘星典谕",
+    "ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器星级/五星\\\",\\\"武器类型/法器\\\",\\\"属性加成/暴击伤害\\\",\\\"属性加成/元素精通\\\",\\\"获取途径/祈愿\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2026/11/02/75833613/956a67d2271b4c87ef132b1899775c5c_3545338163951140614.png",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "秘星典谕",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
+    "content_id": 505478,
+    "title": "苍耀",
+    "ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器星级/五星\\\",\\\"武器类型/单手剑\\\",\\\"属性加成/攻击力\\\",\\\"属性加成/暴击率\\\",\\\"属性加成/暴击伤害\\\",\\\"获取途径/祈愿\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/06/16/75833613/d42984d1b4de877fe48bc536bf786d56_7524815136430431458.jpg",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "苍耀",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
+    "content_id": 505323,
+    "title": "香韵奏者",
+    "ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器星级/五星\\\",\\\"武器类型/长柄武器\\\",\\\"属性加成/攻击力\\\",\\\"属性加成/暴击伤害\\\",\\\"获取途径/祈愿\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/05/06/75833613/b09bd9fa7377be4a893f1b749e041398_4110501923040863301.png",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "香韵奏者",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
     "content_id": 509970,
     "title": "银釭",
     "ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器星级/四星\\\",\\\"武器类型/单手剑\\\",\\\"属性加成/攻击力\\\",\\\"属性加成/元素精通\\\",\\\"获取途径/活动\\\"]\"}}}",
@@ -633,32 +672,6 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "拾慧铸熔",
-    "alias_name": "",
-    "corner_mark": "None"
-  },
-  {
-    "content_id": 505478,
-    "title": "苍耀",
-    "ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器星级/五星\\\",\\\"武器类型/单手剑\\\",\\\"属性加成/攻击力\\\",\\\"属性加成/暴击率\\\",\\\"属性加成/暴击伤害\\\",\\\"获取途径/祈愿\\\"]\"}}}",
-    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/06/16/75833613/d42984d1b4de877fe48bc536bf786d56_7524815136430431458.jpg",
-    "bbs_url": "",
-    "article_user_name": "",
-    "article_time": "0",
-    "avatar_url": "",
-    "summary": "苍耀",
-    "alias_name": "",
-    "corner_mark": "None"
-  },
-  {
-    "content_id": 505323,
-    "title": "香韵奏者",
-    "ext": "{\"c_5\":{\"filter\":{\"text\":\"[\\\"武器星级/五星\\\",\\\"武器类型/长柄武器\\\",\\\"属性加成/攻击力\\\",\\\"属性加成/暴击伤害\\\",\\\"获取途径/祈愿\\\"]\"}}}",
-    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/05/06/75833613/b09bd9fa7377be4a893f1b749e041398_4110501923040863301.png",
-    "bbs_url": "",
-    "article_user_name": "",
-    "article_time": "0",
-    "avatar_url": "",
-    "summary": "香韵奏者",
     "alias_name": "",
     "corner_mark": "None"
   },

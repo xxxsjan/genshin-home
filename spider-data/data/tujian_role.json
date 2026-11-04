@@ -1,5 +1,70 @@
 [
   {
+    "content_id": 510137,
+    "title": "米提亚",
+    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/至冬\\\",\\\"星级/五星\\\",\\\"元素/雷\\\",\\\"武器/法器\\\",\\\"特殊机制/辉映\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2026/10/25/50494840/7e41e06b13a14260a28adc6be7307559_9198968676448816235.png",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "列律名虚 · 米提亚",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
+    "content_id": 500291,
+    "title": "芙宁娜",
+    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/枫丹廷\\\",\\\"星级/五星\\\",\\\"神之眼所属/枫丹\\\",\\\"元素/水\\\",\\\"武器/单手剑\\\",\\\"特殊机制/始基力 荒\\\",\\\"特殊机制/始基力 芒\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2024/07/16/195563531/376ed8406d6315d5a77f4cdd5e917b9b_7215590901861641475.png",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "芙宁娜",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
+    "content_id": 510136,
+    "title": "瓦列里",
+    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/至冬\\\",\\\"星级/四星\\\",\\\"元素/雷\\\",\\\"武器/单手剑\\\",\\\"特殊机制/辉映\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2026/10/25/50494840/727179ec9bc250c790a6b7ea63adec89_8535002066688656480.png",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "霆骇军垒 · 瓦列里",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
+    "content_id": 505417,
+    "title": "丝柯克",
+    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/纳塔\\\",\\\"星级/五星\\\",\\\"神之眼所属/未知\\\",\\\"元素/冰\\\",\\\"武器/单手剑\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/06/11/50494840/867b0b36bfd629cd5ce88443cc5816c6_4280221560184703515.png",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "虚渊暗星 · 丝柯克",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
+    "content_id": 504976,
+    "title": "爱可菲",
+    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/枫丹廷\\\",\\\"星级/五星\\\",\\\"神之眼所属/枫丹\\\",\\\"元素/冰\\\",\\\"武器/长柄武器\\\",\\\"始基力/荒\\\",\\\"特殊机制/始基力 荒\\\"]\"}}}",
+    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/05/01/50494840/cc1d0ae2568f3791339a21ff22b43ed9_6702845488440320041.png",
+    "bbs_url": "",
+    "article_user_name": "",
+    "article_time": "0",
+    "avatar_url": "",
+    "summary": "明绚千韵 · 爱可菲",
+    "alias_name": "",
+    "corner_mark": "None"
+  },
+  {
     "content_id": 509803,
     "title": "薇斯纳",
     "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/至冬\\\",\\\"星级/五星\\\",\\\"元素/风\\\",\\\"武器/单手剑\\\",\\\"特殊机制/辉映\\\"]\"}}}",
@@ -572,32 +637,6 @@
     "corner_mark": "None"
   },
   {
-    "content_id": 505417,
-    "title": "丝柯克",
-    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/纳塔\\\",\\\"星级/五星\\\",\\\"神之眼所属/未知\\\",\\\"元素/冰\\\",\\\"武器/单手剑\\\"]\"}}}",
-    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/06/11/50494840/867b0b36bfd629cd5ce88443cc5816c6_4280221560184703515.png",
-    "bbs_url": "",
-    "article_user_name": "",
-    "article_time": "0",
-    "avatar_url": "",
-    "summary": "虚渊暗星 · 丝柯克",
-    "alias_name": "",
-    "corner_mark": "None"
-  },
-  {
-    "content_id": 504976,
-    "title": "爱可菲",
-    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/枫丹廷\\\",\\\"星级/五星\\\",\\\"神之眼所属/枫丹\\\",\\\"元素/冰\\\",\\\"武器/长柄武器\\\",\\\"始基力/荒\\\",\\\"特殊机制/始基力 荒\\\"]\"}}}",
-    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2025/05/01/50494840/cc1d0ae2568f3791339a21ff22b43ed9_6702845488440320041.png",
-    "bbs_url": "",
-    "article_user_name": "",
-    "article_time": "0",
-    "avatar_url": "",
-    "summary": "明绚千韵 · 爱可菲",
-    "alias_name": "",
-    "corner_mark": "None"
-  },
-  {
     "content_id": 505418,
     "title": "塔利雅",
     "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/蒙德城\\\",\\\"星级/四星\\\",\\\"神之眼所属/蒙德\\\",\\\"元素/水\\\",\\\"武器/单手剑\\\"]\"}}}",
@@ -828,19 +867,6 @@
     "article_time": "0",
     "avatar_url": "",
     "summary": "笔名「欧科塔维娅」的魔女托付给你和派蒙的人偶，善于探索「千星奇域」中封存的奥秘。",
-    "alias_name": "",
-    "corner_mark": "None"
-  },
-  {
-    "content_id": 500291,
-    "title": "芙宁娜",
-    "ext": "{\"c_25\":{\"filter\":{\"text\":\"[\\\"地区/枫丹廷\\\",\\\"星级/五星\\\",\\\"神之眼所属/枫丹\\\",\\\"元素/水\\\",\\\"武器/单手剑\\\",\\\"特殊机制/始基力 荒\\\",\\\"特殊机制/始基力 芒\\\"]\"}}}",
-    "icon": "https://act-upload.mihoyo.com/wiki-user-upload/2024/07/16/195563531/376ed8406d6315d5a77f4cdd5e917b9b_7215590901861641475.png",
-    "bbs_url": "",
-    "article_user_name": "",
-    "article_time": "0",
-    "avatar_url": "",
-    "summary": "芙宁娜",
     "alias_name": "",
     "corner_mark": "None"
   },

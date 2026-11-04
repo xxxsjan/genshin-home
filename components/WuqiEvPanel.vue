@@ -125,6 +125,16 @@ function closePreview() {
 
 async function onExport() {
   if (!selected.value || exporting.value) return;
+
+  const hasReference = !!(
+    selected.value.scenario ||
+    selected.value.source ||
+    selected.value.sourceUrl
+  );
+  const includeReference = hasReference
+    ? window.confirm("是否在导出图片中展示参考攻略说明？")
+    : false;
+
   exporting.value = true;
   exportError.value = "";
   try {
@@ -133,6 +143,9 @@ async function onExport() {
       avatarUrl: selectedAvatar.value,
       signature: selected.value.signature,
       scenario: selected.value.scenario,
+      source: selected.value.source,
+      sourceUrl: selected.value.sourceUrl,
+      includeReference,
       rows: ranking.value.map((r) => ({
         rank: r.rank,
         name: r.name,
@@ -188,7 +201,7 @@ defineExpose({
 
     <template v-if="selected">
       <template v-if="!compact">
-        <p v-if="selected.scenario" class="meta">场景：{{ selected.scenario }}</p>
+        <p v-if="selected.scenario" class="meta">{{ selected.scenario }}</p>
         <p class="meta muted">
           基准：{{ selected.signature }}（精 1 = 100%）
         </p>
