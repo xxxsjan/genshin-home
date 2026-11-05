@@ -18,16 +18,22 @@ const resources: ResourceItem[] = [
     name: "ff413e24446dc55c37177995743c42cb_4319383839570201840.webp",
   },
   {
+    date: "2026-10-28",
+    type: "WEBM",
+    url: "https://launcher-webstatic.mihoyo.com/launcher-public/2026/10/28/23bb82e77d271193e9e9da25aa9e026f_500896509362557603.webm",
+    name: "23bb82e77d271193e9e9da25aa9e026f_500896509362557603.webm",
+  },
+  {
     date: "2026-10-14",
     type: "WEBP",
     url: "https://launcher-webstatic.mihoyo.com/launcher-public/2026/10/14/aa10489e2d17aae9ca7fa4708b8737f5_3678399391920397251.webp",
     name: "aa10489e2d17aae9ca7fa4708b8737f5_3678399391920397251.webp",
   },
   {
-    date: "2026-10-28",
-    type: "WEBM",
-    url: "https://launcher-webstatic.mihoyo.com/launcher-public/2026/10/28/23bb82e77d271193e9e9da25aa9e026f_500896509362557603.webm",
-    name: "23bb82e77d271193e9e9da25aa9e026f_500896509362557603.webm",
+    date: "2026-09-07",
+    type: "WEBP",
+    url: "https://launcher-webstatic.mihoyo.com/launcher-public/2026/09/07/544bf0d17e4570f886fd1b731a3274da_2781179287929742503.webp",
+    name: "544bf0d17e4570f886fd1b731a3274da_2781179287929742503.webp",
   },
 ];
 
