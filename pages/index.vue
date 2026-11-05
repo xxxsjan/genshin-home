@@ -86,6 +86,15 @@ onBeforeUnmount(() => {
         </span>
         <span class="icon-label">{{ icon.label }}</span>
       </button>
+      <button
+        type="button"
+        class="desk-icon"
+        title="打开资源页"
+        @click="navigateTo('/ziyuan')"
+      >
+        <span class="icon-badge" data-kind="ziyuan">资</span>
+        <span class="icon-label">资源</span>
+      </button>
     </aside>
 
     <nav class="mobile-tabs mobile-only" aria-label="功能切换">
@@ -216,6 +225,10 @@ onBeforeUnmount(() => {
 
   &[data-kind="wuqi-ev"] {
     background: #d9c4a4;
+  }
+
+  &[data-kind="ziyuan"] {
+    background: #c9b28f;
   }
 }
 
